@@ -1,0 +1,5 @@
+*.DS_Store
+
+configs/vim/_vim/bundle
+!configs/vim/_vim/bundle/Vundle.vim
+configs/fonts/temp/

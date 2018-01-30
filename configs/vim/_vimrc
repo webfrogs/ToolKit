@@ -1,0 +1,89 @@
+set nocompatible				" Must be first line
+filetype off
+let mapleader = "\<Space>"
+
+" Base setting
+colorscheme molokai
+syntax enable
+syntax on						" Syntax highlighting
+set nu							" Line numbers on
+set encoding=utf-8
+set autoindent					" Indent at the same level of the previous line
+set hlsearch					" Highlight search terms
+set incsearch                   " Find as you type search
+
+set expandtab                   " Tabs are spaces, not tabs
+set tabstop=4					" An indentation every four columns
+set shiftwidth=4 
+set softtabstop=4
+
+set autoindent                  " Indent at the same level of the previous line
+
+set laststatus=2				" 总是显示状态栏
+set ruler						" 显示光标当前位置
+
+"set foldmethod=indent 			" 基于缩进进行代码折叠
+set foldmethod=syntax 			" 基于语法进行代码折叠
+set nofoldenable				" 启动 vim 时关闭折叠代码
+
+
+" Plugin settings
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Plugin list
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'Valloric/YouCompleteMe'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+" ##### YouCompleteMe Config start
+"let g:ycm_server_keep_logfiles = 1
+"let g:ycm_server_log_level = 'debug'
+let g:ycm_server_python_interpreter='/usr/bin/python'
+let g:ycm_global_ycm_extra_conf = '~/.vim/_ycm_extra_conf.py'
+set completeopt=longest,menu	"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"    "回车即选中当前项
+" 上下左右键的行为 会显示其他信息
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+
+"let g:ycm_confirm_extra_conf=0                  " 不显示开启vim时检查ycm_extra_conf文件的信息
+"let g:ycm_collect_identifiers_from_tags_files=1 " 开启基于tag的补全，可以在这之后添加需要的标签路径
+"let g:ycm_collect_identifiers_from_comments_and_strings = 0 "注释和字符串中的文字也会被收入补全
+"let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
+"let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
+
+let g:ycm_min_num_of_chars_for_completion=2     " 输入第2个字符开始补全
+let g:ycm_seed_identifiers_with_syntax=1        " 开启语义补全
+" 设置在下面几种格式的文件上屏蔽ycm
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'nerdtree' : 1,
+      \}
+
+" ##### YouCompleteMe Config end
+
+
+
+"" Pathogen
+"runtime bundle/pathogen/autoload/pathogen.vim
+"execute pathogen#infect()
+"
+"" vim-indent-guides
+"let g:indent_guides_enable_on_vim_startup=1			" 随 vim 自启动
+"let g:indent_guides_start_level=2					" 从第二层开始可视化显示缩进
+"let g:indent_guides_guide_size=1					" 色块宽度
+":nmap <silent> <Leader>i <Plug>IndentGuidesToggle	" 快捷键 i 开/关缩进可视化
+"
+"" nerdtree
+"map <leader>e :NERDTreeToggle<CR>

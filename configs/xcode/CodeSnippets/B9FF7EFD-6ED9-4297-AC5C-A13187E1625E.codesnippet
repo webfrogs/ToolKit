@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>viewSnippet_drogo</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeExpression</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>.drogo.adhere(toSuperView: &lt;#superView#&gt;)
+.drogo.layout { (make) in
+    &lt;#layout#&gt;
+}
+.drogo.config { (&lt;#view#&gt;) in
+    &lt;#config#&gt;
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B9FF7EFD-6ED9-4297-AC5C-A13187E1625E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Drogo_View</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
