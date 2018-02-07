@@ -5,6 +5,8 @@ ShellFolderPath=$( cd "$( dirname "$0" )" && pwd )
 cd "${ShellFolderPath}"
 
 
+
+ConfigFolderPath="${ShellFolderPath}/configs"
 git submodule update --init --recursive
 
 
@@ -50,10 +52,13 @@ esac
 
 # git config ------
 echo "\nSetting git..."
-if [ -f ~/.gitconfig ]; then
+if [[ -f ~/.gitconfig ]]; then
 	rm ~/.gitconfig
 fi
-ln -s ${Root_path}/git/_gitconfig ~/.gitconfig
+if [[ -L ~/.gitconfig ]]; then
+	rm ~/.gitconfig
+fi
+ln -s ${ConfigFolderPath}/git/_gitconfig ~/.gitconfig
 
 echo "Done git."
 #------
@@ -64,10 +69,13 @@ case "$(uname -s)" in
 	Darwin)
 		echo "\nSetting Xcode..."
 		xc_snippets_path=~/Library/Developer/Xcode/UserData/CodeSnippets
-		if [ -d $xc_snippets_path ]; then
+		if [[ -d $xc_snippets_path ]]; then
 			rm -rf $xc_snippets_path
 		fi
-		ln -s ${Root_path}/xcode/CodeSnippets $xc_snippets_path
+		if [[ -L $xc_snippets_path ]]; then
+			rm $xc_snippets_path
+		fi
+		ln -s ${ConfigFolderPath}/xcode/CodeSnippets $xc_snippets_path
 		echo "Done Xcode."
 esac
 #------
