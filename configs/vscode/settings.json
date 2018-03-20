@@ -6,5 +6,7 @@
     "vim.disableAnnoyingNeovimMessage": true,
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.startupEditor": "newUntitledFile",
+    "editor.renderControlCharacters": true,
     "explorer.confirmDragAndDrop": false
+
 }
