@@ -7,6 +7,6 @@
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.startupEditor": "newUntitledFile",
     "editor.renderControlCharacters": true,
-    "explorer.confirmDragAndDrop": false
-
+    "explorer.confirmDragAndDrop": false,
+    "extensions.ignoreRecommendations": false
 }
