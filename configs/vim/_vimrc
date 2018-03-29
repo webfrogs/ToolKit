@@ -39,6 +39,7 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,6 +47,7 @@ filetype plugin indent on    " required
 
 " ##### Nerdtree Config start
 nmap <leader>t :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 " ##### Nerdtree Config end
 
 

@@ -4,6 +4,7 @@
     "terminal.integrated.fontSize": 16,
     "workbench.iconTheme": "vscode-icons",
     "vim.disableAnnoyingNeovimMessage": true,
+    "vim.leader": "<space>",
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.startupEditor": "newUntitledFile",
     "editor.renderControlCharacters": true,
