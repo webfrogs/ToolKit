@@ -106,7 +106,10 @@ export PATH="$PATH:/opt/bochs/bin"
 export THEOS=/opt/theos
 
 # Proxy
-alias ssProxyStart="export ALL_PROXY=socks5://127.0.0.1:1080" 
-alias ssProxyStop="unset ALL_PROXY"
+alias sock5ProxyStart="export ALL_PROXY=socks5://127.0.0.1:1086" 
+alias sock5ProxyStop="unset ALL_PROXY"
+alias httpProxyStart="export http_proxy='http://127.0.0.1:1087' && export https_proxy='http://127.0.0.1:1087'"
+alias httpProxyStop="unset http_proxy && unset https_proxy"
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
