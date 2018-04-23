@@ -1,6 +1,5 @@
 *.DS_Store
+*.swp
 
-configs/vim/_vim/bundle
-!configs/vim/_vim/bundle/Vundle.vim
 configs/fonts/temp/
 configs/vim/_vim/plugged/

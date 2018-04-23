@@ -28,6 +28,7 @@ case "$(uname -s)" in
 
 		echo "\nInstall necessary tools for macOS..."
 		brew install cmake wget cloc fzf go
+		brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
         $(brew --prefix)/opt/fzf/install --all
 esac
