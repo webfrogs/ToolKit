@@ -26,24 +26,22 @@ set ruler						" 显示光标当前位置
 set foldmethod=syntax 			" 基于语法进行代码折叠
 set nofoldenable				" 启动 vim 时关闭折叠代码
 
+" #### Vim-plug settings
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-" Plugin settings
+" NERD tree will be loaded on the first invocation of NERDTreeToggle command
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer' }
+Plug 'Lokaltog/vim-powerline'
+Plug 'Raimondi/delimitMate'
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Initialize plugin system
+call plug#end()
 
-" Plugin list
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/nerdtree'
-Plugin 'fatih/vim-go'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
 
 " ##### Nerdtree Config start
 nmap <leader>t :NERDTreeToggle<CR>
