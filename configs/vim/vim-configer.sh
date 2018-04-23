@@ -24,8 +24,7 @@ fi
 ln -s "${ShellFolderPath}/_vim" "${VimFolderPath}"
 
 
-vim +PluginInstall +qall
-${ShellFolderPath}/_vim/bundle/YouCompleteMe/install.py --clang-completer --go-completer
+vim +PlugInstall +qall
 
 echo "Vim is ready.\n"
 
