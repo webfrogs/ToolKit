@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 ShellFolderPath=$(cd $(dirname $0) && pwd)

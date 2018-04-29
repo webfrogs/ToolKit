@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 ShellFolderPath=$(cd $(dirname $0) && pwd)
@@ -6,11 +6,19 @@ cd "${ShellFolderPath}"
 
 case "$(uname -s)" in
 	Darwin)
+        fontDir="$HOME/Library/Fonts"
 		;;
+    Linux*)
+        fontDir="$HOME/.local/share/fonts"
+        ;;
 	*)
-		echo "Only support macOS for now."
+		echo "Found os which is not support."
 		exit 1
 esac
+
+if [ ! -d "$fontDir" ]; then
+    mkdir -p $fontDir
+fi
 
 
 Iosevka_RELEASE_URL="https://github.com/be5invis/Iosevka/releases"
@@ -81,7 +89,13 @@ Iosevka_ZIP_FILENAME="iosevka.zip"
 downloadFile "$Iosevka_ZIP_FILE_URL" "$(pwd)/${Iosevka_ZIP_FILENAME}"
 
 unzip iosevka.zip
-cp ttf/* "$HOME/Library/Fonts"
+cp ttf/* "$fontDir"
+
+# Reset font cache on Linux
+if which fc-cache >/dev/null 2>&1 ; then
+    echo "Resetting font cache, this may take a moment..."
+    fc-cache -f "$font_dir"
+fi
 
 cd ..
 rm -rf temp
