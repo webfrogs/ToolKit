@@ -44,7 +44,7 @@ esac
 
 
 # Fonts installation ------
-./configs/fonts/Iosevka-installer.sh
+#./configs/fonts/Iosevka-installer.sh
 #------
 
 # zsh config ------
