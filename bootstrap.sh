@@ -48,20 +48,8 @@ esac
 ./configs/vim/vim-configer.sh
 #------
 
-
-
-
 # git config ------
-echo "\nSetting git..."
-if [[ -f ~/.gitconfig ]]; then
-	rm ~/.gitconfig
-fi
-if [[ -L ~/.gitconfig ]]; then
-	rm ~/.gitconfig
-fi
-ln -s ${ConfigFolderPath}/git/_gitconfig ~/.gitconfig
-
-echo "Done git."
+./configs/git/git-configer.sh
 #------
 
 
