@@ -11,9 +11,6 @@ case "$(uname -s)" in
         exit
         ;;
     Linux)
-        if command -v apt-get >/dev/null 2>&1; then
-            sudo apt-get install build-essential autoconf pkg-config
-        fi
     	cd /tmp
     	if [ -d "ctags" ]; then
     		rm -rf ctags

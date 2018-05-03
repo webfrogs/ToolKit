@@ -31,6 +31,13 @@ case "$(uname -s)" in
 		brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
         $(brew --prefix)/opt/fzf/install --all
+        ;;
+    Linux)
+        if command -v apt-get >/dev/null 2>&1; then
+	        sudo apt-get update
+	        sudo apt-get -y install build-essential autoconf pkg-config vim cmake python python-dev golang-go
+        fi
+        ;;
 esac
 
 #------
@@ -45,6 +52,7 @@ esac
 #------
 
 # Vim config ------
+./configs/vim/ctags-installer.sh
 ./configs/vim/vim-configer.sh
 #------
 
