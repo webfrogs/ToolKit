@@ -49,6 +49,6 @@ ln -s "${ShellFolderPath}/customThemes" "${ZshCustomThemeFolderPath}"
 
 
 echo "Configure zsh successfully."
-echo "Run 'chsh -s /bin/zsh' to change the default shell to zsh."
+echo "Run 'chsh -s $(which zsh)' to change the default shell to zsh."
 
 

@@ -35,7 +35,7 @@ case "$(uname -s)" in
     Linux)
         if command -v apt-get >/dev/null 2>&1; then
 	        sudo apt-get update
-	        sudo apt-get -y install build-essential autoconf pkg-config vim cmake python python-dev golang-go
+	        sudo apt-get -y install build-essential autoconf pkg-config vim cmake python python-dev golang-go zsh
         fi
         ;;
 esac
