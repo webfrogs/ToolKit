@@ -36,5 +36,14 @@ if [[ -L "${VSCodeKeybindingFilePath}" ]]; then
 fi
 ln -s "${ShellFolderPath}/keybindings.json" "${VSCodeKeybindingFilePath}"
 
+VSCodeSnippitsFolderPath="${VSCodeConfigPath}/User/snippets"
+if [[ -d "${VSCodeSnippitsFolderPath}" ]]; then
+    rm -rf "${VSCodeSnippitsFolderPath}"
+fi
+if [[ -L "${VSCodeSnippitsFolderPath}" ]]; then
+    rm "${VSCodeSnippitsFolderPath}"
+fi
+ln -s "${ShellFolderPath}/snippets" "${VSCodeSnippitsFolderPath}"
+
 echo "VS Code configuration end.\n"
 
