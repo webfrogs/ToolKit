@@ -41,9 +41,16 @@ Plug 'Lokaltog/vim-powerline'
 Plug 'Raimondi/delimitMate'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'SirVer/ultisnips'
 
 " Initialize plugin system
 call plug#end()
+
+
+
+" ##### ultisnips config start
+let g:UltiSnipsExpandTrigger="<c-j>"
+" ##### ultisnips config end
 
 
 " ##### AsyncRun config start
