@@ -39,13 +39,14 @@ ln -s "${ShellFolderPath}/customCompletions" "${ZshCustomCompletionFolderPath}"
 
 
 ZshCustomThemeFolderPath=$HOME/.oh-my-zsh/custom/themes
-if [[ -d "${ZshCustomThemeFolderPath}" ]]; then
-	rm -rf "${ZshCustomThemeFolderPath}"
+BulletTrainThemeFolderPath="${ZshCustomThemeFolderPath}/bullet-train-oh-my-zsh-theme"
+if [[ -d "${BulletTrainThemeFolderPath}" ]]; then
+	rm -rf "${BulletTrainThemeFolderPath}"
 fi
-if [[ -L "${ZshCustomThemeFolderPath}" ]]; then
-	rm "${ZshCustomThemeFolderPath}"
+if [[ -L "${BulletTrainThemeFolderPath}" ]]; then
+	rm "${BulletTrainThemeFolderPath}"
 fi
-ln -s "${ShellFolderPath}/customThemes" "${ZshCustomThemeFolderPath}"
+ln -s "${ShellFolderPath}/customThemes/bullet-train-oh-my-zsh-theme" "${BulletTrainThemeFolderPath}"
 
 
 echo "Configure zsh successfully."
