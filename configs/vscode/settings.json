@@ -2,7 +2,7 @@
     "editor.fontFamily": "Iosevka, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 18,
     "terminal.integrated.fontSize": 16,
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.iconTheme": "material-icon-theme",
     "vim.disableAnnoyingNeovimMessage": true,
     "vim.leader": "<space>",
     "vsicons.dontShowNewVersionMessage": true,
