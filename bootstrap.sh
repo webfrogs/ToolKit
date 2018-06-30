@@ -34,9 +34,8 @@ case "$(uname -s)" in
         ;;
     Linux)
         if command -v apt-get >/dev/null 2>&1; then
-		sudo add-apt-repository -y ppa:longsleep/golang-backports
 	        sudo apt-get update
-	        sudo apt-get -y install build-essential autoconf pkg-config vim cmake python python-dev golang-go zsh
+	        sudo apt-get -y install build-essential automake autoconf pkg-config vim cmake python python-dev golang-go zsh
         fi
         ;;
 esac
