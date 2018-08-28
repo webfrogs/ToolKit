@@ -9,5 +9,6 @@
     "workbench.startupEditor": "newUntitledFile",
     "editor.renderControlCharacters": true,
     "explorer.confirmDragAndDrop": false,
-    "extensions.ignoreRecommendations": false
+    "extensions.ignoreRecommendations": false,
+    "cmake.configureOnOpen": true
 }

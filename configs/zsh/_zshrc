@@ -102,7 +102,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Dev setting
 export BXSHARE="/opt/bochs/share/bochs"
-export PATH="$PATH:/opt/bochs/bin"
+export PATH="$PATH:/opt/bochs/bin:$HOME/.local/bin"
 export THEOS=/opt/theos
 
 # Proxy
