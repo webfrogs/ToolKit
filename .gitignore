@@ -1,5 +1,6 @@
 *.DS_Store
 *.swp
+*.netrwhist
 
 configs/fonts/temp/
 configs/vim/_vim/plugged/
