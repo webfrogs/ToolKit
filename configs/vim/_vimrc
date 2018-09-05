@@ -3,10 +3,11 @@ filetype off
 let mapleader = "\<Space>"
 
 " Base setting
-colorscheme molokai
+colorscheme SolarizedDark
 syntax enable
 syntax on						" Syntax highlighting
 set nu							" Line numbers on
+set relativenumber              " Relative number on
 set encoding=utf-8
 set autoindent					" Indent at the same level of the previous line
 set hlsearch					" Highlight search terms
@@ -16,8 +17,6 @@ set expandtab                   " Tabs are spaces, not tabs
 set tabstop=4					" An indentation every four columns
 set shiftwidth=4 
 set softtabstop=4
-
-set autoindent                  " Indent at the same level of the previous line
 
 set laststatus=2				" 总是显示状态栏
 set ruler						" 显示光标当前位置
@@ -114,7 +113,10 @@ inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 "let g:ycm_min_num_of_chars_for_completion=2     " 输入第2个字符开始补全
 let g:ycm_seed_identifiers_with_syntax=1        " 开启语义补全
 
-
+"当补全完成时，是否自动关闭展示的预览窗口，默认 0
+"let g:ycm_autoclose_preview_window_after_completion=1
+"当补全插入时，是否自动关闭展示的预览窗口，默认 0
+let g:ycm_autoclose_preview_window_after_insertion=1
 
 let g:ycm_min_num_identifier_candidate_chars = 2
 "set completeopt=longest,menu	"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
