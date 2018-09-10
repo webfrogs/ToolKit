@@ -100,10 +100,14 @@ export LANG=en_US.UTF-8
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+# Golang settings
+export GOPATH=$HOME/go
+
 # Dev setting
 export BXSHARE="/opt/bochs/share/bochs"
-export PATH="$PATH:/opt/bochs/bin:$HOME/.local/bin"
+export PATH="$PATH:/opt/bochs/bin:$HOME/.local/bin:$GOPATH/bin"
 export THEOS=/opt/theos
+
 
 # Proxy
 alias sock5ProxyStart="export ALL_PROXY=socks5://127.0.0.1:1086" 
@@ -111,5 +115,5 @@ alias sock5ProxyStop="unset ALL_PROXY"
 alias httpProxyStart="export http_proxy='http://127.0.0.1:1087' && export https_proxy='http://127.0.0.1:1087'"
 alias httpProxyStop="unset http_proxy && unset https_proxy"
 
-
+# fzf settings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
