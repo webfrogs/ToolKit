@@ -98,10 +98,14 @@ export DEFAULT_USER=carl
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+# Ruby settings
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Golang settings
 export GOPATH=$HOME/go
+
+# Python settings
+[ -x "$(command -v python3)" ] && export PATH="$PATH:$(python3 -m site --user-base)/bin"
 
 # Dev setting
 export BXSHARE="/opt/bochs/share/bochs"
