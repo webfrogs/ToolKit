@@ -18,6 +18,8 @@ set tabstop=4					" An indentation every four columns
 set shiftwidth=4 
 set softtabstop=4
 
+autocmd FileType yaml,css set sw=2 ts=2
+
 set laststatus=2				" 总是显示状态栏
 set ruler						" 显示光标当前位置
 

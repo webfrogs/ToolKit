@@ -4,6 +4,12 @@
     "terminal.integrated.fontSize": 16,
     "workbench.iconTheme": "material-icon-theme",
     "vim.disableAnnoyingNeovimMessage": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["<C-[>"],
+            "after": ["<Esc>"]
+        }
+    ],
     "vim.leader": "<space>",
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.startupEditor": "newUntitledFile",
