@@ -3,12 +3,7 @@ set -e
 
 ShellFolderPath=$( cd "$( dirname "$0" )" && pwd )
 cd "${ShellFolderPath}"
-
-
-
 ConfigFolderPath="${ShellFolderPath}/configs"
-git submodule update --init --recursive
-
 
 # Basic tools installation ------
 case "$(uname -s)" in
@@ -33,13 +28,24 @@ case "$(uname -s)" in
         $(brew --prefix)/opt/fzf/install --all
         ;;
     Linux)
+		if command -v git >/dev/null 2>&1; then 
+  			echo 'Git already exist.' 
+		else 
+  			echo "Git not exist. Install git first."
+			exit 1
+		fi
+
         if command -v apt-get >/dev/null 2>&1; then
 	        sudo apt-get update
 	        sudo apt-get -y install build-essential automake autoconf pkg-config vim cmake python python-dev golang-go zsh
         fi
+
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install --all
         ;;
 esac
 
+git submodule update --init --recursive
 #------
 
 
