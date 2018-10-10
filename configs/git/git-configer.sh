@@ -13,5 +13,6 @@ if [[ -L "$HOME/.gitconfig" ]]; then
 	rm "$HOME/.gitconfig"
 fi
 ln -s "${ShellFolderPath}/_gitconfig" "$HOME/.gitconfig"
-echo "Git configuration end.\n"
+echo "Git configuration end."
+echo ""
 

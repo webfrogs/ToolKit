@@ -2,6 +2,6 @@
 *.swp
 *.netrwhist
 
-configs/fonts/temp/
 configs/vim/_vim/plugged/
+installer/fonts/temp/
 installer/openresty/tmp/

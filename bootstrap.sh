@@ -21,7 +21,7 @@ case "$(uname -s)" in
   			/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 		fi
 
-		echo "\nInstall necessary tools for macOS..."
+		echo "Install necessary tools for macOS..."
 		brew install cmake wget cloc fzf go
 		brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
@@ -49,10 +49,6 @@ git submodule update --init --recursive
 #------
 
 
-# Fonts installation ------
-#./configs/fonts/Iosevka-installer.sh
-#------
-
 # zsh config ------
 ./configs/zsh/zsh-configer.sh
 #------
@@ -70,7 +66,7 @@ git submodule update --init --recursive
 # Xcode config ------
 case "$(uname -s)" in
 	Darwin)
-		echo "\nSetting Xcode..."
+		echo "Setting Xcode..."
 		xc_snippets_path=~/Library/Developer/Xcode/UserData/CodeSnippets
 		if [[ -d $xc_snippets_path ]]; then
 			rm -rf $xc_snippets_path
@@ -84,6 +80,6 @@ esac
 #------
 
 
-echo "\nAll Done. Change current shell to zsh by command 'chsh -s /bin/zsh'"
+echo "All Done. Change current shell to zsh by command 'chsh -s /bin/zsh'"
 
 
