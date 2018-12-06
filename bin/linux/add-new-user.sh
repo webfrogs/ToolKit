@@ -31,7 +31,7 @@ END_USER
 echo "'${newUsername}' has been created successfully."
 read -p "Give root permissions to '${newUsername}'? [y/n] " rootPermission
 if [ "${rootPermission}" == "y" ]; then
-    usermod -g wheel ${newUsername}
+    # usermod -g wheel ${newUsername}
     echo "${newUsername} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${newUsername}
     chmod 440 /etc/sudoers.d/${newUsername}
     echo "Done. Now '${newUsername}' has root permissions."
