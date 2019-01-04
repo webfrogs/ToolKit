@@ -4,8 +4,6 @@ set -e
 ShellFolderPath=$(cd $(dirname $0) && pwd)
 cd "${ShellFolderPath}"
 
-
-echo "Xcode configuration start..."
 case "$(uname -s)" in
 	Darwin)
 		SnippetsFolderPath="$HOME/Library/Developer/Xcode/UserData/CodeSnippets"
@@ -17,9 +15,5 @@ case "$(uname -s)" in
 		fi
 		ln -s "${ShellFolderPath}/CodeSnippets" "${SnippetsFolderPath}"
 		;;
-	*)
-		echo "Only support macOS for now."
-		exit 1
 esac
-echo "Xcode configuration end.\n"
 

@@ -4,11 +4,15 @@ set -e
 ShellFolderPath=$(cd $(dirname $0) && pwd)
 cd "${ShellFolderPath}"
 
+if ! test -x "$(command -v ctags)"; then
+	echo "[Info] ctags is already installed."
+	exit
+fi
 
+echo "[Info] Installing ctags..."
 case "$(uname -s)" in
     Darwin)
-        echo "Use homebrew to install ctags: 'brew install --HEAD universal-ctags/universal-ctags/universal-ctags'"
-        exit
+		brew install --HEAD universal-ctags/universal-ctags/universal-ctags
         ;;
     Linux)
     	cd /tmp
@@ -26,7 +30,9 @@ case "$(uname -s)" in
 		rm -rf ctags
         ;;
     *)
-        echo "Found unsupported OS."
+        echo "[Error] Found unsupported OS."
         exit 1
         ;;
 esac
+
+echo "[Info] ctags is installed successfully."
