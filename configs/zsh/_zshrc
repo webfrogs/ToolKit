@@ -119,5 +119,10 @@ alias sock5ProxyStop="unset ALL_PROXY"
 alias httpProxyStart="export http_proxy='http://127.0.0.1:1087' && export https_proxy='http://127.0.0.1:1087'"
 alias httpProxyStop="unset http_proxy && unset https_proxy"
 
+# custom local setting
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
 # fzf settings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
