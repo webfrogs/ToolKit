@@ -23,6 +23,7 @@ case "$(uname -s)" in
 		;;
 	Linux)
 		if test -x "$(command -v apt-get)"; then
+			sudo add-apt-repository -y ppa:longsleep/golang-backports
 			sudo apt-get update
 			sudo apt-get -y install \
 				git build-essential automake autoconf \
