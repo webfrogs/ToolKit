@@ -4,7 +4,7 @@ set -e
 ShellFolderPath=$(cd $(dirname $0) && pwd)
 cd "${ShellFolderPath}"
 
-if ! test -x "$(command -v ctags)"; then
+if test -x "$(command -v ctags)"; then
 	echo "[Info] ctags is already installed."
 	exit
 fi
