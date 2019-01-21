@@ -18,7 +18,7 @@ case "$(uname -s)" in
         if ! test -x "$(command -v gpg2)"; then
             if test -x "$(command -v apt-get)"; then
                 sudo apt-get update
-                sudo apt-get -y install gnupg2
+                sudo apt-get -y install gnupg2 dirmngr
             elif test -x "$(command -v yum)"; then
                 echo "[Error] script is not finished."
                 exit 1
@@ -29,6 +29,8 @@ case "$(uname -s)" in
         fi
         gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
         \curl -sSL https://get.rvm.io | bash -s stable
+
+        source ${HOME}/.rvm/scripts/rvm
         ;;
     *)
         echo "Unsupported OS is found."
