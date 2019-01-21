@@ -2,7 +2,7 @@
 set -e
 
 if [ `whoami` == "root" ]; then
-    echo "Hey, you are root, no need to do this."
+    echo "Hey, you are already root user, no need to do this."
     exit 1
 fi
 
