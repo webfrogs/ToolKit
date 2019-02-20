@@ -4,10 +4,10 @@ export ZSH=~/.oh-my-zsh
 # bullet-train config
 export BULLETTRAIN_TIME_BG=11
 BULLETTRAIN_PROMPT_ORDER=(
-  time
   status
-  dir
   git
+  dir
+  time
 )
 
 # Set name of the theme to load.
