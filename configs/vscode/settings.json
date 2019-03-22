@@ -16,5 +16,8 @@
     "editor.renderControlCharacters": true,
     "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": false,
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "python.jediEnabled": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
