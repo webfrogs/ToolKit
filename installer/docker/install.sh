@@ -26,6 +26,14 @@ case "$(uname -s)" in
             sudo apt-get install docker-ce
         elif test -x "$(command -v yum)"; then
             echo "[Info] yum support is not implemented."
+            sudo yum install -y yum-utils \
+                device-mapper-persistent-data \
+                lvm2
+            sudo wget -O /etc/yum.repos.d/docker-ce.repo https://download.docker.com/linux/centos/docker-ce.repo
+            sudo sed -i 's+download.docker.com+mirrors.tuna.tsinghua.edu.cn/docker-ce+' /etc/yum.repos.d/docker-ce.repo
+            sudo yum makecache fast
+            sudo yum install -y docker-ce
+            sudo systemctl start docker
         else
             echo "[Error] Can not find support package management."
             exit 1
