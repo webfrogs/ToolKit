@@ -25,7 +25,6 @@ case "$(uname -s)" in
             sudo apt-get update
             sudo apt-get install docker-ce
         elif test -x "$(command -v yum)"; then
-            echo "[Info] yum support is not implemented."
             sudo yum install -y yum-utils \
                 device-mapper-persistent-data \
                 lvm2
