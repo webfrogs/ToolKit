@@ -14,7 +14,7 @@ case "$(uname -s)" in
     Linux)
         if test -x "$(command -v apt-get)"; then
             sudo apt-get update
-            sudo apt-get install \
+            sudo apt-get install -y \
                 apt-transport-https \
                 ca-certificates \
                 curl \
@@ -23,7 +23,7 @@ case "$(uname -s)" in
             curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
             sudo add-apt-repository "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu bionic stable"
             sudo apt-get update
-            sudo apt-get install docker-ce
+            sudo apt-get install -y docker-ce
         elif test -x "$(command -v yum)"; then
             sudo yum install -y yum-utils \
                 device-mapper-persistent-data \
