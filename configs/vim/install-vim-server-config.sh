@@ -9,7 +9,7 @@ echo "Configuring vim..."
 if [[ -f "$HOME/.vimrc" ]]; then
 	rm "$HOME/.vimrc"
 fi
-ln -sf "${ShellFolderPath}/_vimrc" "$HOME/.vimrc"
+ln -sf "${ShellFolderPath}/_vimrc4server" "$HOME/.vimrc"
 
 echo "Vim is ready."
 
