@@ -26,5 +26,5 @@ ln -s "${ShellFolderPath}/_vim" "${VimFolderPath}"
 
 vim +PlugInstall +qall
 
-echo "Vim is ready.\n"
+echo "Vim is ready."
 

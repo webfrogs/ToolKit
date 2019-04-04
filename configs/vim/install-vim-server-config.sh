@@ -11,5 +11,5 @@ if [[ -f "$HOME/.vimrc" ]]; then
 fi
 ln -sf "${ShellFolderPath}/_vimrc" "$HOME/.vimrc"
 
-echo "Vim is ready.\n"
+echo "Vim is ready."
 
