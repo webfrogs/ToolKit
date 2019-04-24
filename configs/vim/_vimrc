@@ -37,13 +37,14 @@ call plug#begin('~/.vim/plugged')
 
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --rust-completer' }
 Plug 'Lokaltog/vim-powerline'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'Raimondi/delimitMate'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'SirVer/ultisnips'
+Plug 'rust-lang/rust.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -149,3 +150,5 @@ let g:ycm_filetype_whitelist = {
 let g:go_template_autocreate = 0
 let g:go_fmt_command = "goimports"
 " ----- vim go config end
+
+let g:autofmt_autosave = 1
