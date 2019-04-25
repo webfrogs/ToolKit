@@ -131,7 +131,7 @@ let g:ycm_add_preview_to_completeopt = 0
 "let g:ycm_complete_in_strings=1
 
 let g:ycm_semantic_triggers =  {
-    \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+    \ 'c,cpp,python,java,go,erlang,perl,rust': ['re!\w{2}'],
     \ 'cs,lua,javascript': ['re!\w{2}'],
     \ }
 
@@ -142,6 +142,7 @@ let g:ycm_filetype_whitelist = {
 			\ "sh":1,
 			\ "zsh":1,
 			\ "zimbu":1,
+			\ "rust":1,
 			\ }
 
 " ##### YouCompleteMe Config end
@@ -151,4 +152,6 @@ let g:go_template_autocreate = 0
 let g:go_fmt_command = "goimports"
 " ----- vim go config end
 
+" ----- vim rust config start
 let g:autofmt_autosave = 1
+" ----- vim rust config end
