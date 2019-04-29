@@ -110,7 +110,7 @@ export GOPATH=$HOME/go
 
 # Dev setting
 export BXSHARE="/opt/bochs/share/bochs"
-export PATH="$PATH:/opt/bochs/bin:$HOME/.local/bin:$GOPATH/bin"
+export PATH="/usr/local/bin:$PATH:/opt/bochs/bin:$HOME/.local/bin:$GOPATH/bin"
 export THEOS=/opt/theos
 
 
