@@ -45,5 +45,5 @@ if [[ -L "${VSCodeSnippitsFolderPath}" ]]; then
 fi
 ln -s "${ShellFolderPath}/snippets" "${VSCodeSnippitsFolderPath}"
 
-echo "VS Code configuration end.\n"
+echo "VS Code configuration end."
 
