@@ -26,7 +26,7 @@ case "$(uname -s)" in
 			sudo add-apt-repository -y ppa:longsleep/golang-backports
 			sudo apt-get update
 			sudo apt-get -y install \
-				git build-essential automake autoconf \
+				git build-essential automake autoconf resolvconf \
 				pkg-config vim cmake python python-dev golang-go zsh
 		elif test -x "$(command -v yum)"; then
 			sudo yum update
