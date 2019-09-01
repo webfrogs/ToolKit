@@ -3,5 +3,11 @@
 	"font_size": 12,
 	"ignored_packages":
 	[
-	]
+		"Six",
+		"Vintage",
+		"Vintageous"
+	],
+	"neovintageous_build_version": 11100,
+	"vintageous_use_ctrl_keys": true,
+	"vintageous_use_super_keys": null
 }
