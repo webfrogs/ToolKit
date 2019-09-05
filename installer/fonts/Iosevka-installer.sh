@@ -83,7 +83,7 @@ Iosevka_VERSION=${Iosevka_RELEASE_TAG:1}
 # fetch the real release data to make sure it exists before we attempt a download
 downloadJSON RELEASE_DATA "$Iosevka_RELEASE_URL/tag/$Iosevka_RELEASE_TAG"
 
-Iosevka_ZIP_FILE_URL="$Iosevka_RELEASE_URL/download/$Iosevka_RELEASE_TAG/iosevka-ss08-${Iosevka_VERSION}.zip"
+Iosevka_ZIP_FILE_URL="$Iosevka_RELEASE_URL/download/$Iosevka_RELEASE_TAG/iosevka-term-ss08-${Iosevka_VERSION}.zip"
 
 Iosevka_ZIP_FILENAME="iosevka.zip"
 downloadFile "$Iosevka_ZIP_FILE_URL" "$(pwd)/${Iosevka_ZIP_FILENAME}"

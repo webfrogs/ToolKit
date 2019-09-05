@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "Iosevka ss08, Iosevka, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "Iosevka Term ss08, Iosevka ss08, Iosevka, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 18,
     "terminal.integrated.fontSize": 16,
     "workbench.iconTheme": "material-icon-theme",
