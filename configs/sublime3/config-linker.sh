@@ -12,7 +12,7 @@ case "$(uname -s)" in
 		;;
 	Linux)
 		AppUserPreferenceFilePath="$HOME/.config/sublime-text-3/Packages/User/${PreferenceFilename}"
-		# SelfPreferenceFilename="Preferences-linuxmint.sublime-settings"
+		SelfPreferenceFilename="Preferences-linuxmint.sublime-settings"
 		;;
 	*)
 		echo "Found unsupported OS."
@@ -25,6 +25,7 @@ fi
 if [[ -L "${AppUserPreferenceFilePath}" ]]; then
 	rm "${AppUserPreferenceFilePath}"
 fi
+mkdir -p "$(dirname ${AppUserPreferenceFilePath})"
 ln -s "${ShellFolderPath}/${SelfPreferenceFilename}" "${AppUserPreferenceFilePath}"
 
 
