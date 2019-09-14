@@ -18,6 +18,13 @@ case "$(uname -s)" in
         fi
 
         if test -x "$(command -v apt-get)"; then
+            ubuntuCodeName=$(lsb_release -cs)
+            if test -f "/etc/lsb-release"; then
+                distribID=$(grep "DISTRIB_ID" /etc/lsb-release | awk -F"=" '{ print $2 }')
+                if test ${distribID} = "LinuxMint"; then
+                    ubuntuCodeName=$(grep "UBUNTU_CODENAME" /etc/os-release | awk -F"=" '{ print $2 }')
+                fi
+            fi
             sudo apt-get update
             sudo apt-get install -y \
                 apt-transport-https \
@@ -29,12 +36,12 @@ case "$(uname -s)" in
             if [ -z "${chinaMirror}" ]; then
                 sudo add-apt-repository \
                     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-                    $(lsb_release -cs) \
+                    ${ubuntuCodeName} \
                     stable"
             else
                 sudo add-apt-repository \
                     "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
-                    bionic stable"
+                    ${ubuntuCodeName} stable"
             fi
             sudo apt-get update
             sudo apt-get install -y docker-ce
