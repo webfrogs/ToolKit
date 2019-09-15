@@ -12,19 +12,12 @@ case "$(uname -s)" in
         exit
         ;;
     Linux)
-        read -p "Need China mirror? [y/n]: " chinaMirror
+        read -p "Use China mirror repo? [y/n]: " chinaMirror
         if [ ! "${chinaMirror}" == "y" ]; then
             chinaMirror=""
         fi
 
         if test -x "$(command -v apt-get)"; then
-            ubuntuCodeName=$(lsb_release -cs)
-            if test -f "/etc/lsb-release"; then
-                distribID=$(grep "DISTRIB_ID" /etc/lsb-release | awk -F"=" '{ print $2 }')
-                if test ${distribID} = "LinuxMint"; then
-                    ubuntuCodeName=$(grep "UBUNTU_CODENAME" /etc/os-release | awk -F"=" '{ print $2 }')
-                fi
-            fi
             sudo apt-get update
             sudo apt-get install -y \
                 apt-transport-https \
@@ -33,16 +26,28 @@ case "$(uname -s)" in
                 gnupg2 \
                 software-properties-common
             curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-            if [ -z "${chinaMirror}" ]; then
-                sudo add-apt-repository \
-                    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-                    ${ubuntuCodeName} \
-                    stable"
-            else
-                sudo add-apt-repository \
-                    "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
-                    ${ubuntuCodeName} stable"
+
+            ubuntuCodeName=$(lsb_release -cs)
+            if test -f "/etc/lsb-release"; then
+                distribID=$(grep "DISTRIB_ID" /etc/lsb-release | awk -F"=" '{ print $2 }')
+                if test ${distribID} = "LinuxMint"; then
+                    ubuntuCodeName=$(grep "UBUNTU_CODENAME" /etc/os-release | awk -F"=" '{ print $2 }')
+                fi
             fi
+            # if [ -z "${chinaMirror}" ]; then
+            #     sudo add-apt-repository \
+            #         "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+            #         ${ubuntuCodeName} \
+            #         stable"
+            # else
+            #     sudo add-apt-repository \
+            #         "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
+            #         ${ubuntuCodeName} stable"
+            # fi
+            cat << EOF > /etc/apt/sources.list.d/docker-ce-${ubuntuCodeName}.list
+deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu ${ubuntuCodeName} stable
+EOF
+            
             sudo apt-get update
             sudo apt-get install -y docker-ce
             sudo systemctl start docker
