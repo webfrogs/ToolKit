@@ -17,7 +17,11 @@ if [ -z "${sshPublicKey}" ]; then
     exit 1
 fi
 
-adduser ${newUsername}
+if test $(grep ^DISTRIB_ID= /etc/lsb-release2 2>/dev/null | awk -F'=' '{ print $2 }') = "Ubuntu"; then
+    adduser --disabled-password --gecos "" ${newUsername}
+else
+    adduser ${newUsername}
+fi
 
 su - ${newUsername} <<END_USER
 cd ~

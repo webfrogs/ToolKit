@@ -44,7 +44,7 @@ case "$(uname -s)" in
             #         "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
             #         ${ubuntuCodeName} stable"
             # fi
-            cat << EOF > /etc/apt/sources.list.d/docker-ce-${ubuntuCodeName}.list
+            sudo cat << EOF > /etc/apt/sources.list.d/docker-ce-${ubuntuCodeName}.list
 deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu ${ubuntuCodeName} stable
 EOF
             
