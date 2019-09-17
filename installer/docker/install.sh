@@ -34,23 +34,10 @@ case "$(uname -s)" in
                     ubuntuCodeName=$(grep "UBUNTU_CODENAME" /etc/os-release | awk -F"=" '{ print $2 }')
                 fi
             fi
-            # if [ -z "${chinaMirror}" ]; then
-            #     sudo add-apt-repository \
-            #         "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-            #         ${ubuntuCodeName} \
-            #         stable"
-            # else
-            #     sudo add-apt-repository \
-            #         "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
-            #         ${ubuntuCodeName} stable"
-            # fi
-            sudo cat << EOF > /etc/apt/sources.list.d/docker-ce-${ubuntuCodeName}.list
-deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu ${ubuntuCodeName} stable
-EOF
+            echo "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu ${ubuntuCodeName} stable" | sudo tee /etc/apt/sources.list.d/docker-ce-${ubuntuCodeName}.list >/dev/null
             
             sudo apt-get update
             sudo apt-get install -y docker-ce
-            sudo systemctl start docker
         elif test -x "$(command -v yum)"; then
             sudo yum install -y yum-utils \
                 device-mapper-persistent-data \
@@ -66,11 +53,13 @@ EOF
                 sudo yum makecache fast
             fi
             sudo yum install -y docker-ce docker-ce-cli containerd.io
-            sudo systemctl start docker
         else
             echo "[Error] Can not find support package management."
             exit 1
         fi
+
+        sudo systemctl start docker
+        sudo systemctl enable docker
         ;;
     *)
         echo "Unsupported OS is found."
