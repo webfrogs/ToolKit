@@ -12,7 +12,7 @@ case "$(uname -s)" in
         exit
         ;;
     Linux)
-        read -p "Use China mirror repo? [y/n]: " chinaMirror
+        read -p "Use mirror repo of China? [y/n]: " chinaMirror
         if [ ! "${chinaMirror}" == "y" ]; then
             chinaMirror=""
         fi
@@ -34,7 +34,17 @@ case "$(uname -s)" in
                     ubuntuCodeName=$(grep "UBUNTU_CODENAME" /etc/os-release | awk -F"=" '{ print $2 }')
                 fi
             fi
-            echo "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu ${ubuntuCodeName} stable" | sudo tee /etc/apt/sources.list.d/docker-ce-${ubuntuCodeName}.list >/dev/null
+
+            if test "${chinaMirror}" = "y"; then
+                dockerCeRepoAddress="deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
+                    ${ubuntuCodeName} stable"
+            else
+                dockerCeRepoAddress="deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+                    ${ubuntuCodeName} stable"
+            fi
+
+            echo "${dockerCeRepoAddress}" \
+                | sudo tee /etc/apt/sources.list.d/docker-ce-${ubuntuCodeName}.list >/dev/null
             
             sudo apt-get update
             sudo apt-get install -y docker-ce
