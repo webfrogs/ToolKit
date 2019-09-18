@@ -17,7 +17,7 @@ if [ -z "${sshPublicKey}" ]; then
     exit 1
 fi
 
-if test $(grep ^DISTRIB_ID= /etc/lsb-release 2>/dev/null | awk -F'=' '{ print $2 }') = "Ubuntu"; then
+if test "$(grep ^DISTRIB_ID= /etc/lsb-release 2>/dev/null | awk -F'=' '{ print $2 }')" = "Ubuntu"; then
     adduser --disabled-password --gecos "" ${newUsername}
 else
     adduser ${newUsername}
