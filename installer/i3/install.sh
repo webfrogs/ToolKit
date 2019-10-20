@@ -18,8 +18,8 @@ if test -x "$(command -v apt-get)"; then
     echo "deb https://debian.sur5r.net/i3/ ${ubuntuCodeName} universe" \
         | sudo tee /etc/apt/sources.list.d/sur5r-i3.list > /dev/null
     sudo apt update
-    sudo apt install i3
-
+    sudo apt install -y i3
+		sudo apt-get install -y i3status
 else
     echo "Can not install in current OS"
     exit 1
