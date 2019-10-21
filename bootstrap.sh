@@ -23,11 +23,10 @@ case "$(uname -s)" in
 		;;
 	Linux)
 		if test -x "$(command -v apt-get)"; then
-			sudo add-apt-repository -y ppa:longsleep/golang-backports
 			sudo apt-get update
 			sudo apt-get -y install \
 				git build-essential automake autoconf resolvconf \
-				pkg-config vim cmake python python-dev golang-go zsh
+				pkg-config vim cmake python python-dev zsh
 		elif test -x "$(command -v yum)"; then
 			sudo yum update
 			sudo yum install -y \
@@ -52,6 +51,5 @@ esac
 ./configs/git/git-configer.sh
 git submodule update --init --recursive
 ./configs/zsh/zsh-configer.sh
-./configs/vim/ctags-installer.sh
 
 echo "[Info] All finished."
