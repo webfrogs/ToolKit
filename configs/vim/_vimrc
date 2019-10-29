@@ -68,7 +68,7 @@ nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 " ##### AsyncRun config end
 
 " ##### Nerdtree Config start
-nmap <leader>t :NERDTreeToggle<CR>
+nmap tt :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 " ##### Nerdtree Config end
 
