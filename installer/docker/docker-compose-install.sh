@@ -57,5 +57,6 @@ LATEST_RELEASE_TAG=$(echo "${LATEST_RELEASE}" | tr -s '\n' ' ' | sed 's/.*"tag_n
 echo "Latest release tag: $LATEST_RELEASE_TAG"
 curl -L ${GithubReleaseURL}/download/${LATEST_RELEASE_TAG}/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
+ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose
 
-/usr/local/bin/docker-compose --version
+/usr/bin/docker-compose --version
