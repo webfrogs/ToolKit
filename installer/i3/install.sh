@@ -19,7 +19,8 @@ if test -x "$(command -v apt-get)"; then
         | sudo tee /etc/apt/sources.list.d/sur5r-i3.list > /dev/null
     sudo apt update
     sudo apt install -y i3
-		sudo apt-get install -y i3status
+    sudo apt install -y dmenu
+    sudo apt-get install -y i3status
 else
     echo "Can not install in current OS"
     exit 1
