@@ -28,5 +28,8 @@ else
 fi
 
 mkdir -p ${HOME}/.config/i3/
-cp ${workDir}/config ${HOME}/.config/i3/
+if test -f "${HOME}/.config/i3/config"; then
+	rm -f "${HOME}/.config/i3/config"
+fi
+ln -sf ${workDir}/config ${HOME}/.config/i3/config
 
