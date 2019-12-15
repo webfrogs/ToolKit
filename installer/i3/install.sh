@@ -1,10 +1,8 @@
 #!/bin/sh
 set -e
 
-cd /tmp
-
-/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2019.02.01_all.deb keyring.deb SHA256:176af52de1a976f103f9809920d80d02411ac5e763f695327de9fa6aff23f416
-sudo dpkg -i ./keyring.deb
+cd $(dirname $0)
+workDir=$(pwd)
 
 if test -x "$(command -v apt-get)"; then
     ubuntuCodeName=$(lsb_release -cs)
@@ -15,6 +13,9 @@ if test -x "$(command -v apt-get)"; then
         fi
     fi
 
+		cd /tmp
+		/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2019.02.01_all.deb keyring.deb SHA256:176af52de1a976f103f9809920d80d02411ac5e763f695327de9fa6aff23f416
+		sudo dpkg -i ./keyring.deb
     echo "deb https://debian.sur5r.net/i3/ ${ubuntuCodeName} universe" \
         | sudo tee /etc/apt/sources.list.d/sur5r-i3.list > /dev/null
     sudo apt update
@@ -25,3 +26,7 @@ else
     echo "Can not install in current OS"
     exit 1
 fi
+
+mkdir -p ${HOME}/.config/i3/
+cp ${workDir}/config ${HOME}/.config/i3/
+
