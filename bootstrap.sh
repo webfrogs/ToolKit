@@ -33,7 +33,7 @@ case "$(uname -s)" in
 				git vim zsh
 		else
 			echo "[Error] No package management tools found."
-			exit 1
+			exit 2
 		fi
 
 		if [ ! -d "$HOME/.fzf" ]; then
@@ -44,7 +44,7 @@ case "$(uname -s)" in
 		;;
 	*)
 		echo "[Error] Unsupported OS"
-		exit 1
+		exit 2
 		;;
 esac
 
