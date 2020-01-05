@@ -6,22 +6,17 @@ if test -x "$(command -v node)"; then
 	exit
 fi
 
+echo "===> Nodejs installing..."
 if test -x "$(command -v apt-get)"; then
-	sudo apt-get install -y gcc make g++
+	curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+	echo "deb https://deb.nodesource.com/node_12.x bionic main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+	echo "deb-src https://deb.nodesource.com/node_12.x bionic main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
+	sudo apt-get update -y
+	sudo apt-get install -y nodejs
 else
-	echo "===> ERROR! Installation is not supported for current OS."
+	echo "ERROR! Installation is not supported for current OS."
 	exit 2
 fi
 
-rm -rf /tmp/nodejs/
-mkdir -p /tmp/nodejs
-cd /tmp/nodejs
-curl -o node.tar.gz https://nodejs.org/dist/v12.14.0/node-v12.14.0.tar.gz
-tar xzf node.tar.gz
-rm node.tar.gz
-cd $(ls)
-./configure
-make -j4
-sudo make install
-
+echo "===> Nodejs is installed successfully"
 
