@@ -29,6 +29,7 @@ if test "${installNeed}" = "y"; then
 		sudo apt install -y i3
 		sudo apt install -y dmenu
 		sudo apt-get install -y i3status
+		sudo apt-get install -y i3lock
 	else
 		echo "Can not install in current OS"
 		exit 1
