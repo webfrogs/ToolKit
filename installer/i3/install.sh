@@ -21,7 +21,7 @@ if test "${installNeed}" = "y"; then
 		fi
 
 		cd /tmp
-		/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2019.02.01_all.deb keyring.deb SHA256:176af52de1a976f103f9809920d80d02411ac5e763f695327de9fa6aff23f416
+		/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2020.02.03_all.deb keyring.deb SHA256:c5dd35231930e3c8d6a9d9539c846023fe1a08e4b073ef0d2833acd815d80d48
 		sudo dpkg -i ./keyring.deb
 		echo "deb https://debian.sur5r.net/i3/ ${ubuntuCodeName} universe" \
 				| sudo tee /etc/apt/sources.list.d/sur5r-i3.list > /dev/null
