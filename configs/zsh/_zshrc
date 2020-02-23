@@ -114,7 +114,9 @@ export PATH="/usr/local/bin:$PATH:/opt/bochs/bin:$HOME/.local/bin:$GOPATH/bin"
 export THEOS=/opt/theos
 
 # Homebrew env setting
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv) > /dev/null 2>&1
+if test -f "/home/linuxbrew/.linuxbrew/bin/brew"; then
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv) > /dev/null 2>&1
+fi
 
 # Proxy
 alias sock5ProxyStart="export ALL_PROXY=socks5://127.0.0.1:1086" 
