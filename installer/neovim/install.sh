@@ -15,7 +15,7 @@ echo "===> Installing neovim..."
 if test -x "$(command -v apt-get)"; then
 	sudo add-apt-repository -y ppa:neovim-ppa/stable
 	sudo apt-get update -y
-	sudo apt-get install -y neovim
+	sudo apt-get install -y neovim xclip # xclip is needed when using system paste
 else
 	echo "ERROR! Installation is not support for current OS"
 	exit 2
