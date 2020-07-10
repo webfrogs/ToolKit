@@ -6,17 +6,16 @@ if test -x "$(command -v node)"; then
 	exit
 fi
 
-echo "===> Nodejs installing..."
-if test -x "$(command -v apt-get)"; then
-	curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
-	echo "deb https://deb.nodesource.com/node_12.x bionic main" | sudo tee /etc/apt/sources.list.d/nodesource.list
-	echo "deb-src https://deb.nodesource.com/node_12.x bionic main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
-	sudo apt-get update -y
-	sudo apt-get install -y nodejs
-else
-	echo "ERROR! Installation is not supported for current OS."
-	exit 2
-fi
+curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh -o /tmp/install_nvm.sh
+bash /tmp/install_nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-echo "===> Nodejs is installed successfully"
+nvm install 12.18.2
+nvm use 12.18.2
+
+node -v
+
+
+echo "[INFO] nodejs is installed successfully."
 

@@ -12,13 +12,14 @@ fi
 ../nodejs/install.sh
 
 echo "===> Installing neovim..."
-if test -x "$(command -v apt-get)"; then
-	sudo add-apt-repository -y ppa:neovim-ppa/stable
-	sudo apt-get update -y
-	sudo apt-get install -y neovim xclip # xclip is needed when using system paste
+if test -x "$(command -v apt)"; then
+	sudo apt install neovim
 else
 	echo "ERROR! Installation is not support for current OS"
 	exit 2
 fi
 
 echo "===> Neovim is installed successfully."
+
+echo "===> Installing neovim config"
+git clone git@github.com:webfrogs/nvim.git ${HOME}/.config/nvim

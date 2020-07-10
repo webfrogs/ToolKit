@@ -130,6 +130,11 @@ alias httpProxyStop="unset http_proxy && unset https_proxy"
 # fzf settings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# nvm settings
+export NVM_DIR="$HOME/.nvm"
+if test -d "${NVM_DIR}"; then
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+fi
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
