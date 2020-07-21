@@ -16,6 +16,7 @@ nvm use 12.18.2
 
 node -v
 
+npm install -g yarn
 
 echo "[INFO] nodejs is installed successfully."
 
