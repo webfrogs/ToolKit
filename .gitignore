@@ -3,5 +3,4 @@
 *.netrwhist
 
 configs/vim/_vim/plugged/
-installer/fonts/temp/
 installer/openresty/tmp/
