@@ -11,12 +11,18 @@ fi
 # check nodejs installation
 ../nodejs/install.sh
 
+
 echo "===> Installing neovim..."
 if test -x "$(command -v apt)"; then
 	sudo apt install neovim
 else
 	echo "ERROR! Installation script does not support current OS"
 	exit 2
+fi
+
+# install necessary python module
+if test -x "$(command -v python3)"; then
+  python3 -m pip install --user --upgrade pynvim
 fi
 
 echo "===> Neovim is installed successfully."
