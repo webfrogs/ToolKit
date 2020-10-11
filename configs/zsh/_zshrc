@@ -59,7 +59,7 @@ ZSH_THEME="bullet-train-oh-my-zsh-theme/bullet-train"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx xcode swiftpm docker kubectl)
+plugins=(git osx xcode swiftpm docker)
 
 # User configuration
 
