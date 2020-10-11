@@ -32,6 +32,18 @@ case "$(uname -s)" in
 			sudo yum install -y \
 				git vim zsh
 		elif test -x "$(command -v pacman)"; then
+			sudo pacman -Syy
+			sudo pacman-mirrors -i -c China -m rank
+			if grep -Fxq "[archlinuxcn]" /etc/pacman.conf; then
+				echo "[INFO] archlinux cn already exists in file '/etc/pacman.conf'"
+			else
+				echo "[archlinuxcn]" | sudo tee /etc/pacman.conf
+				echo "SigLevel = Optional TrustedOnly" | sudo tee /etc/pacman.conf
+				echo 'Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn//$arch' | sudo tee /etc/pacman.conf
+				sudo pacman -Syy
+				sudo pacman -S archlinuxcn-keyring
+			fi
+
 			sudo pacman -Syy git vim zsh
 		else
 			echo "[Error] No package management tools found."
