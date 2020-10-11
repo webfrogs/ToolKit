@@ -63,6 +63,8 @@ case "$(uname -s)" in
                 sudo yum makecache fast
             fi
             sudo yum install -y docker-ce docker-ce-cli containerd.io
+        elif test -x "$(command -v pacman)"; then
+	    sudo pacman -Syy docker
         else
             echo "[Error] Can not find support package management."
             exit 1

@@ -31,6 +31,8 @@ case "$(uname -s)" in
 			sudo yum update
 			sudo yum install -y \
 				git vim zsh
+		elif test -x "$(command -v pacman)"; then
+			sudo pacman -Syy git vim zsh
 		else
 			echo "[Error] No package management tools found."
 			exit 2
