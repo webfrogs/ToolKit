@@ -3,6 +3,7 @@ set -e
 
 cd $(dirname $0)
 cd ..
+RootPath=$(pwd)
 
 if test "$(uname -s)" != "Linux"; then
   echo "[ERROR] Current OS is not Linux"
@@ -25,7 +26,13 @@ else
 	sudo pacman -Syy
 	sudo pacman -S archlinuxcn-keyring
 fi
-sudo pacman -Syy git vim zsh unzip terminator
+sudo pacman -Syy git vim zsh unzip terminator base-devel
+
+# install chinese input method
+sudo pacman -S fcitx-im
+sudo pacman -S fcitx-configtool
+sudo pacman -S fcitx-sunpinyin
+
 
 ./configs/git/git-configer.sh
 git submodule update --init --recursive
@@ -34,4 +41,16 @@ git submodule update --init --recursive
 ./installer/docker/install.sh
 ./installer/nodejs/install.sh
 ./installer/neovim/install.sh
+
+# install wechat
+cd /tmp
+git clone https://aur.archlinux.org/yay.git
+cd yay/
+makepkg -si
+cd ${RootPath}
+
+yay -S deepin-wine
+#yay -S deepin-wine-wechat
+
+
 
