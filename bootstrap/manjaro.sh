@@ -25,7 +25,7 @@ else
 	sudo pacman -Syy
 	sudo pacman -S archlinuxcn-keyring
 fi
-sudo pacman -Syy git vim zsh unzip
+sudo pacman -Syy git vim zsh unzip terminator
 
 ./configs/git/git-configer.sh
 git submodule update --init --recursive
