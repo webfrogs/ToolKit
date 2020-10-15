@@ -30,6 +30,8 @@ if test "${installNeed}" = "y"; then
 		sudo apt install -y dmenu
 		sudo apt-get install -y i3status
 		sudo apt-get install -y i3lock
+  elif test -x "$(command -v pacman)"; then
+    sudo pacman -Syy i3-wm i3lock i3status dmenu
 	else
 		echo "Can not install in current OS"
 		exit 1
