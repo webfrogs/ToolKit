@@ -37,9 +37,9 @@ case "$(uname -s)" in
 			if grep -Fxq "[archlinuxcn]" /etc/pacman.conf; then
 				echo "[INFO] archlinux cn already exists in file '/etc/pacman.conf'"
 			else
-				echo "[archlinuxcn]" | sudo tee /etc/pacman.conf
-				echo "SigLevel = Optional TrustedOnly" | sudo tee /etc/pacman.conf
-				echo 'Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn//$arch' | sudo tee /etc/pacman.conf
+				echo "[archlinuxcn]" | sudo tee -a /etc/pacman.conf
+				echo "SigLevel = Optional TrustedOnly" | sudo tee -a /etc/pacman.conf
+				echo 'Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn//$arch' | sudo tee -a /etc/pacman.conf
 				sudo pacman -Syy
 				sudo pacman -S archlinuxcn-keyring
 			fi
