@@ -5,22 +5,19 @@ ShellFolderPath=$( cd "$( dirname "$0" )" && pwd )
 cd "${ShellFolderPath}"
 ConfigFolderPath="${ShellFolderPath}/configs"
 
+if test "$(uname -s)" != "Linux"; then
+  echo "[ERROR] Current OS is not Linux"
+  exit 2
+fi
+
+if test ! -x "$(command -v pacman)"; then
+  echo "[ERROR] pacman command is not found."
+  exit 2
+fi
+
+exit 0
+
 case "$(uname -s)" in
-	Darwin)
-		if ! test -x "$(command -v git)"; then
-			echo "[Error] Git not exist."
-			echo "  Try 'xcode-select --install' to install Xcode Command Line Tools."
-			exit 1
-		fi
-		if ! test -x "$(command -v brew)"; then
-			/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-		fi
-
-		echo "[Info] Installing necessary software..."
-		brew install cmake wget cloc fzf go
-		$(brew --prefix)/opt/fzf/install --all
-
-		;;
 	Linux)
 		if test -x "$(command -v apt-get)"; then
 			sudo apt-get update

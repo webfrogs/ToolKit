@@ -8,13 +8,16 @@ if test -x "$(command -v nvim)"; then
 	exit
 fi
 
-# check nodejs installation
-../nodejs/install.sh
-
+if test -x "$(command -v node)"; then
+	echo "[ERROR] node is not found. Install it first"
+	exit 2
+fi
 
 echo "===> Installing neovim..."
 if test -x "$(command -v apt)"; then
 	sudo apt install neovim
+elif test -x "$(command -v pacman)"; then
+	sudo pacman -Syy neovim
 else
 	echo "ERROR! Installation script does not support current OS"
 	exit 2
@@ -28,4 +31,7 @@ fi
 echo "===> Neovim is installed successfully."
 
 echo "===> Installing neovim config"
+
 git clone git@github.com:webfrogs/nvim.git ${HOME}/.config/nvim
+
+
