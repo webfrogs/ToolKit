@@ -161,3 +161,6 @@ exec --no-startup-id blueman-applet
 #exec --no-startup-id nm-applet
 # Lock screen
 bindsym $mod+Control+q exec i3lock -i /opt/res/i3/lock.png
+
+# start fcitx
+exec_always fcitx

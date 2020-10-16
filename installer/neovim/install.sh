@@ -17,7 +17,7 @@ echo "===> Installing neovim..."
 if test -x "$(command -v apt)"; then
 	sudo apt install neovim
 elif test -x "$(command -v pacman)"; then
-	sudo pacman -Syy neovim
+	sudo pacman -Syy neovim xsel
 else
 	echo "ERROR! Installation script does not support current OS"
 	exit 2
