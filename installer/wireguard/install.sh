@@ -8,6 +8,8 @@ case "$(uname -s)" in
 			sudo add-apt-repository ppa:wireguard/wireguard
 			sudo apt-get update
 			sudo apt-get install wireguard-dkms wireguard-tools resolvconf -y
+    elif test -x "$(command -v pacman)"; then
+      sudo pacman -Syy wireguard-tools
 		else
 			echo "ERROR! unsupport package manager"
 			exit 2
