@@ -6,7 +6,7 @@ workDir=$(pwd)
 
 installNeed="y"
 if test -x "$(command -v i3)"; then
-	echo "[Info] i3 has been installed."
+	echo "[INFO] i3 has been installed."
 	read -p "Need reinstall? [y/n] " installNeed
 fi
 
@@ -38,9 +38,26 @@ if test "${installNeed}" = "y"; then
 	fi
 fi
 
+i3ConfigFiles=($(ls ${workDir}/config))
+
+echo ""
+echo "[INFO] install i3 config file"
+echo "i3 config file list:"
+index=0
+while test $index -lt ${#i3ConfigFiles[@]}; do
+  echo " $(expr $index + 1). ${i3ConfigFiles[index]}"
+  index=$(expr $index + 1)
+done
+read -p "Which one do you choose: " selectedIndex
+if test $selectedIndex -lt 1 -o $selectedIndex -gt ${#i3ConfigFiles[@]}; then
+  echo "[ERROR] input is invalid."
+  exit 2
+fi
+
 mkdir -p ${HOME}/.config/i3/
 if test -f "${HOME}/.config/i3/config"; then
 	rm -f "${HOME}/.config/i3/config"
 fi
-ln -sf ${workDir}/i3_config ${HOME}/.config/i3/config
+ln -sf ${workDir}/config/${i3ConfigFiles[$(expr $selectedIndex - 1)]} ${HOME}/.config/i3/config
+echo "[INFO] i3 config file '"${i3ConfigFiles[$(expr $selectedIndex - 1)]}"' is installed successfully."
 

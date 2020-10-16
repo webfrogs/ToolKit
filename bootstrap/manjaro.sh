@@ -26,7 +26,7 @@ else
 	sudo pacman -Syy
 	sudo pacman -S archlinuxcn-keyring
 fi
-sudo pacman -Syy git vim zsh unzip terminator base-devel blueman
+sudo pacman -Syy git vim zsh unzip terminator base-devel blueman network-manager-applet
 
 # install chinese input method
 sudo pacman -S fcitx-im
