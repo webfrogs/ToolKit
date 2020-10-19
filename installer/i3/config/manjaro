@@ -166,6 +166,7 @@ bindsym $mod+i exec firefox
 # start fcitx
 exec_always fcitx
 exec_always compton -b
+exec_always flameshot
 exec feh --randomize --bg-fill ~/Pictures/wallpapers
 
 # no window title

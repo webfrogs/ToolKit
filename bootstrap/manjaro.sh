@@ -32,6 +32,7 @@ sudo pacman -Syy git vim zsh unzip terminator base-devel blueman network-manager
 sudo pacman -S fcitx-im
 sudo pacman -S fcitx-configtool
 sudo pacman -S fcitx-sunpinyin
+sudo pacman -S flameshot
 
 
 ./configs/git/git-configer.sh
