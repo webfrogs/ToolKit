@@ -18,8 +18,14 @@ case "$(uname -s)" in
 			echo "[ERROR] yum is not supported yet."
 			exit 2
 		elif test -x "$(command -v pacman)"; then
-      sudo pacman -Syy fish
-      curl -L https://get.oh-my.fish | fish
+      if test ! -x "$(command -v fish)"; then
+        sudo pacman -Syy fish
+        curl -L https://get.oh-my.fish | fish
+        # install theme bobthefish
+        echo "omf install bobthefish" | fish
+        # install fisher plugin manager
+        curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+      fi
 		else
 			echo "[ERROR] No supported package management tools."
 			exit 2
@@ -31,8 +37,22 @@ case "$(uname -s)" in
 		;;
 esac
 
-# install theme bobthefish
-echo "omf install bobthefish" | fish
+fisher add reitzig/sdkman-for-fish@v1.4.0
+fisher add jorgebucaran/nvm.fish
+
+omfConfigFilePath="${HOME}/.config/omf/init.fish"
+if test -f "${omfConfigFilePath}"; then
+  rm -f ${omfConfigFilePath}
+fi
+ln -sf ${workDir}/config/omf_init.fish ${omfConfigFilePath}
+
+echo ""
+read -p "Set fish as default shell? [y/n]: " shouldSetDefault
+if [ ! "${shouldSetDefault}" == "y" ]; then
+    shouldSetDefault=""
+fi
+if test "${shouldSetDefault}" = "y"; then
+  chsh -s $(which fish)
+fi
 
 echo "[INFO] fish is installed successfully."
-echo "Use command 'chsh -s $(which fish)' to set fish as default shell."
