@@ -26,7 +26,10 @@ else
 	sudo pacman -Syy
 	sudo pacman -S archlinuxcn-keyring
 fi
-sudo pacman -Syy git vim zsh unzip terminator base-devel blueman network-manager-applet
+sudo pacman -Syy \
+  git vim zsh zip unzip \
+  terminator base-devel \
+  blueman network-manager-applet
 
 # install chinese input method
 sudo pacman -S fcitx-im
@@ -56,7 +59,7 @@ cd yay/
 makepkg -si
 cd ${RootPath}
 
-yay -S deepin-wine
+#yay -S deepin-wine
 #yay -S deepin-wine-wechat
 
 
