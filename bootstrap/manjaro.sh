@@ -27,7 +27,7 @@ else
 	sudo pacman -S archlinuxcn-keyring
 fi
 sudo pacman -Syy \
-  git vim zsh zip unzip \
+  git vim zip unzip \
   terminator base-devel \
   resolvconf \
   blueman network-manager-applet
@@ -46,9 +46,9 @@ EOF
 sudo pacman -S flameshot
 
 ./configs/git/git-configer.sh
-git submodule update --init --recursive
-./configs/zsh/zsh-configer.sh
 
+# install oh my fish
+./installer/fish/install.sh
 ./installer/docker/install.sh
 ./installer/nodejs/install.sh
 ./installer/neovim/install.sh
