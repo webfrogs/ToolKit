@@ -29,6 +29,7 @@ fi
 sudo pacman -Syy \
   git vim zsh zip unzip \
   terminator base-devel \
+  resolvconf \
   blueman network-manager-applet
 
 # install chinese input method
