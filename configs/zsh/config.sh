@@ -13,6 +13,27 @@ OhMyZshPath="$HOME/.config/oh-my-zsh"
 OhMyZshCustomPath="$OhMyZshPath/custom"
 mkdir -p $(dirname $OhMyZshPath)
 
+# install autojump
+if test ! -x "$(command -v autojump)"; then
+  case "$(uname -s)" in
+    Darwin)
+      brew install autojump
+      ;;
+    Linux)
+      if test -x "$(command -v pacman)"; then
+        sudo pacman -S autojump
+      else
+        echo "[ERROR] Unsupported package management"
+        exit 2
+      fi
+      ;;
+    *)
+      echo "[ERROR] Unsupported OS"
+      exit 2
+      ;;
+  esac
+fi
+
 # Install or update oh-my-zsh
 if [ ! -d "$OhMyZshPath" ]; then
 	echo "[INFO] Downloading oh-my-zsh..."
@@ -44,16 +65,6 @@ if test -d "$autosuggestionsPluginPath"; then
 else
   git clone https://github.com/zsh-users/zsh-autosuggestions $autosuggestionsPluginPath
 fi
-
-#ZshCustomThemeFolderPath=$OhMyZshPath/custom/themes
-#BulletTrainThemeFolderPath="${ZshCustomThemeFolderPath}/bullet-train-oh-my-zsh-theme"
-#if [[ -d "${BulletTrainThemeFolderPath}" ]]; then
-#	rm -rf "${BulletTrainThemeFolderPath}"
-#fi
-#if [[ -L "${BulletTrainThemeFolderPath}" ]]; then
-#	rm "${BulletTrainThemeFolderPath}"
-#fi
-#ln -s "${ShellFolderPath}/customThemes/bullet-train-oh-my-zsh-theme" "${BulletTrainThemeFolderPath}"
 
 if test $(basename $SHELL) != "zsh"; then
   echo ""

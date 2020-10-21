@@ -57,7 +57,7 @@ case "$(uname -s)" in
 
 		;;
 	*)
-		echo "[Error] Unsupported OS"
+		echo "[ERROR] Unsupported OS"
 		exit 2
 		;;
 esac
