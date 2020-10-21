@@ -16,7 +16,7 @@ BULLETTRAIN_PROMPT_ORDER=(
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="bullet-train-oh-my-zsh-theme/bullet-train"
-ZSH_THEME="agnoster"
+ZSH_THEME="bira"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
