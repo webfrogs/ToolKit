@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+export ZSH=~/.config/oh-my-zsh
 
 # bullet-train config
 #export BULLETTRAIN_TIME_BG=11
@@ -16,7 +16,7 @@ BULLETTRAIN_PROMPT_ORDER=(
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="bullet-train-oh-my-zsh-theme/bullet-train"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

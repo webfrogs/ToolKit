@@ -26,17 +26,14 @@ else
 	sudo pacman -Syy
 	sudo pacman -S archlinuxcn-keyring
 fi
-sudo pacman -Syy \
+sudo pacman -S \
   git vim zip unzip \
   terminator base-devel \
   resolvconf \
   blueman network-manager-applet
 
 # install chinese input method
-sudo pacman -S fcitx-im
-sudo pacman -S fcitx-configtool
-sudo pacman -S fcitx-sunpinyin
-
+sudo pacman -S fcitx-im fcitx-configtool fcitx-sunpinyin
 cat <<EOF > ~/.pam_environment
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
@@ -46,14 +43,13 @@ EOF
 sudo pacman -S flameshot
 
 ./configs/git/git-configer.sh
+./configs/zsh/config.sh
 
-# install oh my fish
-./installer/fish/install.sh
 ./installer/docker/install.sh
 ./installer/nodejs/install.sh
 ./installer/neovim/install.sh
 
-# install wechat
+# install yay
 cd /tmp
 git clone https://aur.archlinux.org/yay.git
 cd yay/

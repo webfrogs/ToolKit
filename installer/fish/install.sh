@@ -37,7 +37,6 @@ case "$(uname -s)" in
 		;;
 esac
 
-fisher add reitzig/sdkman-for-fish@v1.4.0
 fisher add jorgebucaran/nvm.fish
 
 omfConfigFilePath="${HOME}/.config/omf/init.fish"
