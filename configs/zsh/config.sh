@@ -22,6 +22,8 @@ if test ! -x "$(command -v autojump)"; then
     Linux)
       if test -x "$(command -v pacman)"; then
         sudo pacman -S autojump
+      elif test -x "$(command -v apt-get)"; then
+        sudo apt-get install -y autojump
       else
         echo "[ERROR] Unsupported package management"
         exit 2
