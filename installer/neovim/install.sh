@@ -31,7 +31,7 @@ fi
 echo "===> Neovim is installed successfully."
 
 echo "===> Installing neovim config"
-
+rm -rf ${HOME}/.config/nvim
 git clone git@github.com:webfrogs/nvim.git ${HOME}/.config/nvim
 
 
