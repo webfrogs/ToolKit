@@ -3,19 +3,19 @@ set -e
 
 cd $(dirname $0)
 
-if test -x "$(command -v nvim)"; then
-	echo "===> Neovim has been installed."
-	exit
-fi
+#if test -x "$(command -v nvim)"; then
+#	echo "===> Neovim has been installed."
+#	exit
+#fi
 
-if test -x "$(command -v node)"; then
+if test ! -x "$(command -v node)"; then
 	echo "[ERROR] node is not found. Install it first"
 	exit 2
 fi
 
 echo "===> Installing neovim..."
 if test -x "$(command -v apt)"; then
-	sudo apt install neovim
+	sudo apt install -y neovim python3-pip xsel
 elif test -x "$(command -v pacman)"; then
 	sudo pacman -Syy neovim xsel
 else
