@@ -27,6 +27,6 @@ fi
 
 
 ./configs/git/git-configer.sh
-./configs/zsh/configer.sh
+./configs/zsh/config.sh
 
 echo "[INFO] All finished."
