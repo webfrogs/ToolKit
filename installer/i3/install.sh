@@ -33,7 +33,7 @@ if test "${installNeed}" = "y"; then
   elif test -x "$(command -v pacman)"; then
     sudo pacman -Syy i3-wm i3lock i3status dmenu feh
     # for backgound image
-    sudo pacman -S feh variety compton
+    sudo pacman -S feh variety compton network-manager-applet
 	else
 		echo "Can not install in current OS"
 		exit 1
@@ -56,10 +56,25 @@ if test $selectedIndex -lt 1 -o $selectedIndex -gt ${#i3ConfigFiles[@]}; then
   exit 2
 fi
 
+selectedConfigFile=${i3ConfigFiles[$(expr $selectedIndex - 1)]}
+if test "${selectedConfigFile: -3}" == "_4k"; then
+  # if config file if for 4k display
+  echo "[INFO] setting for 4k display"
+  if test ! -e "$HOME/.Xresources"; then
+    touch "$HOME/.Xresources"
+  fi
+
+  if test "$(grep -c '^Xft.dpi:' $HOME/.Xresources)" == "0"; then
+    echo "Xft.dpi: 220" >> $HOME/.Xresources
+  else
+    sed -i 's/^Xft\.dpi:.*$/Xft.dpi: 220/g' $HOME/.Xresources
+  fi
+fi
+
 mkdir -p ${HOME}/.config/i3/
 if test -f "${HOME}/.config/i3/config"; then
 	rm -f "${HOME}/.config/i3/config"
 fi
-ln -sf ${workDir}/config/${i3ConfigFiles[$(expr $selectedIndex - 1)]} ${HOME}/.config/i3/config
-echo "[INFO] i3 config file '"${i3ConfigFiles[$(expr $selectedIndex - 1)]}"' is installed successfully."
+ln -sf ${workDir}/config/${selectedConfigFile} ${HOME}/.config/i3/config
+echo "[INFO] i3 config file '"${selectedConfigFile}"' is installed successfully."
 
