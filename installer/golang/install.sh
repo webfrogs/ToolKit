@@ -2,7 +2,7 @@
 set -e
 
 if test -x "$(command -v go)"; then
-	echo "[Info] Golang already exists."
+	echo "[INFO] Golang already exists."
 	exit
 fi
 
@@ -17,7 +17,7 @@ case "$(uname -s)" in
 			echo "Not support yet."
 			exit 2
 		else
-			echo "[Error] No package management tools found."
+			echo "[ERROR] No package management tools found."
 			exit 1
 		fi
 		;;
