@@ -47,7 +47,11 @@ sudo pacman -S flameshot
 
 ./installer/docker/install.sh
 ./installer/nodejs/install.sh
+source $HOME/.nvm/nvm.sh
 ./installer/neovim/install.sh
+
+# install nerd font
+./installer/fonts/victormono_nerd_font_installer.sh
 
 # install yay
 cd /tmp
@@ -56,8 +60,8 @@ cd yay/
 makepkg -si
 cd ${RootPath}
 
-#yay -S deepin-wine
-#yay -S deepin-wine-wechat
+yay -S deepin-wine
+yay -S deepin-wine-wechat
 
 
 
