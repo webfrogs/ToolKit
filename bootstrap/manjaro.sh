@@ -48,6 +48,7 @@ sudo pacman -S flameshot
 ./installer/docker/install.sh
 ./installer/nodejs/install.sh
 source $HOME/.nvm/nvm.sh
+./installer/nodejs/set_cn_mirror.sh
 ./installer/neovim/install.sh
 
 # install nerd font

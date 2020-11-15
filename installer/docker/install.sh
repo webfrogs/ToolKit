@@ -1,14 +1,16 @@
 #!/bin/bash
 set -e
 
+echo "[INFO] Installing docker..."
+
 if test -x "$(command -v docker)"; then
-    echo "[Info] docker is already been installed."
+    echo "[INFO] docker is already been installed."
     exit
 fi
 
 case "$(uname -s)" in
     Darwin)
-        echo "[Info] Please install Docker for mac manually."
+        echo "[INFO] Please install Docker for mac manually."
         exit
         ;;
     Linux)
@@ -66,7 +68,7 @@ case "$(uname -s)" in
         elif test -x "$(command -v pacman)"; then
 	    sudo pacman -Syy docker
         else
-            echo "[Error] Can not find support package management."
+            echo "[ERROR] Can not find support package management."
             exit 1
         fi
 
