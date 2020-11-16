@@ -62,7 +62,7 @@ case "$(uname -s)" in
 		;;
 esac
 
-./configs/git/git-configer.sh
+./configs/git/config.sh
 git submodule update --init --recursive
 ./configs/zsh/zsh-configer.sh
 

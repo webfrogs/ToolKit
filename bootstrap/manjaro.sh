@@ -43,9 +43,10 @@ EOF
 
 sudo pacman -S flameshot
 
-./configs/git/git-configer.sh
+./configs/git/config.sh
 ./configs/zsh/config.sh
 
+./installer/fzf/install.sh
 ./installer/docker/install.sh
 ./installer/nodejs/install.sh
 source $HOME/.nvm/nvm.sh
