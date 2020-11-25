@@ -27,7 +27,7 @@ else
 	sudo pacman -S archlinuxcn-keyring
 fi
 sudo pacman -S \
-  git vim zip unzip \
+  git vim zip unzip-iconv \
   terminator base-devel \
   resolvconf net-tools \
   dnsutils \
