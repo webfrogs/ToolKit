@@ -27,8 +27,9 @@ else
 	sudo pacman -S archlinuxcn-keyring
 fi
 sudo pacman -S \
+  base-devel \
   git vim zip unzip-iconv \
-  terminator base-devel \
+  terminator hexchat \
   resolvconf net-tools \
   dnsutils \
   blueman network-manager-applet
