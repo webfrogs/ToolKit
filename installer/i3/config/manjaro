@@ -156,7 +156,7 @@ bar {
 				position top
 }
 
-exec xrandr --dpi 220
+exec xrandr --dpi 160
 exec --no-startup-id blueman-applet
 #exec --no-startup-id nm-applet
 # Lock screen
