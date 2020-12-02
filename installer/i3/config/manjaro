@@ -168,6 +168,7 @@ exec_always fcitx
 exec_always compton -b
 exec_always flameshot
 exec feh --randomize --bg-fill ~/Pictures/wallpapers
+exec_always setxkbmap -option ctrl:nocaps
 
 # no window title
 new_window 1pixel
