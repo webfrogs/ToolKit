@@ -28,7 +28,7 @@ else
 fi
 sudo pacman -S \
   base-devel \
-  git vim zip unzip-iconv \
+  git vim zip unzip-iconv tree \
   terminator hexchat \
   resolvconf net-tools \
   dnsutils \
