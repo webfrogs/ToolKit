@@ -40,6 +40,8 @@ if test "${installNeed}" = "y"; then
 	fi
 fi
 
+${workDir}/gen_config.sh
+
 i3ConfigFiles=($(ls ${workDir}/config))
 
 echo ""
