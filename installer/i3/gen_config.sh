@@ -2,6 +2,7 @@
 set -e
 
 cd $(dirname $0)
+mkdir -p config
 
 # config for manjaro
 cp res/config config/manjaro
