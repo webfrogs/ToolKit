@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+cd $(dirname $0)
+ShellPath=$(pwd)
+
 if test -x "$(command -v node)"; then
 	echo "===> Nodejs has been installed."
 	exit
@@ -19,6 +22,11 @@ nvm use 12.18.2
 node -v
 
 npm install -g yarn
+
+read -p "set cn mirror? [y/n]: " chinaMirror
+if test "${chinaMirror}" == "y"; then
+  ${ShellPath}/set_cn_mirror.sh
+fi
 
 echo "[INFO] nodejs is installed successfully."
 echo "Run 'source $NVM_DIR/nvm.sh' to use node immediately"
