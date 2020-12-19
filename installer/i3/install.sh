@@ -67,9 +67,9 @@ if test "${selectedConfigFile: -3}" == "_4k"; then
   fi
 
   if test "$(grep -c '^Xft.dpi:' $HOME/.Xresources)" == "0"; then
-    echo "Xft.dpi: 220" >> $HOME/.Xresources
+    echo "Xft.dpi: 175" >> $HOME/.Xresources
   else
-    sed -i 's/^Xft\.dpi:.*$/Xft.dpi: 220/g' $HOME/.Xresources
+    sed -i 's/^Xft\.dpi:.*$/Xft.dpi: 175/g' $HOME/.Xresources
   fi
 fi
 
