@@ -40,6 +40,7 @@ if test "${installNeed}" = "y"; then
 	fi
 fi
 
+mkdir -p ${HOME}/Pictures/wallpapers
 ${workDir}/gen_config.sh
 
 i3ConfigFiles=($(ls ${workDir}/config))

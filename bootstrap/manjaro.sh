@@ -43,6 +43,7 @@ XMODIFIERS=@im=fcitx
 EOF
 
 sudo pacman -S flameshot
+mkdir -p ${HOME}/Pictures/screenshots
 
 ./configs/git/config.sh
 ./configs/zsh/config.sh
