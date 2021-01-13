@@ -42,7 +42,7 @@ QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 EOF
 
-sudo pacman -S flameshot
+sudo pacman -S flameshot dunst
 mkdir -p ${HOME}/Pictures/screenshots
 
 ./configs/git/config.sh
