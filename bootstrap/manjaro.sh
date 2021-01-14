@@ -44,6 +44,8 @@ EOF
 
 sudo pacman -S flameshot dunst
 mkdir -p ${HOME}/Pictures/screenshots
+./configs/dunst/config.sh
+
 
 ./configs/git/config.sh
 ./configs/zsh/config.sh
