@@ -143,3 +143,23 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="${HOME}/.sdkman"
 [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"
+
+
+sw_pr () {
+  BRANCH="$1"
+  if test -z "$BRANCH"; then
+    echo "[INFO] No branch found, using 'develop' as default"
+    BRANCH="develop"
+  fi
+
+  git pull --rebase servicewall $BRANCH
+  git push -f origin $BRANCH
+  GH_PR_URL="https://github.com/Servicewall/${PWD##*/}/compare/${BRANCH}...webfrogs:${BRANCH}"
+  if test -x "$(command -v xdg-open)"; then
+    xdg-open "$GH_PR_URL"
+  else
+    echo "[ERROR] Can not open url automatically, copy url below to open it in browser."
+    echo "$GH_PR_URL"
+  fi
+}
+
