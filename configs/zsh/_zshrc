@@ -163,3 +163,19 @@ sw_pr () {
   fi
 }
 
+sw_clone () {
+  SW_GIT_REPO="$1"
+  if test -z "$SW_GIT_REPO"; then
+    echo "[ERROR] No git repo."
+    return 2
+  fi
+  git clone $SW_GIT_REPO
+  projectName=$(basename $SW_GIT_REPO | awk -F. '{print $1}')
+  cd $projectName
+  git remote remove origin
+  git remote add servicewall $SW_GIT_REPO
+  git remote add origin $(echo $SW_GIT_REPO | sed 's/:Servicewall/:webfrogs/')
+  git fetch servicewall
+  cd ..
+}
+
