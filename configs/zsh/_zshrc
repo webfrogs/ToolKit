@@ -144,6 +144,11 @@ fi
 export SDKMAN_DIR="${HOME}/.sdkman"
 [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"
 
+if test "${VIMRUNTIME}" = "/usr/share/nvim/runtime"; then
+  # if zsh is opened in nvim terminal, unset VIMRUNTIME
+  # solve issue that error message occurs when open vim
+  export VIMRUNTIME=""
+fi
 
 sw_pr () {
   BRANCH="$1"
