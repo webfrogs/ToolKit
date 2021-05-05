@@ -31,9 +31,9 @@ if test "${installNeed}" = "y"; then
 		sudo apt-get install -y i3status
 		sudo apt-get install -y i3lock
   elif test -x "$(command -v pacman)"; then
-    sudo pacman -Syy i3-wm i3lock i3status dmenu feh
+    sudo pacman -Syy i3-wm i3lock i3status dmenu --noconfirm
     # for backgound image
-    sudo pacman -S feh variety compton network-manager-applet
+    sudo pacman -S feh variety compton network-manager-applet --noconfirm
 	else
 		echo "Can not install in current OS"
 		exit 1
