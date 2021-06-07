@@ -24,7 +24,7 @@ else
 	echo "SigLevel = Optional TrustedOnly" | sudo tee -a /etc/pacman.conf
 	echo 'Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn//$arch' | sudo tee -a /etc/pacman.conf
 	sudo pacman -Syy
-	sudo pacman -S archlinuxcn-keyring
+	sudo pacman -S archlinuxcn-keyring --noconfirm
 fi
 sudo pacman -S \
   base-devel \
@@ -35,14 +35,14 @@ sudo pacman -S \
   blueman network-manager-applet
 
 # install chinese input method
-sudo pacman -S fcitx-im fcitx-configtool fcitx-sunpinyin
+sudo pacman -S fcitx-im fcitx-configtool fcitx-sunpinyin --noconfirm
 cat <<EOF > ~/.pam_environment
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 EOF
 
-sudo pacman -S flameshot dunst
+sudo pacman -S flameshot dunst --noconfirm
 mkdir -p ${HOME}/Pictures/screenshots
 ./configs/dunst/config.sh
 
@@ -69,7 +69,7 @@ cd ${RootPath}
 
 #yay -S deepin-wine
 #yay -S deepin-wine-wechat
-yay -S google-chrome
+yay -S google-chrome --noconfirm
 
 
 
