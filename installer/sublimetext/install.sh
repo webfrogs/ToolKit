@@ -29,7 +29,7 @@ case "$(uname -s)" in
         echo "[sublime-text]" | sudo tee -a /etc/pacman.conf
         echo 'Server = https://download.sublimetext.com/arch/stable/x86_64' | sudo tee -a /etc/pacman.conf
       fi
-      sudo pacman -Syy sublime-text
+      sudo pacman -Syy sublime-text --noconfirm
 		else
 			echo "[ERROR] No supported package management tools."
 			exit 2

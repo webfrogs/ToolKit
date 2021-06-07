@@ -11,7 +11,7 @@ case "$(uname -s)" in
       sudo apt update
       sudo apt install -y ansible
     elif test -x "$(command -v pacman)"; then
-      sudo pacman -Syy ansible
+      sudo pacman -Syy ansible --noconfirm
 		else
 			echo "[ERROR] unsupport package manager"
 			exit 2

@@ -13,7 +13,7 @@ case "$(uname -s)" in
       sudo add-apt-repository ppa:obsproject/obs-studio
       sudo apt install obs-studio
 		elif test -x "$(command -v pacman)"; then
-      sudo pacman -S obs-studio
+      sudo pacman -S obs-studio --noconfirm
 		else
 			echo "[ERROR] No package management tools found."
 			exit 2
