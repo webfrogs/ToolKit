@@ -16,8 +16,8 @@ if test ! -x "$(command -v yay)"; then
   exit 2
 fi
 
-yay -S deepin-wine5
-yay -S deepin-wine-wechat
+yay -S deepin-wine5 --noconfirm
+yay -S deepin-wine-wechat --noconfirm
 
 sudo ln -sf /opt/apps/com.qq.weixin.deepin/files/run.sh /usr/local/bin/wechat
 # change wechat wine to deepin-wine

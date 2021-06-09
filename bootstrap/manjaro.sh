@@ -67,8 +67,6 @@ cd yay/
 makepkg -si
 cd ${RootPath}
 
-#yay -S deepin-wine
-#yay -S deepin-wine-wechat
 yay -S google-chrome --noconfirm
 
 
