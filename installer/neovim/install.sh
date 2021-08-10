@@ -15,9 +15,9 @@ fi
 
 echo "===> Installing neovim..."
 if test -x "$(command -v apt)"; then
-	sudo apt install -y neovim python3-pip xsel
+	sudo apt install -y neovim python3-pip xsel ripgrep
 elif test -x "$(command -v pacman)"; then
-	sudo pacman -Syy neovim xsel --noconfirm
+	sudo pacman -Syy neovim xsel ripgrep --noconfirm 
 else
 	echo "ERROR! Installation script does not support current OS"
 	exit 2
