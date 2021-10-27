@@ -5,8 +5,8 @@ cd $(dirname $0)
 ShellPath=$(pwd)
 
 if test -x "$(command -v node)"; then
-	echo "===> Nodejs has been installed."
-	exit
+  echo "===> Nodejs has been installed."
+  exit
 fi
 
 mkdir -p $HOME/.nvm

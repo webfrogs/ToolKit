@@ -95,7 +95,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -f $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-[[ -s /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
+
+# load autojump env
+[[ -s /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh  # for linux
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh # for macOS
 
 #---- My config
 export DEFAULT_USER=carl
@@ -117,8 +120,13 @@ export PATH="/usr/local/bin:$PATH:/opt/bochs/bin:$HOME/.local/bin:$GOPATH/bin"
 export THEOS=/opt/theos
 
 # Homebrew env setting
-if test -f "/home/linuxbrew/.linuxbrew/bin/brew"; then
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv) > /dev/null 2>&1
+if test -x "/home/linuxbrew/.linuxbrew/bin/brew"; then
+  # linux homebrew
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv) > /dev/null 2>&1
+fi
+if test -x "/opt/homebrew/bin/brew"; then
+  # macOS homebrew
+  eval "$(/opt/homebrew/bin/brew shellenv)" > /dev/null 2>&1
 fi
 
 # Proxy
