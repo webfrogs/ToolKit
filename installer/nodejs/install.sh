@@ -16,8 +16,8 @@ export NVM_DIR="$HOME/.nvm"
 bash /tmp/install_nvm.sh
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-nvm install 12.18.2
-nvm use 12.18.2
+nvm install 16.13.0
+nvm use 16.13.0
 
 node -v
 
