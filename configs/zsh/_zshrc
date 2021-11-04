@@ -165,9 +165,15 @@ sw_pr () {
     BRANCH="develop"
   fi
 
+  repo_name="$(git remote -v | grep ^servicewall | grep '(push)' | awk '{print $2}' | awk -F/ '{print $NF}' | sed 's/.git$//g')"
+  if test -z "$repo_name"; then
+    echo "[ERROR] can not get repository name."
+    return 2
+  fi
+
   git pull --rebase servicewall $BRANCH
   git push -f origin $BRANCH
-  GH_PR_URL="https://github.com/Servicewall/${PWD##*/}/compare/${BRANCH}...webfrogs:${BRANCH}"
+  GH_PR_URL="https://github.com/Servicewall/${repo_name}/compare/${BRANCH}...webfrogs:${BRANCH}"
   if test -x "$(command -v xdg-open)"; then
     xdg-open "$GH_PR_URL"
   elif test -x "$(command -v open)"; then
