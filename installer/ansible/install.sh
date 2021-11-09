@@ -3,6 +3,9 @@ set -e
 
 
 case "$(uname -s)" in
+	Darwin)
+		brew install ansible
+		;;
 	Linux)
 		if test -x "$(command -v apt-get)"; then
       sudo apt update
