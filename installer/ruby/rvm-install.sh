@@ -12,7 +12,8 @@ case "$(uname -s)" in
             brew install gnupg
         fi
         command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-        \curl -sSL https://get.rvm.io | bash -s stable --ruby
+        command curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -
+        curl -sSL https://get.rvm.io | bash -s stable --ruby
         ;;
     Linux)
         if ! test -x "$(command -v gpg2)"; then
