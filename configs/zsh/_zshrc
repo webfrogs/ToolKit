@@ -166,7 +166,7 @@ sw_pr () {
     BRANCH="develop"
   fi
 
-  repo_name="$(git remote -v | grep ^servicewall | grep '(push)' | awk '{print $2}' | awk -F/ '{print $NF}' | sed 's/.git$//g')"
+  repo_name="$(git remote -v | grep '^servicewall' | grep '(push)' | awk '{print $2}' | awk -F/ '{print $NF}' | sed 's/.git$//g')"
   if test -z "$repo_name"; then
     echo "[ERROR] can not get repository name."
     return 2
