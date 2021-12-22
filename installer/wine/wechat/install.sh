@@ -17,9 +17,16 @@ if test ! -x "$(command -v yay)"; then
 fi
 
 yay -S deepin-wine5 --noconfirm
-yay -S deepin-wine-wechat --noconfirm
 
+# install deepin wechat
+#yay -S deepin-wine-wechat --noconfirm
+cd /tmp
+git clone https://github.com/vufa/deepin-wine-wechat-arch.git
+cd deepin-wine-wechat-arch
+makepkg -si
+cd ..
+rm -rf deepin-wine-wechat-arch
+
+# add wechat to PATH
 sudo ln -sf /opt/apps/com.qq.weixin.deepin/files/run.sh /usr/local/bin/wechat
-# change wechat wine to deepin-wine
-/opt/apps/com.qq.weixin.deepin/files/run.sh -d
 
