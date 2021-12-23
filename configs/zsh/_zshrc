@@ -200,6 +200,6 @@ sw_clone () {
   git remote add servicewall $SW_GIT_REPO
   git remote add origin $(echo $SW_GIT_REPO | sed 's/:Servicewall/:webfrogs/')
   git fetch servicewall
-  cd ..
+  git submodule update --init --recursive
 }
 
