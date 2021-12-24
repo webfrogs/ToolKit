@@ -31,7 +31,7 @@ if test "${installNeed}" = "y"; then
 		sudo apt-get install -y i3status
 		sudo apt-get install -y i3lock
   elif test -x "$(command -v pacman)"; then
-    sudo pacman -Syy i3-wm i3lock i3status dmenu --noconfirm
+    sudo pacman -Syy i3-wm i3lock i3status dmenu i3status-rust --noconfirm
     # for backgound image
     sudo pacman -S feh variety compton network-manager-applet --noconfirm
 	else
@@ -79,5 +79,8 @@ if test -f "${HOME}/.config/i3/config"; then
 	rm -f "${HOME}/.config/i3/config"
 fi
 ln -sf ${workDir}/config/${selectedConfigFile} ${HOME}/.config/i3/config
+
+mkdir -p ${HOME}/.config/i3status-rust
+ln -sf ${workDir}/res/i3status-rust-config.toml ${HOME}/.config/i3status-rust/config.toml
 echo "[INFO] i3 config file '"${selectedConfigFile}"' is installed successfully."
 
