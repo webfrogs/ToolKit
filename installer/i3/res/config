@@ -140,7 +140,7 @@ bar {
   # status_command i3status
   status_command i3status-rs
   position top
-  font pango:VictorMono Nerd Font,VictorMono Nerd Font Mono,Iosevka Term SS08, DejaVu Sans Mono, FontAwesome 12
+  font pango:VictorMono Nerd Font,VictorMono Nerd Font Mono,Iosevka Term SS08, DejaVu Sans Mono, FontAwesome 8
   colors {
     separator #666666
     background #222222

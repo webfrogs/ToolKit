@@ -8,10 +8,6 @@ mkdir -p config
 cp res/config config/manjaro
 
 # config for manjaro_4k
-cp res/config config/manjaro_surface_go
-sed -i 's/^exec xrandr --dpi.*$/exec xrandr --dpi 200/g' config/manjaro_surface_go
-
-# config for manjaro_4k
 cp res/config config/manjaro_4k
 sed -i 's/^exec xrandr --dpi.*$/exec xrandr --dpi 220/g' config/manjaro_4k
 
