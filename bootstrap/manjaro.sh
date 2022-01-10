@@ -15,6 +15,20 @@ if test ! -x "$(command -v pacman)"; then
   exit 2
 fi
 
+# check proxys
+echo "==> checking proxy"
+read -p "Should use proxy? [y/n]" use_proxy
+if test "${use_proxy}" = "y"; then
+  echo "Default http proxy address is 127.0.0.1:1089"
+  read -p "Input http proxy addres, press enter to use default: " proxy_addr
+  export http_proxy="http://${proxy_addr}"
+  export https_proxy="http://${proxy_addr}"
+  echo "http proxy is set to http://'${proxy_addr}'"
+else
+  echo "No proxy is set."
+fi
+
+echo "==> start to bootstrap manjaro."
 sudo pacman -Syy
 sudo pacman-mirrors -i -c China -m rank
 if grep -Fxq "[archlinuxcn]" /etc/pacman.conf; then
@@ -31,7 +45,7 @@ sudo pacman -S \
   git vim zip unzip-iconv tree \
   terminator hexchat \
   resolvconf net-tools \
-  dnsutils \
+  dnsutils iputils \
   blueman network-manager-applet
 
 # install chinese input method
