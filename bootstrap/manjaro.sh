@@ -32,8 +32,10 @@ else
 fi
 
 echo "==> start to bootstrap manjaro."
-sudo pacman -Syy
-sudo pacman-mirrors -i -c China -m rank
+read -p "Config pacman cn mirror? [y/n]: " has_pacman_cn_mirror
+if test "${has_pacman_cn_mirror}" = "y"; then
+  ./installer/manjaro/pacman_cn_mirror.sh
+fi
 if grep -Fxq "[archlinuxcn]" /etc/pacman.conf; then
 	echo "[INFO] archlinux cn already exists in file '/etc/pacman.conf'"
 else
@@ -42,18 +44,21 @@ else
 	echo 'Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn//$arch' | sudo tee -a /etc/pacman.conf
 	sudo pacman -Syy
 	sudo pacman -S archlinuxcn-keyring --noconfirm
+
+  # fix archlinuxcn key can not import
+  # see https://www.archlinuxcn.org/gnupg-2-1-and-the-pacman-keyring/
+  sudo pacman -S --noconfirm haveged
+  sudo systemctl enable --now haveged
+  sudo rm -rf /etc/pacman.d/gnupg
+  sudo pacman-key --init
+  # sudo pacman-key --populate archlinux
+  # sudo pacman-key --populate archlinuxcn
+  sudo pacman-key --populate
 fi
 
-# fix archlinuxcn key can not import
-# see https://www.archlinuxcn.org/gnupg-2-1-and-the-pacman-keyring/
-sudo pacman -S --noconfirm haveged
-sudo systemctl enable --now haveged
-sudo rm -rf /etc/pacman.d/gnupg
-sudo pacman-key --init
-sudo pacman-key --populate archlinux
-sudo pacman-key --populate archlinuxcn
 
 # install necessary packages
+echo "==> install necessary packages."
 sudo pacman -S --noconfirm \
   base-devel \
   git vim zip tree \
