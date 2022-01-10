@@ -21,6 +21,9 @@ read -p "Should use proxy? [y/n]" use_proxy
 if test "${use_proxy}" = "y"; then
   echo "Default http proxy address is 127.0.0.1:1089"
   read -p "Input http proxy addres, press enter to use default: " proxy_addr
+  if test -z "${proxy_addr}"; then
+    proxy_addr="127.0.0.1:1089"
+  fi
   export http_proxy="http://${proxy_addr}"
   export https_proxy="http://${proxy_addr}"
   echo "http proxy is set to http://'${proxy_addr}'"
