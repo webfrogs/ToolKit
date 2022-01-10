@@ -17,7 +17,7 @@ fi
 
 # check proxys
 echo "==> checking proxy"
-read -p "Should use proxy? [y/n]" use_proxy
+read -p "Should use proxy? [y/n]: " use_proxy
 if test "${use_proxy}" = "y"; then
   echo "Default http proxy address is 127.0.0.1:1089"
   read -p "Input http proxy addres, press enter to use default: " proxy_addr
@@ -26,7 +26,7 @@ if test "${use_proxy}" = "y"; then
   fi
   export http_proxy="http://${proxy_addr}"
   export https_proxy="http://${proxy_addr}"
-  echo "http proxy is set to http://'${proxy_addr}'"
+  echo "http proxy is set to 'http://${proxy_addr}'"
 else
   echo "No proxy is set."
 fi
@@ -43,13 +43,15 @@ else
 	sudo pacman -Syy
 	sudo pacman -S archlinuxcn-keyring --noconfirm
 fi
-sudo pacman -S \
+sudo pacman -S --noconfirm \
   base-devel \
-  git vim zip unzip-iconv tree \
+  git vim zip tree \
   terminator hexchat \
   resolvconf net-tools \
   dnsutils iputils \
   blueman network-manager-applet
+
+# TODO: unzip-iconv is not installed
 
 # install chinese input method
 sudo pacman -S fcitx-im fcitx-configtool fcitx-sunpinyin --noconfirm
