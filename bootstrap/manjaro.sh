@@ -61,10 +61,10 @@ fi
 echo "==> install necessary packages."
 sudo pacman -S --noconfirm \
   base-devel \
-  git vim zip tree \
+  git vim zip tree unzip \
   terminator hexchat \
   resolvconf net-tools \
-  dnsutils iputils \
+  dnsutils iputils socat \
   blueman network-manager-applet
 
 # TODO: unzip-iconv is not installed
@@ -87,10 +87,10 @@ mkdir -p ${HOME}/Pictures/screenshots
 
 ./installer/fzf/install.sh
 ./installer/docker/install.sh
-./installer/nodejs/install.sh
-source $HOME/.nvm/nvm.sh
-./installer/nodejs/set_cn_mirror.sh
-./installer/neovim/install.sh
+# ./installer/nodejs/install.sh
+# source $HOME/.nvm/nvm.sh
+# ./installer/nodejs/set_cn_mirror.sh
+# ./installer/neovim/install.sh
 
 # install nerd font
 ./installer/fonts/victormono_nerd_font_installer.sh
@@ -99,7 +99,7 @@ source $HOME/.nvm/nvm.sh
 cd /tmp
 git clone https://aur.archlinux.org/yay.git
 cd yay/
-makepkg -si
+makepkg -si --noconfirm
 cd ${RootPath}
 
 yay -S google-chrome --noconfirm
