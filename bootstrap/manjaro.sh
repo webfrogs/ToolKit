@@ -43,6 +43,17 @@ else
 	sudo pacman -Syy
 	sudo pacman -S archlinuxcn-keyring --noconfirm
 fi
+
+# fix archlinuxcn key can not import
+# see https://www.archlinuxcn.org/gnupg-2-1-and-the-pacman-keyring/
+sudo pacman -S --noconfirm haveged
+sudo systemctl enable --now haveged
+sudo rm -rf /etc/pacman.d/gnupg
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
+sudo pacman-key --populate archlinuxcn
+
+# install necessary packages
 sudo pacman -S --noconfirm \
   base-devel \
   git vim zip tree \
