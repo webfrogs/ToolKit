@@ -14,7 +14,11 @@ if test "${#proxy_info[@]}" != "2"; then
   exit 2
 fi
 
-if test -e "${HOME}/.ssh/config" -a "$(grep -c '^Host github.com' ${HOME}/.ssh/config)" -ge 1; then
+if test ! -e "${HOME}/.ssh/config"; then
+  touch ${HOME}/.ssh/config
+fi
+
+if test "$(grep -c '^Host github.com' ${HOME}/.ssh/config)" -ge 1; then
   echo "==> github proxy is already set."
   exit
 fi
