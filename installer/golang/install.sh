@@ -12,7 +12,9 @@ case "$(uname -s)" in
 		;;
 	Linux)
 		if test -x "$(command -v apt-get)"; then
-			sudo apt install golang-1.14-go
+      sudo add-apt-repository ppa:longsleep/golang-backports
+      sudo apt update
+      sudo apt install -y golang-go
 		elif test -x "$(command -v yum)"; then
 			echo "Not support yet."
 			exit 2
