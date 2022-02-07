@@ -6,5 +6,5 @@ if test ! -x "$(command -v go)"; then
 	exit
 fi
 
-go get github.com/go-delve/delve/cmd/dlv
+go install github.com/go-delve/delve/cmd/dlv@latest
 
