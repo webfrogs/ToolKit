@@ -4,8 +4,8 @@ set -e
 cd $(dirname $0)
 
 if test -z "${HTTP_PROXY_ADDR}"; then
-  echo "==> no env 'HTTP_PROXY_ADDR' found, using '127.0.0.1:1089' as default"
-  HTTP_PROXY_ADDR="127.0.0.1:1089"
+  echo "==> no env 'HTTP_PROXY_ADDR' found, using '127.0.0.1:1090' as default"
+  HTTP_PROXY_ADDR="127.0.0.1:1090"
 fi
 
 IFS=":" read -ra proxy_info <<< "$HTTP_PROXY_ADDR"
