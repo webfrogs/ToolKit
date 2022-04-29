@@ -138,8 +138,8 @@ alias proxy_by_rule_stop="unset http_proxy && unset https_proxy"
 alias proxy_all_start="export http_proxy='http://127.0.0.1:1089' && export https_proxy='http://127.0.0.1:1089'"
 alias proxy_all_stop="unset http_proxy && unset https_proxy"
 
-alias proxy_set="export ALL_PROXY=socks5://127.0.0.1:1090 && export http_proxy='http://127.0.0.1:1090' && export https_proxy='http://127.0.0.1:1090'"
-alias proxy_unset="unset ALL_PROXY && unset http_proxy && unset https_proxy"
+alias proxy_set="export ALL_PROXY=socks5://127.0.0.1:1090 && export http_proxy='http://127.0.0.1:1090' && export https_proxy='http://127.0.0.1:1090' && export ftp_proxy='http://127.0.0.1:1090'"
+alias proxy_unset="unset ALL_PROXY && unset http_proxy && unset https_proxy && unset ftp_proxy"
 proxy_all () {
   case "$1" in
     on)
@@ -158,9 +158,9 @@ proxy_all () {
 show_proxy_cmd () {
   hostIp=$(ip -o route get to 114.114.114.114 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')
   echo "set proxy:"
-  echo "export ALL_PROXY=socks5://${hostIp}:1090 && export http_proxy='http://${hostIp}:1090' && export https_proxy='http://${hostIp}:1090'"
+  echo "export ALL_PROXY=socks5://${hostIp}:1090 && export http_proxy='http://${hostIp}:1090' && export https_proxy='http://${hostIp}:1090' && export ftp_proxy='http://${hostIp}:1090'"
   echo "unset proxy:"
-  echo "unset ALL_PROXY && unset http_proxy && unset https_proxy"
+  echo "unset ALL_PROXY && unset http_proxy && unset https_proxy && unset ftp_proxy"
 }
 
 # custom local setting
