@@ -155,6 +155,14 @@ proxy_all () {
   esac
 }
 
+show_proxy_cmd () {
+  hostIp=$(ip -o route get to 114.114.114.114 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')
+  echo "set proxy:"
+  echo "export ALL_PROXY=socks5://${hostIp}:1090 && export http_proxy='http://${hostIp}:1090' && export https_proxy='http://${hostIp}:1090'"
+  echo "unset proxy:"
+  echo "unset ALL_PROXY && unset http_proxy && unset https_proxy"
+}
+
 # custom local setting
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
