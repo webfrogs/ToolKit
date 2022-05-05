@@ -10,6 +10,6 @@ fi
 if [[ -L "$HOME/.gitconfig" ]]; then
 	rm "$HOME/.gitconfig"
 fi
-ln -s "${ShellFolderPath}/_gitconfig" "$HOME/.gitconfig"
+cp "${ShellFolderPath}/_gitconfig" "$HOME/.gitconfig"
 echo "[Info] Git configuration finish."
 
