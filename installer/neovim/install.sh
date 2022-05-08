@@ -11,11 +11,11 @@ fi
 echo "===> Installing neovim..."
 case "$(uname -s)" in
   Darwin)
-    brew install neovim
+    brew install neovim ripgrep fd
     ;;
   Linux)
     if test -x "$(command -v pacman)"; then
-      sudo pacman -Syy neovim xsel ripgrep --noconfirm
+      sudo pacman -Syy neovim xsel ripgrep fd --noconfirm
     elif test -x "$(command -v apt)"; then
       sudo apt install -y neovim python3-pip xsel ripgrep
     else
