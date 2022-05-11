@@ -131,12 +131,8 @@ if test -x "/opt/homebrew/bin/brew"; then
 fi
 
 # Proxy
-alias proxy_sock5_start="export ALL_PROXY=socks5://127.0.0.1:1086" 
-alias proxy_sock5_stop="unset ALL_PROXY"
-alias proxy_by_rule_start="export http_proxy='http://127.0.0.1:1087' && export https_proxy='http://127.0.0.1:1087'"
-alias proxy_by_rule_stop="unset http_proxy && unset https_proxy"
-alias proxy_all_start="export http_proxy='http://127.0.0.1:1089' && export https_proxy='http://127.0.0.1:1089'"
-alias proxy_all_stop="unset http_proxy && unset https_proxy"
+alias proxy_all_set="export http_proxy='http://127.0.0.1:1089' && export https_proxy='http://127.0.0.1:1089'"
+alias proxy_all_unset="unset http_proxy && unset https_proxy"
 
 alias proxy_set="export ALL_PROXY=socks5://127.0.0.1:1090 && export http_proxy='http://127.0.0.1:1090' && export https_proxy='http://127.0.0.1:1090' && export ftp_proxy='http://127.0.0.1:1090'"
 alias proxy_unset="unset ALL_PROXY && unset http_proxy && unset https_proxy && unset ftp_proxy"
