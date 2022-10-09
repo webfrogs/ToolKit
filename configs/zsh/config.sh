@@ -21,7 +21,7 @@ if test ! -x "$(command -v autojump)"; then
       ;;
     Linux)
       if test -x "$(command -v yay)"; then
-        yay -Ss autojump
+        yay -S autojump --noconfirm
       elif test -x "$(command -v apt-get)"; then
         sudo apt-get install -y autojump
       else
