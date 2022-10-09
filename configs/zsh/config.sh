@@ -20,8 +20,8 @@ if test ! -x "$(command -v autojump)"; then
       brew install autojump
       ;;
     Linux)
-      if test -x "$(command -v pacman)"; then
-        sudo pacman -S --noconfirm autojump
+      if test -x "$(command -v yay)"; then
+        yay -Ss autojump
       elif test -x "$(command -v apt-get)"; then
         sudo apt-get install -y autojump
       else

@@ -96,11 +96,7 @@ mkdir -p ${HOME}/Pictures/screenshots
 ./installer/fonts/victormono_nerd_font_installer.sh
 
 # install yay
-cd /tmp
-git clone https://aur.archlinux.org/yay.git
-cd yay/
-makepkg -si --noconfirm
-cd ${RootPath}
+./installer/manjaro/yay_install.sh
 
 yay -S google-chrome --noconfirm
 
