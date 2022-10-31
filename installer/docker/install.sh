@@ -27,7 +27,6 @@ case "$(uname -s)" in
                 curl \
                 gnupg2 \
                 software-properties-common
-            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
             ubuntuCodeName=$(lsb_release -cs)
             if test -f "/etc/lsb-release"; then
@@ -38,15 +37,15 @@ case "$(uname -s)" in
             fi
 
             if test "${chinaMirror}" = "y"; then
-                dockerCeRepoAddress="deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
-                    ${ubuntuCodeName} stable"
+              curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+              echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu ${ubuntuCodeName} stable" \
+                | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
             else
-                dockerCeRepoAddress="deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-                    ${ubuntuCodeName} stable"
-            fi
-
-            echo "${dockerCeRepoAddress}" \
+              curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+              dockerCeRepoAddress="deb [arch=amd64] https://download.docker.com/linux/ubuntu ${ubuntuCodeName} stable"
+              echo "${dockerCeRepoAddress}" \
                 | sudo tee /etc/apt/sources.list.d/docker-ce-${ubuntuCodeName}.list >/dev/null
+            fi
             
             sudo apt-get update
             sudo apt-get install -y docker-ce
