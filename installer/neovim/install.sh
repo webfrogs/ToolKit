@@ -4,7 +4,7 @@ set -e
 cd $(dirname $0)
 
 if test ! -x "$(command -v node)"; then
-	echo "[ERROR] node is not found. Install it first"
+	echo "[ERROR] node is not found, install it first. Try to run './installer/nodejs/install.sh'"
 	exit 2
 fi
 
@@ -34,10 +34,8 @@ if test -x "$(command -v python3)"; then
   python3 -m pip install --user --upgrade pynvim
 fi
 
-echo "===> Neovim is installed successfully."
-
 echo "===> Installing neovim config"
 rm -rf ${HOME}/.config/nvim
 git clone git@github.com:webfrogs/nvim.git ${HOME}/.config/nvim
 
-
+echo "===> Neovim is installed successfully."

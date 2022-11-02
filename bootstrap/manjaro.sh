@@ -16,26 +16,29 @@ if test ! -x "$(command -v pacman)"; then
 fi
 
 # check proxys
-echo "==> checking proxy"
-read -p "Should use proxy? [y/n]: " use_proxy
-if test "${use_proxy}" = "y"; then
-  echo "Default http proxy address is 127.0.0.1:1089"
-  read -p "Input http proxy addres, press enter to use default: " proxy_addr
-  if test -z "${proxy_addr}"; then
-    proxy_addr="127.0.0.1:1089"
-  fi
-  export http_proxy="http://${proxy_addr}"
-  export https_proxy="http://${proxy_addr}"
-  echo "http proxy is set to 'http://${proxy_addr}'"
-else
-  echo "No proxy is set."
-fi
+# echo "==> checking proxy"
+# read -p "Should use proxy? [y/n]: " use_proxy
+# if test "${use_proxy}" = "y"; then
+#   echo "Default http proxy address is 127.0.0.1:1089"
+#   read -p "Input http proxy addres, press enter to use default: " proxy_addr
+#   if test -z "${proxy_addr}"; then
+#     proxy_addr="127.0.0.1:1089"
+#   fi
+#   export http_proxy="http://${proxy_addr}"
+#   export https_proxy="http://${proxy_addr}"
+#   echo "http proxy is set to 'http://${proxy_addr}'"
+# else
+#   echo "No proxy is set."
+# fi
 
 echo "==> start to bootstrap manjaro."
-read -p "Config pacman cn mirror? [y/n]: " has_pacman_cn_mirror
-if test "${has_pacman_cn_mirror}" = "y"; then
+
+read -p "Want to use pacman cn mirror? [y/n]: " use_pacman_cn_mirror
+if test "${use_pacman_cn_mirror}" = "y"; then
   ./installer/manjaro/pacman_cn_mirror.sh
 fi
+
+echo "==> add archlinuxcn pacman source."
 if grep -Fxq "[archlinuxcn]" /etc/pacman.conf; then
 	echo "[INFO] archlinux cn already exists in file '/etc/pacman.conf'"
 else
@@ -55,7 +58,6 @@ else
   # sudo pacman-key --populate archlinuxcn
   sudo pacman-key --populate
 fi
-
 
 # install necessary packages
 echo "==> install necessary packages."
@@ -80,25 +82,7 @@ EOF
 sudo pacman -S flameshot dunst --noconfirm
 mkdir -p ${HOME}/Pictures/screenshots
 ./configs/dunst/config.sh
-
-
 ./configs/git/config.sh
-./configs/zsh/config.sh
-
 ./installer/fzf/install.sh
-./installer/docker/install.sh
-# ./installer/nodejs/install.sh
-# source $HOME/.nvm/nvm.sh
-# ./installer/nodejs/set_cn_mirror.sh
-# ./installer/neovim/install.sh
-
-# install nerd font
-./installer/fonts/victormono_nerd_font_installer.sh
-
-# install yay
-./installer/manjaro/yay_install.sh
-
-yay -S google-chrome --noconfirm
-
 
 
