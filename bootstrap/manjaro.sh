@@ -73,7 +73,9 @@ sudo pacman -S --noconfirm \
 
 # install chinese input method
 sudo pacman -S fcitx-im fcitx-configtool fcitx-sunpinyin --noconfirm
-cat <<EOF > ~/.pam_environment
+
+mkdir ~/.config/environment.d
+cat <<EOF > ~/.config/environment.d/fcitx.conf
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
