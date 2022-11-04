@@ -75,12 +75,12 @@ sudo pacman -S --noconfirm \
 sudo pacman -S fcitx-im fcitx-configtool fcitx-sunpinyin --noconfirm
 
 # fcitx setting env
-mkdir ~/.config/environment.d
-cat <<EOF > ~/.config/environment.d/fcitx.conf
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
-EOF
+# mkdir ~/.config/environment.d
+# cat <<EOF > ~/.config/environment.d/fcitx.conf
+# GTK_IM_MODULE=fcitx
+# QT_IM_MODULE=fcitx
+# XMODIFIERS=@im=fcitx
+# EOF
 
 # fix i3wm dmenu input issue
 if test ! -e "/etc/environment"; then
