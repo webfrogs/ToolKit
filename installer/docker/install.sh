@@ -64,9 +64,9 @@ case "$(uname -s)" in
                 sudo sed -i 's+download.docker.com+mirrors.tuna.tsinghua.edu.cn/docker-ce+' /etc/yum.repos.d/docker-ce.repo
                 sudo yum makecache fast
             fi
-            sudo yum install -y docker-ce docker-ce-cli containerd.io
+            sudo yum install -y docker-ce
         elif test -x "$(command -v pacman)"; then
-	    sudo pacman -Syy docker --noconfirm
+          sudo pacman -Syy docker --noconfirm
         else
             echo "[ERROR] Can not find support package management."
             exit 1
