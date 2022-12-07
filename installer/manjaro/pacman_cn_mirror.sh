@@ -7,5 +7,5 @@ if test ! -x "$(command -v pacman-mirrors)"; then
   exit
 fi
 
-sudo pacman -Syy
 sudo pacman-mirrors -i -c China -m rank
+sudo pacman -Syy
