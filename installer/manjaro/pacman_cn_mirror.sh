@@ -9,3 +9,4 @@ fi
 
 sudo pacman-mirrors -i -c China -m rank
 sudo pacman -Syy
+sudo pacman -Syu --noconfirm
