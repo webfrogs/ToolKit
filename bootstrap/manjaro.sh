@@ -62,7 +62,7 @@ fi
 echo "==> install necessary packages."
 sudo pacman -S --noconfirm \
   base-devel \
-  git vim zip tree unzip \
+  git vim zip tree unzip jq \
   terminator hexchat \
   resolvconf net-tools \
   dnsutils iputils socat \
@@ -72,14 +72,6 @@ sudo pacman -S --noconfirm \
 
 # install chinese input method
 sudo pacman -S fcitx-im fcitx-configtool fcitx-sunpinyin --noconfirm
-
-# fcitx setting env
-# mkdir ~/.config/environment.d
-# cat <<EOF > ~/.config/environment.d/fcitx.conf
-# GTK_IM_MODULE=fcitx
-# QT_IM_MODULE=fcitx
-# XMODIFIERS=@im=fcitx
-# EOF
 
 # fix i3wm dmenu input issue
 if test ! -e "/etc/environment"; then
