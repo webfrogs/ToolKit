@@ -4,6 +4,7 @@ set -e
 # yay -S microsoft-edge-stable
 
 cd /tmp
+rm -rf microsoft-edge-stable-bin
 git clone https://aur.archlinux.org/microsoft-edge-stable-bin.git
 cd microsoft-edge-stable-bin
 makepkg -si
