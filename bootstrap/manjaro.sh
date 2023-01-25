@@ -91,6 +91,6 @@ sudo pacman -S flameshot dunst --noconfirm
 mkdir -p ${HOME}/Pictures/screenshots
 ./configs/dunst/config.sh
 ./configs/git/config.sh
-./installer/fzf/install.sh
+#./installer/fzf/install.sh
 
 
