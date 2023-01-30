@@ -152,6 +152,9 @@ bar {
   }
 }
 
+gaps inner 4
+gaps outer 1
+
 exec xrandr --dpi 160
 exec --no-startup-id blueman-applet
 #exec --no-startup-id nm-applet
