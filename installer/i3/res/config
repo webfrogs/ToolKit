@@ -163,13 +163,12 @@ bindsym $mod+Control+q exec i3lock -i ~/Pictures/lock.png
 bindsym $mod+i exec microsoft-edge-stable
 bindsym $mod+Control+s exec flameshot gui
 
-# start fcitx
 exec_always fcitx
 exec_always dunst
-#exec_always compton -b
 exec_always flameshot
 exec feh --randomize --bg-fill ~/Pictures/wallpapers
 exec_always setxkbmap -option ctrl:nocaps
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # no window title
 new_window 1pixel
