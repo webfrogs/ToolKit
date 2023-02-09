@@ -1,0 +1,6 @@
+configuration {
+  show-icons:         true;
+  modi: "window,drun,ssh,run,filebrowser";
+}
+
+@theme "nord"

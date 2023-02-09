@@ -33,7 +33,7 @@ if test "${installNeed}" = "y"; then
   elif test -x "$(command -v pacman)"; then
     sudo pacman -Syy i3-wm i3lock i3status dmenu i3status-rust --noconfirm
     # for backgound image
-    sudo pacman -S feh variety network-manager-applet picom polybar --noconfirm
+    sudo pacman -S feh variety network-manager-applet picom polybar rofi --noconfirm
 	else
 		echo "Can not install in current OS"
 		exit 1
@@ -85,5 +85,9 @@ ln -sf ${workDir}/res/i3status-rust-config.toml ${HOME}/.config/i3status-rust/co
 
 mkdir -p ${HOME}/.config/picom
 ln -sf ${workDir}/picom/picom.conf ${HOME}/.config/picom/picom.conf
+
+mkdir -p ${HOME}/.config/rofi
+ln -sf ${workDir}/rofi/config.rasi ${HOME}/.config/rofi/config.rasi
+ln -sf ${workDir}/rofi/nord.rasi ${HOME}/.config/rofi/nord.rasi
 
 echo "[INFO] i3 config file '"${selectedConfigFile}"' is installed successfully."
