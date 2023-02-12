@@ -11,6 +11,10 @@ cp res/config config/manjaro
 cp res/config config/manjaro_4k
 sed -i 's/^exec xrandr --dpi.*$/exec xrandr --dpi 220/g' config/manjaro_4k
 
+# config for manjaro_2k
+cp res/config config/manjaro_2k
+sed -i 's/^exec xrandr --dpi.*$/exec xrandr --dpi 195/g' config/manjaro_2k
+
 # config for linux_mint
 cp res/config config/linux_mint
 
