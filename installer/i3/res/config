@@ -175,3 +175,5 @@ exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # no window title
 new_window 1pixel
+
+for_window [class="wemeetapp"] move container to workspace 3
