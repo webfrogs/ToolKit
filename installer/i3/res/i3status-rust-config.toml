@@ -1,21 +1,19 @@
+[theme]
 theme = "solarized-dark"
-icons = "awesome"
+[icons]
+icons = "awesome6"
 
 [[block]]
 block = "disk_space"
 path = "/"
-alias = "/"
 info_type = "available"
-unit = "GB"
 interval = 20
 warning = 20.0
 alert = 10.0
+alert_unit = "GB"
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "{mem_used_percents}"
-format_swap = "{swap_used_percents}"
 
 [[block]]
 block = "cpu"
@@ -32,4 +30,5 @@ block = "sound"
 [[block]]
 block = "time"
 interval = 5
-format = "%a %m/%d %T"
+format = " $icon $timestamp.datetime(f:'%Y-%m-%d %R', l:fr_BE) "
+
