@@ -16,10 +16,11 @@ if test ! -x "$(command -v yay)"; then
   exit 2
 fi
 
-yay -S deepin-wine5 deepin-wine-helper --noconfirm
+# yay -S deepin-wine-wechat --noconfirm
+
+yay -S deepin-wine6-stable deepin-wine-helper --noconfirm
 
 # install deepin wechat
-#yay -S deepin-wine-wechat --noconfirm
 cd /tmp
 rm -rf deepin-wine-wechat-arch
 git clone https://github.com/vufa/deepin-wine-wechat-arch.git

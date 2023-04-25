@@ -17,4 +17,4 @@ REGEDIT4
 "Arial Black"="msyh.ttf"
 EOF
 
-env WINEPREFIX="$HOME/.deepinwine/Deepin-WeChat" deepin-wine5 regedit /tmp/msyh_config.reg
+env WINEPREFIX="$HOME/.deepinwine/Deepin-WeChat" deepin-wine6-stable regedit /tmp/msyh_config.reg
