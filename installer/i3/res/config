@@ -161,7 +161,7 @@ exec --no-startup-id blueman-applet
 #exec --no-startup-id nm-applet
 # Lock screen
 bindsym $mod+Control+q exec i3lock -i ~/Pictures/lock.png
-bindsym $mod+i exec microsoft-edge-stable
+bindsym $mod+i exec firefox
 bindsym $mod+Control+s exec flameshot gui
 # switching window with win+tab
 bindsym $mod+Tab exec --no-startup-id rofi -show window
