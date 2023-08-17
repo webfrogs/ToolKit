@@ -10,5 +10,6 @@ go install golang.org/x/tools/gopls@latest
 go install golang.org/x/tools/cmd/goimports@latest
 go install github.com/cweill/gotests/gotests@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
+go install mvdan.cc/gofumpt@latest
 # go install golang.org/x/lint/golint
 
