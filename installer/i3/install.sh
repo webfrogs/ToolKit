@@ -78,7 +78,7 @@ mkdir -p ${HOME}/.config/i3/
 if test -f "${HOME}/.config/i3/config"; then
 	rm -f "${HOME}/.config/i3/config"
 fi
-ln -sf ${workDir}/config/${selectedConfigFile} ${HOME}/.config/i3/config
+cp ${workDir}/config/${selectedConfigFile} ${HOME}/.config/i3/config
 
 mkdir -p ${HOME}/.config/i3status-rust
 ln -sf ${workDir}/res/i3status-rust-config.toml ${HOME}/.config/i3status-rust/config.toml
