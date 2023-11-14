@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-yay -S google-chrome
+yay -S google-chrome --noconfirm

@@ -1,5 +1,5 @@
 #!/bin/sh
 set -e
 
-yay -S linuxqq
+yay -S linuxqq --noconfirm
 

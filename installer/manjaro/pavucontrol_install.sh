@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-sudo pacman -S pavucontrol
+sudo pacman -S pavucontrol --noconfirm

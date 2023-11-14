@@ -7,4 +7,4 @@ set -e
 # cd visual-studio-code-bin/
 # makepkg -si
 #
-yay -S visual-studio-code-bin
+yay -S visual-studio-code-bin --noconfirm
