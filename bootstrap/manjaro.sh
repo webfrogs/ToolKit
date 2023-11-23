@@ -66,7 +66,8 @@ sudo pacman -S --noconfirm \
   terminator hexchat \
   resolvconf net-tools \
   dnsutils iputils socat \
-  blueman network-manager-applet
+  blueman bluez-utils \
+  network-manager-applet
 
 # TODO: unzip-iconv is not installed
 
