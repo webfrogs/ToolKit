@@ -4,5 +4,6 @@ set -e
 sudo pacman -Syy
 
 linux_kernel=$(mhwd-kernel -li | grep '*' | awk '{print $2}')
-sudo pacman -S virtualbox ${linux_kernel}-virtualbox-host-modules
+sudo pacman -S virtualbox ${linux_kernel}-virtualbox-host-modules virtualbox-guest-utils
 sudo vboxreload
+sudo pamac install virtualbox-guest-iso
