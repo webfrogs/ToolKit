@@ -15,7 +15,8 @@ case "$(uname -s)" in
     ;;
   Linux)
     if test -x "$(command -v pacman)"; then
-      sudo pacman -Syy neovim xsel ripgrep fd --noconfirm
+      sudo pacman -Syy
+      sudo pacman -S neovim xsel ripgrep fd python-pip python-pynvim --noconfirm
     elif test -x "$(command -v apt)"; then
       sudo apt install -y neovim python3-pip xsel ripgrep
     else
@@ -30,7 +31,7 @@ case "$(uname -s)" in
 esac
 
 # install necessary python module
-if test -x "$(command -v python3)"; then
+if test -x "$(command -v python3)" -a ! -x "$(command -v pacman)"; then
   python3 -m pip install --user --upgrade pynvim
 fi
 
