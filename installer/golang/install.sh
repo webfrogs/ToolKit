@@ -11,7 +11,10 @@ case "$(uname -s)" in
 		brew install go
 		;;
 	Linux)
-		if test -x "$(command -v apt-get)"; then
+		if test -x "$(command -v pacman)"; then
+      sudo pacman -Syy
+      sudo pacman -S go --noconfirm
+		elif test -x "$(command -v apt-get)"; then
       sudo add-apt-repository ppa:longsleep/golang-backports
       sudo apt update
       sudo apt install -y golang-go
