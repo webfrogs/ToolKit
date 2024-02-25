@@ -33,7 +33,7 @@ if test "${installNeed}" = "y"; then
   elif test -x "$(command -v pacman)"; then
     sudo pacman -Syy i3-wm i3lock i3status dmenu i3status-rust --noconfirm
     # for backgound image
-    sudo pacman -S feh variety network-manager-applet picom polybar rofi --noconfirm
+    sudo pacman -S feh variety network-manager-applet picom polybar rofi xorg-xrandr --noconfirm
 	else
 		echo "Can not install in current OS"
 		exit 1
