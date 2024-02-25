@@ -58,7 +58,7 @@ echo "==> install necessary packages."
 sudo pacman -S --noconfirm \
   base-devel \
   git vim zip tree unzip jq \
-  terminator hexchat \
+  terminator hexchat zsh \
   resolvconf net-tools \
   dnsutils iputils socat \
   blueman bluez-utils \
