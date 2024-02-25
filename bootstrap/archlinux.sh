@@ -57,6 +57,7 @@ fi
 echo "==> install necessary packages."
 sudo pacman -S --noconfirm \
   base-devel \
+  curl wget openssh \
   git vim zip tree unzip jq \
   terminator hexchat zsh \
   resolvconf net-tools \
