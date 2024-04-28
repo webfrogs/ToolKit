@@ -96,10 +96,6 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# load autojump env
-[[ -s /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh  # for linux
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh # for macOS
-
 #---- My config
 export DEFAULT_USER=carl
 export LC_ALL=en_US.UTF-8
