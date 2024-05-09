@@ -111,6 +111,9 @@ export GOPATH=$HOME/go
 # Python settings
 [ -x "$(command -v python3)" ] && export PATH="$PATH:$(python3 -m site --user-base)/bin"
 
+# Rust settings
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
+
 # Dev setting
 export BXSHARE="/opt/bochs/share/bochs"
 export PATH="/usr/local/bin:$PATH:/opt/bochs/bin:$HOME/.local/bin:$GOPATH/bin:/var/lib/snapd/snap/bin"
