@@ -67,7 +67,7 @@ sudo pacman -S --noconfirm \
   resolvconf net-tools \
   dnsutils iputils socat \
   blueman bluez-utils \
-  network-manager-applet
+  network-manager-applet xorg-xrandr
 
 # TODO: unzip-iconv is not installed
 
