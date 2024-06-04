@@ -8,6 +8,8 @@ if test ! -x "$(command -v node)"; then
 	exit 2
 fi
 
+npm install -g neovim
+
 echo "===> Installing neovim..."
 case "$(uname -s)" in
   Darwin)
