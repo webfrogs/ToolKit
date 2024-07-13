@@ -172,6 +172,8 @@ exec_always flameshot
 exec feh --randomize --bg-fill ~/Pictures/wallpapers
 exec_always setxkbmap -option ctrl:nocaps
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+# fix dophin file associations not work
+exec export XDG_MENU_PREFIX=plasma- && kbuildsycoca6
 
 # no window title
 new_window 1pixel
