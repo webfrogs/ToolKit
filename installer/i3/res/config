@@ -179,3 +179,4 @@ exec export XDG_MENU_PREFIX=plasma- && kbuildsycoca6
 new_window 1pixel
 
 for_window [class="wemeetapp"] move container to workspace 3
+for_window [title="飞书会议"] move container to workspace 3
