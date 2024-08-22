@@ -7,7 +7,7 @@
  */
 
 configuration {
-  font: "VictorMono Nerd Font Mono Medium 17";
+  font: "IosevkaTerm Nerd Font Mono 17";
 
   drun {
     display-name: "";
