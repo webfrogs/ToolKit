@@ -58,7 +58,7 @@ downloadFile() {
     url="$1"
     destination="$2"
 
-    echo "Fetching $url.."
+    echo "Fetching $url"
     if test -x "$(command -v curl)"; then
         code=$(curl -s -w '%{http_code}' -L "$url" -o "$destination")
     elif test -x "$(command -v wget)"; then
