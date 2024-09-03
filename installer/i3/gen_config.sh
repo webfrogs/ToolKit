@@ -3,18 +3,14 @@ set -e
 
 cd $(dirname $0)
 mkdir -p config
+rm config/*
 
-# config for manjaro
-cp res/config config/manjaro
+cp res/config config/1080p
 
-# config for manjaro_4k
-cp res/config config/manjaro_4k
-sed -i 's/^exec xrandr --dpi.*$/exec xrandr --dpi 220/g' config/manjaro_4k
+cp res/config config/2k
+sed -i 's/^exec xrandr --dpi.*$/exec xrandr --dpi 195/g' config/2k
 
-# config for manjaro_2k
-cp res/config config/manjaro_2k
-sed -i 's/^exec xrandr --dpi.*$/exec xrandr --dpi 195/g' config/manjaro_2k
+cp res/config config/4k
+sed -i 's/^exec xrandr --dpi.*$/exec xrandr --dpi 220/g' config/4k
 
-# config for linux_mint
-cp res/config config/linux_mint
 

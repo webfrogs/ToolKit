@@ -91,3 +91,10 @@ ln -sf ${workDir}/rofi/config.rasi ${HOME}/.config/rofi/config.rasi
 ln -sf ${workDir}/rofi/nord.rasi ${HOME}/.config/rofi/nord.rasi
 
 echo "[INFO] i3 config file '"${selectedConfigFile}"' is installed successfully."
+
+# fix dolphin open file issue
+if test ! -f "/etc/xdg/menus/applications.menu"; then
+  if test -f "/etc/xdg/menus/plasma-applications.menu"; then
+    sudo ln -s /etc/xdg/menus/plasma-applications.menu /etc/xdg/menus/applications.menu
+  fi
+fi
