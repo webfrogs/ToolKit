@@ -56,7 +56,7 @@ fi
 # install necessary packages
 echo "==> install necessary packages."
 sudo pacman -S --noconfirm \
-  base-devel \
+  base-devel cmake \
   curl wget openssh \
   git vim zip tree unzip jq \
   terminator hexchat zsh \
