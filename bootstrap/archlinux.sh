@@ -63,6 +63,7 @@ sudo pacman -S --noconfirm \
   resolvconf net-tools \
   dnsutils iputils socat \
   blueman bluez-utils \
+  usbutils \
   network-manager-applet xorg-xrandr
 
 # install chinese input method
