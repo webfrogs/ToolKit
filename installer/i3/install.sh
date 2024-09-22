@@ -43,42 +43,11 @@ fi
 mkdir -p ${HOME}/Pictures/wallpapers
 ${workDir}/gen_config.sh
 
-i3ConfigFiles=($(ls ${workDir}/config))
-
 echo ""
 echo "[INFO] install i3 config file"
-echo "i3 config file list:"
-index=0
-while test $index -lt ${#i3ConfigFiles[@]}; do
-  echo " $(expr $index + 1). ${i3ConfigFiles[index]}"
-  index=$(expr $index + 1)
-done
-read -p "Which one do you choose: " selectedIndex
-if test $selectedIndex -lt 1 -o $selectedIndex -gt ${#i3ConfigFiles[@]}; then
-  echo "[ERROR] input is invalid."
-  exit 2
-fi
-
-selectedConfigFile=${i3ConfigFiles[$(expr $selectedIndex - 1)]}
-if test "${selectedConfigFile: -3}" == "_4k"; then
-  # if config file if for 4k display
-  echo "[INFO] setting for 4k display"
-  if test ! -e "$HOME/.Xresources"; then
-    touch "$HOME/.Xresources"
-  fi
-
-  if test "$(grep -c '^Xft.dpi:' $HOME/.Xresources)" == "0"; then
-    echo "Xft.dpi: 175" >> $HOME/.Xresources
-  else
-    sed -i 's/^Xft\.dpi:.*$/Xft.dpi: 175/g' $HOME/.Xresources
-  fi
-fi
-
 mkdir -p ${HOME}/.config/i3/
-if test -f "${HOME}/.config/i3/config"; then
-	rm -f "${HOME}/.config/i3/config"
-fi
-cp ${workDir}/config/${selectedConfigFile} ${HOME}/.config/i3/config
+rm -f "${HOME}/.config/i3/config"
+cp ${workDir}/res/config ${HOME}/.config/i3/config
 
 mkdir -p ${HOME}/.config/i3status-rust
 ln -sf ${workDir}/res/i3status-rust-config.toml ${HOME}/.config/i3status-rust/config.toml
@@ -90,7 +59,7 @@ mkdir -p ${HOME}/.config/rofi
 ln -sf ${workDir}/rofi/config.rasi ${HOME}/.config/rofi/config.rasi
 ln -sf ${workDir}/rofi/nord.rasi ${HOME}/.config/rofi/nord.rasi
 
-echo "[INFO] i3 config file '"${selectedConfigFile}"' is installed successfully."
+echo "[INFO] i3 config file is installed successfully."
 
 # fix dolphin open file issue
 if test ! -f "/etc/xdg/menus/applications.menu"; then
@@ -98,3 +67,33 @@ if test ! -f "/etc/xdg/menus/applications.menu"; then
     sudo ln -s /etc/xdg/menus/plasma-applications.menu /etc/xdg/menus/applications.menu
   fi
 fi
+
+echo ""
+echo "[INFO] HiDPI support."
+if test ! -e "$HOME/.Xresources"; then
+  touch "$HOME/.Xresources"
+fi
+sed -i '/^Xft\.dpi:/d' $HOME/.Xresources
+
+newDPI=""
+echo "choose screen resolution:"
+echo "  1. 2k"
+echo "  2. 4k"
+read -p "Which one do you choose: " hidpiIndex
+case "${hidpiIndex}" in
+  1)
+    # 2k
+    newDPI="150"
+    ;;
+  2)
+    # 4k
+    newDPI="175"
+    ;;
+	*)
+    echo "Skip HiDPI configuration."
+    ;;
+esac
+if test -n "${newDPI}"; then
+  echo "Xft.dpi: ${newDPI}" | tee -a $HOME/.Xresources
+fi
+
