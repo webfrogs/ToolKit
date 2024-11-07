@@ -3,7 +3,7 @@ set -e
 
 cd $(dirname $0)
 mkdir -p config
-rm config/*
+rm -rf config/*
 
 cp res/config config/1080p
 
