@@ -35,7 +35,7 @@ echo "==> start to bootstrap manjaro."
 
 read -p "Want to use pacman cn mirror? [y/n]: " use_pacman_cn_mirror
 if test "${use_pacman_cn_mirror}" = "y"; then
-  ./installer/manjaro/pacman_cn_mirror.sh
+  ./installer/arch/pacman_cn_mirror.sh
 fi
 
 echo "==> add archlinuxcn pacman source."
