@@ -6,9 +6,10 @@ if [ ! `whoami` == "root" ]; then
     exit 1
 fi
 
+mkdir -p /etc/systemd/system/docker.service.d/
 cat << EOF > /etc/systemd/system/docker.service.d/override.conf
 [Service]
-Environment="HTTP_PROXY=http://127.0.0.1:1089/" "HTTPS_PROXY=http://127.0.0.1:1089/" "NO_PROXY=localhost,127.0.0.1,docker-registry.somecorporation.com,docker.servicewall.cn"
+Environment="HTTP_PROXY=http://127.0.0.1:1090/" "HTTPS_PROXY=http://127.0.0.1:1090/" "NO_PROXY=localhost,127.0.0.1,docker.servicewall.cn"
 EOF
 
 systemctl daemon-reload
