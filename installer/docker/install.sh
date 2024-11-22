@@ -66,7 +66,7 @@ case "$(uname -s)" in
             fi
             sudo yum install -y docker-ce
         elif test -x "$(command -v pacman)"; then
-          sudo pacman -Syy docker docker-buildx --noconfirm
+          sudo pacman -Syy docker docker-buildx docker-compose --noconfirm
         else
             echo "[ERROR] Can not find support package management."
             exit 1
