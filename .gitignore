@@ -2,5 +2,3 @@
 *.swp
 *.netrwhist
 
-configs/vim/_vim/plugged/
-installer/openresty/tmp/
