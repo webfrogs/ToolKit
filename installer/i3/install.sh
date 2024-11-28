@@ -76,7 +76,7 @@ fi
 sed -i '/^Xft\.dpi:/d' $HOME/.Xresources
 
 newDPI=""
-echo "choose screen resolution:"
+echo "choose HiDPI screen resolution(default 1080p):"
 echo "  1. 2k"
 echo "  2. 4k"
 read -p "Which one do you choose: " hidpiIndex

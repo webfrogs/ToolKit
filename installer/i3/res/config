@@ -156,10 +156,7 @@ bar {
 gaps inner 4
 gaps outer 1
 
-# use '~/.Xresources' instead
-#exec xrandr --dpi 160
-
-#exec --no-startup-id blueman-applet
+exec --no-startup-id blueman-applet
 #exec --no-startup-id nm-applet
 # Lock screen
 bindsym $mod+Control+q exec i3lock -i ~/Pictures/lock.png
