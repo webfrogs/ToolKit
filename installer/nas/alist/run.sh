@@ -4,7 +4,7 @@ set -o pipefail
 cd $(dirname $0)
 
 mkdir -p data/alist
-mkdir -p data/local
+mkdir -p data/local/photos
 uid=$(id -u)
 gid=$(id -g)
 
@@ -85,7 +85,7 @@ services:
   nginx:
     image: 'alist/nginx:latest'
     build: ./data/nginx
-    container_name: alist_nginx
+    container_name: nginx_alist
     restart: always
     ports:
       - 5245:443
