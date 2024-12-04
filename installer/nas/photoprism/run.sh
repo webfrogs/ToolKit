@@ -5,6 +5,7 @@ cd $(dirname $0)
 
 mkdir -p data/db
 mkdir -p data/storage
+mkdir -p data/originals
 
 tee compose.yaml >/dev/null <<EOF
 services:
@@ -84,9 +85,9 @@ services:
     working_dir: "/photoprism" # do not change or remove
     volumes:
       # "/host/folder:/photoprism/folder"                # Example
-      - "../alist/data/local/photos:/photoprism/originals"               # Original media files (DO NOT REMOVE)
+      - "./data/originals:/photoprism/originals"               # Original media files (DO NOT REMOVE)
       # - "/example/family:/photoprism/originals/family" # *Additional* media folders can be mounted like this
-      # - "~/Import:/photoprism/import"                  # *Optional* base folder from which files can be imported to originals
+      - "../alist/data/local/photos:/photoprism/import"                  # *Optional* base folder from which files can be imported to originals
       - "./data/storage:/photoprism/storage"             # *Writable* storage folder for cache, database, and sidecar files (DO NOT REMOVE)
 
   mariadb:
