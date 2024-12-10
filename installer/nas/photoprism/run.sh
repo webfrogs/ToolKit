@@ -12,8 +12,8 @@ services:
   photoprism:
     image: photoprism/photoprism:latest
     container_name: photoprism
-    # restart: unless-stopped
-    stop_grace_period: 10s
+    restart: always
+    stop_grace_period: 30s
     depends_on:
       - mariadb
     security_opt:
@@ -93,7 +93,7 @@ services:
   mariadb:
     image: mariadb:11
     container_name: mariadb_photoprism
-    restart: unless-stopped
+    restart: always
     stop_grace_period: 5s
     security_opt: # see https://github.com/MariaDB/mariadb-docker/issues/434#issuecomment-1136151239
       - seccomp:unconfined
