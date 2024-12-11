@@ -2,7 +2,7 @@
 set -e
 
 docker rm -f sftp || true
-docker run --pull -d \
+docker run -d --pull=always \
   --name=sftp \
   --restart=always \
   --log-opt max-size=10m \
