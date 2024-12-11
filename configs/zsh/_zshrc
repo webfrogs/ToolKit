@@ -135,20 +135,6 @@ alias proxy_all_unset="unset http_proxy && unset https_proxy && unset all_proxy 
 
 alias proxy_set="export ALL_PROXY=socks5://127.0.0.1:1090 && export http_proxy='http://127.0.0.1:1090' && export https_proxy='http://127.0.0.1:1090' && export ftp_proxy='http://127.0.0.1:1090'"
 alias proxy_unset="unset ALL_PROXY && unset http_proxy && unset https_proxy && unset ftp_proxy"
-proxy_all () {
-  case "$1" in
-    on)
-      docker exec my_clash /opt/clash/proxy_all.sh on
-      ;;
-    off)
-      docker exec my_clash /opt/clash/proxy_all.sh off
-      ;;
-    *)
-      echo "error! usage: proxy_all [on | off]"
-      return 2
-      ;;
-  esac
-}
 
 show_proxy_cmd () {
   hostIp=$(ip -o route get to 114.114.114.114 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')
