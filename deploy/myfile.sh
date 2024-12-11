@@ -7,5 +7,5 @@ docker run -d --pull=always \
   --restart=always \
   --log-opt max-size=10m \
   --log-opt max-file=1 \
-  -p 443:443 \
+  -p 6443:443 \
   nswebfrog/myfile:latest
