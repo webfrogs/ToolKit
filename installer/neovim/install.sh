@@ -18,7 +18,7 @@ case "$(uname -s)" in
   Linux)
     if test -x "$(command -v pacman)"; then
       sudo pacman -Syy
-      sudo pacman -S neovim xsel ripgrep fd python-pip python-pynvim cmake --noconfirm
+      sudo pacman -S neovim xsel ripgrep fd python-pip python-pynvim cmake luarocks --noconfirm
     elif test -x "$(command -v apt)"; then
       sudo apt install -y neovim python3-pip xsel ripgrep
     else
