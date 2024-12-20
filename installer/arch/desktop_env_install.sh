@@ -8,7 +8,7 @@ sudo pacman -Syy
 
 echo "==> install necessary packages."
 sudo pacman -S --noconfirm \
-  sddm dolphin firefox
+  sddm dolphin firefox thunderbird
 
 # install chinese input method
 sudo pacman -S --noconfirm fcitx-im fcitx-configtool fcitx-sunpinyin
