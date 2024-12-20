@@ -1,7 +1,8 @@
 [theme]
 theme = "solarized-dark"
 [icons]
-icons = "awesome6"
+# icons = "awesome6"
+icons = "material-nf"
 
 [[block]]
 block = "disk_space"
@@ -22,7 +23,7 @@ interval = 1
 [[block]]
 block = "load"
 interval = 1
-format = "{1m}"
+# format = "{1m}"
 
 [[block]]
 block = "sound"
