@@ -100,5 +100,6 @@ sudo pacman -S flameshot dunst --noconfirm
 ./configs/dunst/config.sh
 ./configs/git/config.sh
 ./installer/fzf/install.sh
+./installer/docker/install.sh
 ./configs/zsh/config.sh
 
