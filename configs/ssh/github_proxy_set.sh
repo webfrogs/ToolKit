@@ -15,6 +15,7 @@ if test "${#proxy_info[@]}" != "2"; then
 fi
 
 if test ! -e "${HOME}/.ssh/config"; then
+  mkdir -p ${HOME}/.ssh
   touch ${HOME}/.ssh/config
 fi
 
