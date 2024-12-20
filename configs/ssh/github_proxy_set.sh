@@ -27,6 +27,5 @@ fi
 echo "Host github.com" >> ${HOME}/.ssh/config
 echo "  HostName github.com" >> ${HOME}/.ssh/config
 echo "  User git" >> ${HOME}/.ssh/config
-echo "  # 走 HTTP 代理" >> ${HOME}/.ssh/config
 echo "  ProxyCommand socat - PROXY:${proxy_info[0]}:%h:%p,proxyport=${proxy_info[1]}" >> ${HOME}/.ssh/config
 

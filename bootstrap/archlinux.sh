@@ -55,6 +55,8 @@ fi
 
 # install necessary packages
 echo "==> install necessary packages."
+mkdir -p ${HOME}/Pictures/screenshots
+
 sudo pacman -S --noconfirm \
   base-devel cmake \
   curl wget openssh less \
@@ -85,7 +87,13 @@ fi
 
 # set ssh github proxy
 if test -n "${proxy_addr}"; then
+  ./configs/git/force_ssh_for_github.sh
   HTTP_PROXY_ADDR=${proxy_addr} ./configs/ssh/github_proxy_set.sh
+  if test ! -f "${HOME}/.ssh/known_hosts"; then
+    touch ${HOME}/.ssh/known_hosts
+  fi
+  sed -i '/^github.com/d' ${HOME}/.ssh/known_hosts
+  ssh-keyscan -t ed25519 github.com | grep -v '^#' >> ${HOME}/.ssh/known_hosts
 fi
 
 sudo pacman -S flameshot dunst --noconfirm
@@ -94,4 +102,3 @@ sudo pacman -S flameshot dunst --noconfirm
 ./installer/fzf/install.sh
 ./configs/zsh/config.sh
 
-mkdir -p ${HOME}/Pictures/screenshots
