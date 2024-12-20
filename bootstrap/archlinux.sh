@@ -64,7 +64,7 @@ sudo pacman -S --noconfirm \
   dnsutils iputils socat \
   blueman bluez-utils \
   usbutils lshw \
-  network-manager-applet xorg-xrandr
+  sddm network-manager-applet xorg-xrandr
 
 # install chinese input method
 sudo pacman -S fcitx-im fcitx-configtool fcitx-sunpinyin --noconfirm
@@ -83,9 +83,15 @@ if test "$(grep -c '^XMODIFIERS=@im=fcitx' /etc/environment)" = "0"; then
 	echo "XMODIFIERS=@im=fcitx" | sudo tee -a /etc/environment > /dev/null
 fi
 
+# set ssh github proxy
+if test -n "${proxy_addr}"; then
+  HTTP_PROXY_ADDR=${proxy_addr} ./configs/ssh/github_proxy_set.sh
+fi
+
 sudo pacman -S flameshot dunst --noconfirm
 ./configs/dunst/config.sh
 ./configs/git/config.sh
 ./installer/fzf/install.sh
+./configs/zsh/config.sh
 
 mkdir -p ${HOME}/Pictures/screenshots
