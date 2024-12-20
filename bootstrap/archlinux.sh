@@ -66,8 +66,10 @@ sudo pacman -S --noconfirm \
   dnsutils iputils socat \
   blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \
   usbutils lshw \
-  pulseaudio pulseaudio-alsa \
+  pipewire-pulse \
   network-manager-applet xorg-xrandr xorg-xrdb
+
+# pulseaudio-alsa
 
 sudo systemctl enable --now bluetooth
 
