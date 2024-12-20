@@ -66,26 +66,7 @@ sudo pacman -S --noconfirm \
   dnsutils iputils socat \
   blueman bluez-utils \
   usbutils lshw \
-  sddm network-manager-applet xorg-xrandr
-
-sudo systemctl enable --now sddm
-
-# install chinese input method
-sudo pacman -S fcitx-im fcitx-configtool fcitx-sunpinyin --noconfirm
-
-# fix i3wm dmenu input issue
-if test ! -e "/etc/environment"; then
-  sudo touch /etc/environment
-fi
-if test "$(grep -c '^GTK_IM_MODULE=fcitx' /etc/environment)" = "0"; then
-	echo "GTK_IM_MODULE=fcitx" | sudo tee -a /etc/environment > /dev/null
-fi
-if test "$(grep -c '^QT_IM_MODULE=fcitx' /etc/environment)" = "0"; then
-	echo "QT_IM_MODULE=fcitx" | sudo tee -a /etc/environment > /dev/null
-fi
-if test "$(grep -c '^XMODIFIERS=@im=fcitx' /etc/environment)" = "0"; then
-	echo "XMODIFIERS=@im=fcitx" | sudo tee -a /etc/environment > /dev/null
-fi
+  network-manager-applet xorg-xrandr
 
 # set ssh github proxy
 if test -n "${proxy_addr}"; then

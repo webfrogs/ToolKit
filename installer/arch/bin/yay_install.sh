@@ -3,12 +3,11 @@ set -e
 
 sudo pacman -Syy
 if test ! -x "$(command -v go)"; then
-  sudo pacman -S go
-  # go env -w GOPROXY=https://goproxy.cn,direct
+  sudo pacman -S go --noconfirm
 fi
 
 if test ! -x "$(command -v make)"; then
-  sudo pacman -S base-devel
+  sudo pacman -S base-devel --noconfirm
 fi
 
 # install yay
