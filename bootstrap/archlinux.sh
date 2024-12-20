@@ -68,6 +68,8 @@ sudo pacman -S --noconfirm \
   usbutils lshw \
   sddm network-manager-applet xorg-xrandr
 
+sudo systemctl enable --now sddm
+
 # install chinese input method
 sudo pacman -S fcitx-im fcitx-configtool fcitx-sunpinyin --noconfirm
 
