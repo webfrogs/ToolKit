@@ -64,9 +64,12 @@ sudo pacman -S --noconfirm \
   terminator hexchat zsh \
   resolvconf net-tools \
   dnsutils iputils socat \
-  blueman bluez-utils \
+  blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \
   usbutils lshw \
+  pulseaudio pulseaudio-alsa \
   network-manager-applet xorg-xrandr xorg-xrdb
+
+sudo systemctl enable --now bluetooth
 
 # set ssh github proxy
 if test -n "${proxy_addr}"; then
