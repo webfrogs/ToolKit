@@ -66,7 +66,7 @@ sudo pacman -S --noconfirm \
   dnsutils iputils socat \
   blueman bluez-utils \
   usbutils lshw \
-  network-manager-applet xorg-xrandr
+  network-manager-applet xorg-xrandr xorg-xrdb
 
 # set ssh github proxy
 if test -n "${proxy_addr}"; then

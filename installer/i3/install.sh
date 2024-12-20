@@ -41,7 +41,6 @@ if test "${installNeed}" = "y"; then
 fi
 
 mkdir -p ${HOME}/Pictures/wallpapers
-${workDir}/gen_config.sh
 
 echo ""
 echo "[INFO] install i3 config file"
@@ -95,5 +94,6 @@ case "${hidpiIndex}" in
 esac
 if test -n "${newDPI}"; then
   echo "Xft.dpi: ${newDPI}" | tee -a $HOME/.Xresources
+  echo "HiDPI is configured, reboot to make it work."
 fi
 
