@@ -1,8 +1,13 @@
 #!/bin/sh
 set -e
 
+if test "$1" = "--pull"; then
+  docker pull nswebfrog/myfile:latest
+  exit
+fi
+
 docker rm -f myfile || true
-docker run -d --pull=always \
+docker run -d \
   --name=myfile \
   --restart=always \
   --log-opt max-size=10m \
