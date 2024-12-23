@@ -61,7 +61,7 @@ sudo pacman -S --noconfirm \
   base-devel cmake \
   curl wget openssh less \
   git vim zip tree unzip jq \
-  terminator hexchat zsh \
+  terminator hexchat zsh aria2 \
   resolvconf net-tools \
   dnsutils iputils socat \
   blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \

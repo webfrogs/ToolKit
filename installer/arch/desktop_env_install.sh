@@ -8,7 +8,8 @@ sudo pacman -Syy
 
 echo "==> install necessary packages."
 sudo pacman -S --noconfirm \
-  sddm dolphin firefox thunderbird
+  sddm dolphin firefox thunderbird \
+  kde-cli-tools
 
 # install chinese input method
 sudo pacman -S --noconfirm fcitx-im fcitx-configtool fcitx-sunpinyin
@@ -31,3 +32,6 @@ fi
 
 echo "==> install i3wm packages."
 ../i3/install.sh
+
+
+
