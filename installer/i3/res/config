@@ -177,6 +177,9 @@ exec export XDG_MENU_PREFIX=plasma- && kbuildsycoca6
 # no window title
 new_window 1pixel
 
+# floating_maximum_size 640 x 480
+# for_window [class=".*"] move position center
+
 for_window [class="wemeetapp"] move container to workspace 3
 for_window [title="飞书会议"] move container to workspace 3
 # for_window [class="Thunar"] resize set 640 480 #to change size of Thunar file manager, found by xprop
