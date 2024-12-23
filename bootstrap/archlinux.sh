@@ -67,7 +67,7 @@ sudo pacman -S --noconfirm \
   blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \
   usbutils lshw \
   pipewire-pulse \
-  network-manager-applet xorg-xrandr xorg-xrdb
+  network-manager-applet xorg-xrandr xorg-xrdb xorg-xdpyinfo
 
 # pulseaudio-alsa
 

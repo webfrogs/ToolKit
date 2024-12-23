@@ -159,7 +159,7 @@ gaps outer 1
 exec --no-startup-id blueman-applet
 #exec --no-startup-id nm-applet
 # Lock screen
-bindsym $mod+Control+q exec i3lock -i ~/Pictures/lock.png
+bindsym $mod+Control+q exec i3lock -i ~/Pictures/i3-lock.png
 bindsym $mod+i exec firefox
 bindsym $mod+Control+s exec flameshot gui
 # switching window with win+tab
@@ -179,3 +179,5 @@ new_window 1pixel
 
 for_window [class="wemeetapp"] move container to workspace 3
 for_window [title="飞书会议"] move container to workspace 3
+# for_window [class="Thunar"] resize set 640 480 #to change size of Thunar file manager, found by xprop
+# for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
