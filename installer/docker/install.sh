@@ -108,7 +108,8 @@ case "$(uname -s)" in
             https://download.docker.com/linux/centos/docker-ce.repo
         sudo yum install -y docker-ce
     elif test -x "$(command -v pacman)"; then
-      sudo pacman -Syy docker docker-buildx docker-compose --noconfirm
+      sudo pacman -S --noconfirm docker docker-buildx docker-compose \
+        qemu-user-static qemu-user-static-binfmt
     else
         echo "[ERROR] Can not find support package management."
         exit 1
