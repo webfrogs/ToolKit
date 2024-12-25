@@ -20,4 +20,6 @@ case "$(uname -s)" in
 		;;
 esac
 
+echo "Done. run 'aws configure' to set credentials"
+
 
