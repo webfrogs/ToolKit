@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
 
-sudo pacman -S remmina freerdp --noconfirm
+sudo pacman -S --noconfirm remmina freerdp libvncserver
 
 
