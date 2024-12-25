@@ -9,7 +9,7 @@ sudo pacman -Syy
 echo "==> install necessary packages."
 sudo pacman -S --noconfirm \
   sddm dolphin firefox thunderbird \
-  kde-cli-tools
+  kde-cli-tools okular gwenview
 
 # install chinese input method
 sudo pacman -S --noconfirm fcitx-im fcitx-configtool fcitx-sunpinyin
