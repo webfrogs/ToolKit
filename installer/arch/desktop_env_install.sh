@@ -9,12 +9,14 @@ sudo pacman -Syy
 echo "==> install necessary packages."
 sudo pacman -S --noconfirm \
   sddm dolphin firefox thunderbird \
-  kde-cli-tools okular gwenview
+  kde-cli-tools okular gwenview \
+  cups
 
 # install chinese input method
 sudo pacman -S --noconfirm fcitx-im fcitx-configtool fcitx-sunpinyin
 
 sudo systemctl enable --now sddm
+sudo systemctl enable --now cups
 
 # fix i3wm dmenu input issue
 if test ! -e "/etc/environment"; then
