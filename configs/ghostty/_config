@@ -1,0 +1,8 @@
+font-family = "IosevkaTerm Nerd Font Mono"
+font-size = 16
+# disable ligatures
+font-feature = -liga
+font-feature = -calt
+font-feature = -dlig
+# keybind = ctrl+w=close_surface
+
