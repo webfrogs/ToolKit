@@ -16,5 +16,6 @@ go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install honnef.co/go/tools/cmd/staticcheck@latest
 go install github.com/fatih/gomodifytags@latest
 go install github.com/josharian/impl@latest
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 
 
