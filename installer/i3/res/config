@@ -159,7 +159,7 @@ gaps outer 1
 exec --no-startup-id blueman-applet
 #exec --no-startup-id nm-applet
 # Lock screen
-bindsym $mod+Control+q exec i3lock -i ~/Pictures/i3-lock.png
+bindsym $mod+Control+q exec i3lock -i ~/Pictures/i3wm/lock.png
 # bindsym $mod+i exec firefox
 bindsym $mod+i exec google-chrome-stable
 bindsym $mod+Control+s exec flameshot gui
@@ -169,7 +169,7 @@ bindsym $mod+Tab exec --no-startup-id rofi -show window
 exec_always fcitx
 exec_always dunst
 exec_always flameshot
-exec feh --randomize --bg-fill ~/Pictures/wallpapers
+exec feh --randomize --bg-fill ~/Pictures/i3wm/wallpaper
 exec_always setxkbmap -option ctrl:nocaps
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 # fix dophin file associations not work
