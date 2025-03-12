@@ -46,7 +46,7 @@ sudo pacman -S --noconfirm \
   resolvconf net-tools \
   dnsutils iputils socat \
   blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \
-  usbutils lshw \
+  usbutils lshw htop \
   pipewire-pulse \
   network-manager-applet xorg-xrandr xorg-xrdb xorg-xdpyinfo
 

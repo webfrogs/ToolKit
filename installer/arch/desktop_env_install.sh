@@ -15,8 +15,11 @@ sudo pacman -S --noconfirm \
 # install chinese input method
 sudo pacman -S --noconfirm fcitx-im fcitx-configtool fcitx-sunpinyin
 
+# fix emoji
+sudo pacman -S noto-fonts-emoji
+
 sudo systemctl enable --now sddm
-sudo systemctl enable --now cups
+sudo systemctl enable --now cups # printer
 
 # fix i3wm dmenu input issue
 if test ! -e "/etc/environment"; then
