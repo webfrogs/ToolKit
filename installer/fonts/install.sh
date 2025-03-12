@@ -3,11 +3,11 @@ set -e
 
 case "$(uname -s)" in
 	Darwin)
-        fontDir="$HOME/Library/Fonts"
+    fontDir="$HOME/Library/Fonts"
 		;;
-    Linux*)
-        fontDir="$HOME/.local/share/fonts"
-        ;;
+  Linux*)
+    fontDir="$HOME/.local/share/fonts"
+    ;;
 	*)
 		echo "Found os which is not support."
 		exit 1
@@ -17,10 +17,10 @@ if test ! -d "$fontDir"; then
     mkdir -p $fontDir
 fi
 
-curl -Lfk -o /tmp/my_fonts.txz https://myfile.webfrog.top:6443/font/my_fonts.txz -H 'Authorization: Basic bm9ib2R5OmlhbW5vYm9keQ=='
-tar xvJf /tmp/my_fonts.txz -C /tmp
+scp -P 6666 -r res@sftp.webfrog.top:font/carl_fonts.txz /tmp/carl_fonts.txz
+tar xvJf /tmp/carl_fonts.txz -C /tmp
 
-cp ttf/* "$fontDir"
+cp /tmp/carl_fonts/*.ttf "$fontDir"
 
 # Reset font cache on Linux
 if which fc-cache >/dev/null 2>&1 ; then
@@ -28,7 +28,8 @@ if which fc-cache >/dev/null 2>&1 ; then
     fc-cache -f "$font_dir"
 fi
 
-rm -rf /tmp/my_fonts.txz
+rm -rf /tmp/carl_fonts.txz
+rm -rf /tmp/carl_fonts 
 
 
 
