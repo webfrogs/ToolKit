@@ -1,7 +1,20 @@
 #!/bin/bash
 set -e
 
+read -p "input vnc password: " -s pwd
+echo ""
+read -p "verify vnc password: " -s confirmPwd
+echo ""
+
+if test "$pwd" != "$confirmPwd"; then
+  echo "password not match."
+  exit 1
+fi
+
 sudo pacman -Syy tigervnc --noconfirm
+
+sudo mkdir -p /root/.vnc
+echo -n "$pwd" | vncpasswd -f | sudo tee /root/.vnc/passwd > /dev/null
 
 sudo tee /etc/systemd/system/x0vncserver.service >/dev/null <<'EOF'
 [Unit]
@@ -23,7 +36,6 @@ WantedBy=multi-user.target
 EOF
 
 sudo systemctl daemon-reload
+sudo systemctl enable --now x0vncserver.service
 
 echo "tigervnc is installed."
-echo "1. change user to root and run command 'vncpasswd'"
-echo "2. run 'sudo systemctl start x0vncserver.service' to start vnc server at port 5900"
