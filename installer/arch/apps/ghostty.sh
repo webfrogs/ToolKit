@@ -1,10 +1,8 @@
 #!/bin/sh
 set -e
 
+cd $(dirname $0)
+
 sudo pacman -S --noconfirm ghostty
 
-tee ${HOME}/.config/ghostty/config >/dev/null <<'EOF'
-font-family = "IosevkaTerm Nerd Font Mono"
-font-size = 16
-# keybind = ctrl+w=close_surface
-EOF
+../../../configs/ghostty/config.sh
