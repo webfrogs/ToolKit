@@ -6,6 +6,7 @@ if test ! -f "/etc/xdg/menus/applications.menu"; then
   if test -f "/etc/xdg/menus/plasma-applications.menu"; then
     sudo ln -s /etc/xdg/menus/plasma-applications.menu /etc/xdg/menus/applications.menu
   else
+    sudo mkdir -p /etc/xdg/menus
     # source code: https://github.com/KDE/plasma-workspace/blob/master/menu/desktop/plasma-applications.menu
     cat <<'EOF' | sudo tee /etc/xdg/menus/applications.menu >/dev/null
  <!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
