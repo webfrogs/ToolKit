@@ -18,6 +18,9 @@ sudo pacman -S --noconfirm fcitx-im fcitx-configtool fcitx-sunpinyin
 # fix emoji
 sudo pacman -S noto-fonts-emoji
 
+# develop
+sudo pacman -S protobuf
+
 sudo systemctl enable --now sddm
 sudo systemctl enable --now cups # printer
 
@@ -37,6 +40,5 @@ fi
 
 echo "==> install i3wm packages."
 ../i3/install.sh
-
 
 
