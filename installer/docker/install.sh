@@ -100,13 +100,13 @@ case "$(uname -s)" in
         sudo apt-get install -y docker-ce
       fi
     elif test -x "$(command -v yum)"; then
-        sudo yum install -y yum-utils \
-            device-mapper-persistent-data \
-            lvm2
         sudo yum-config-manager \
             --add-repo \
             https://download.docker.com/linux/centos/docker-ce.repo
-        sudo yum install -y docker-ce
+        if test "${OPT_CN_MIRROR}" = "1"; then
+          sudo sed -i 's+https://download.docker.com+https://mirrors.tuna.tsinghua.edu.cn/docker-ce+' /etc/yum.repos.d/docker-ce.repo
+        fi
+        sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     elif test -x "$(command -v pacman)"; then
       sudo pacman -S --noconfirm docker docker-buildx docker-compose \
         qemu-user-static qemu-user-static-binfmt
