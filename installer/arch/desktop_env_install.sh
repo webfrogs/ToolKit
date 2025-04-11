@@ -13,7 +13,8 @@ sudo pacman -S --noconfirm \
   cups ark pavucontrol
 
 # install chinese input method
-sudo pacman -S --noconfirm fcitx-im fcitx-configtool fcitx-sunpinyin
+# sudo pacman -S --noconfirm fcitx-im fcitx-configtool fcitx-sunpinyin
+sudo pacman -S --noconfirm fcitx5-im fcitx5-chinese-addons
 
 # fix emoji
 sudo pacman -S noto-fonts-emoji
@@ -36,6 +37,12 @@ if test "$(grep -c '^QT_IM_MODULE=fcitx' /etc/environment)" = "0"; then
 fi
 if test "$(grep -c '^XMODIFIERS=@im=fcitx' /etc/environment)" = "0"; then
 	echo "XMODIFIERS=@im=fcitx" | sudo tee -a /etc/environment > /dev/null
+fi
+if test "$(grep -c '^SDL_IM_MODULE=fcitx' /etc/environment)" = "0"; then
+	echo "SDL_IM_MODULE=fcitx" | sudo tee -a /etc/environment > /dev/null
+fi
+if test "$(grep -c '^GLFW_IM_MODULE=ibus' /etc/environment)" = "0"; then
+	echo "GLFW_IM_MODULE=ibus" | sudo tee -a /etc/environment > /dev/null
 fi
 
 echo "==> install i3wm packages."

@@ -166,7 +166,7 @@ bindsym $mod+Control+s exec flameshot gui
 # switching window with win+tab
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
-exec_always fcitx
+exec_always fcitx5
 exec_always dunst
 exec_always flameshot
 exec feh --randomize --bg-fill ~/Pictures/i3wm/wallpaper
