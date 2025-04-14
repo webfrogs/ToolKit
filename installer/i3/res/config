@@ -19,7 +19,8 @@ font pango:IosevkaTerm Nerd Font Mono,IosevkaTerm Nerd Font,monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 bindsym $mod+g exec ghostty
 
 # kill focused window
