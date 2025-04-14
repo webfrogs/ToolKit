@@ -17,10 +17,12 @@ sudo pacman -S --noconfirm \
 sudo pacman -S --noconfirm fcitx5-im fcitx5-chinese-addons
 
 # fix emoji
-sudo pacman -S noto-fonts-emoji
+sudo pacman -S --noconfirm noto-fonts-emoji
+
+./apps/ghostty.sh
 
 # develop
-sudo pacman -S protobuf
+sudo pacman -S --noconfirm protobuf
 
 sudo systemctl enable --now sddm
 sudo systemctl enable --now cups # printer
@@ -47,5 +49,4 @@ fi
 
 echo "==> install i3wm packages."
 ../i3/install.sh
-
 
