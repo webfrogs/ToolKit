@@ -147,6 +147,7 @@ proxy_set() {
   export ftp_proxy="http://${proxy_addr}"
   echo "proxy is set, address: ${proxy_addr}"
 }
+proxy_set
 
 show_proxy_cmd () {
   hostIp=$(ip -o route get to 114.114.114.114 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')
