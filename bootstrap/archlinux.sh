@@ -72,3 +72,8 @@ sudo pacman -S flameshot dunst --noconfirm
 ./installer/docker/install.sh
 ./configs/zsh/config.sh
 
+if test -n "${http_proxy}"; then
+  ./installer/arch/bin/yay_install.sh
+else
+  echo "remember to install yay when proxy is avaliable."
+fi
