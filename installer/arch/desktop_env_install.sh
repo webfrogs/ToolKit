@@ -19,12 +19,11 @@ sudo pacman -S --noconfirm fcitx5-im fcitx5-chinese-addons
 # fix emoji
 sudo pacman -S --noconfirm noto-fonts-emoji
 
-./apps/ghostty.sh
+./apps/tty.sh
 
 # develop
 sudo pacman -S --noconfirm protobuf
 
-sudo systemctl enable --now sddm
 sudo systemctl enable --now cups # printer
 
 # fix i3wm dmenu input issue
@@ -50,3 +49,7 @@ fi
 echo "==> install i3wm packages."
 ../i3/install.sh
 
+../fonts/install.sh
+
+# start sddm
+sudo systemctl enable --now sddm
