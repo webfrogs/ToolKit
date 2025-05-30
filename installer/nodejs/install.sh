@@ -14,9 +14,9 @@ if test ! -x "$(command -v nvm)"; then
 fi
 
 
-nvm install v18.12.0
-nvm use v18.12.0
-nvm alias default 18.12.0
+nvm install v22.16.0
+nvm use v22.16.0
+nvm alias default 22.16.0
 
 echo "==> check node version"
 node -v
