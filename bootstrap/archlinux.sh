@@ -41,7 +41,7 @@ mkdir -p ${HOME}/Pictures/screenshots
 sudo pacman -S --noconfirm \
   base-devel cmake \
   curl wget openssh less rsync \
-  git vim zip tree unzip jq \
+  git vim zip tree unzip jq cronie \
   terminator hexchat zsh aria2 \
   resolvconf net-tools dnsmasq \
   dnsutils iputils socat \
@@ -51,6 +51,7 @@ sudo pacman -S --noconfirm \
   network-manager-applet xorg-xrandr xorg-xrdb xorg-xdpyinfo
 
 sudo systemctl enable --now bluetooth
+sudo systemctl enable --now cronie
 
 # set ssh github proxy
 if test -n "${proxy_addr}"; then
