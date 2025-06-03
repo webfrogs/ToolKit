@@ -44,7 +44,7 @@ sudo pacman -S --noconfirm \
   git vim zip tree unzip jq cronie \
   terminator hexchat zsh aria2 \
   resolvconf net-tools dnsmasq \
-  dnsutils iputils socat \
+  dnsutils iputils socat bridge-utils \
   blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \
   usbutils lshw htop \
   pipewire-pulse \
