@@ -40,17 +40,15 @@ mkdir -p ${HOME}/Pictures/screenshots
 
 sudo pacman -S --noconfirm \
   base-devel cmake \
-  curl wget openssh less \
+  curl wget openssh less rsync \
   git vim zip tree unzip jq \
   terminator hexchat zsh aria2 \
-  resolvconf net-tools \
+  resolvconf net-tools dnsmasq \
   dnsutils iputils socat \
   blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \
   usbutils lshw htop \
   pipewire-pulse \
   network-manager-applet xorg-xrandr xorg-xrdb xorg-xdpyinfo
-
-# pulseaudio-alsa
 
 sudo systemctl enable --now bluetooth
 
