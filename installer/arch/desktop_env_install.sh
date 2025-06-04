@@ -19,8 +19,6 @@ sudo pacman -S --noconfirm fcitx5-im fcitx5-chinese-addons
 # fix emoji
 sudo pacman -S --noconfirm noto-fonts-emoji
 
-./apps/tty.sh
-
 # develop
 sudo pacman -S --noconfirm protobuf
 
@@ -50,6 +48,11 @@ echo "==> install i3wm packages."
 ../i3/install.sh
 
 ../fonts/install.sh
+
+./apps/tty.sh
+./apps/1password.sh
+./apps/pavucontrol.sh
+./apps/chrome.sh || true
 
 # start sddm
 sudo systemctl enable --now sddm
