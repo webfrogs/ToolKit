@@ -39,7 +39,7 @@ echo "==> install necessary packages."
 mkdir -p ${HOME}/Pictures/screenshots
 
 sudo pacman -S --noconfirm \
-  base-devel cmake direnv \
+  base-devel cmake direnv llvm clang \
   curl wget openssh less rsync \
   git vim zip tree unzip jq cronie \
   terminator hexchat zsh aria2 \
