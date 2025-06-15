@@ -48,7 +48,7 @@ sudo pacman -S --noconfirm \
   blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \
   usbutils lshw htop \
   pipewire-pulse \
-  network-manager-applet xorg-xrandr xorg-xrdb xorg-xdpyinfo
+  network-manager-applet xorg-xrandr xorg-xrdb xorg-xdpyinfo xorg-xinput
 
 sudo systemctl enable --now bluetooth
 sudo systemctl enable --now cronie
