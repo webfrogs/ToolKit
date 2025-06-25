@@ -100,13 +100,25 @@ case "$(uname -s)" in
         sudo apt-get install -y docker-ce
       fi
     elif test -x "$(command -v yum)"; then
+      os_name=$(cat /etc/os-release | grep '^NAME' | awk -F'=' '{print $2}' | sed -e 's/^"//' -e 's/"$//')
+      if test "${os_name}" = "openEuler"; then
+        cat <<EOF | sudo tee /etc/yum.repos.d/docker-ce.repo
+[docker-ce-stable]
+name=Docker CE Stable - \$basearch
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/9/\$basearch/stable
+enabled=1
+gpgcheck=1
+gpgkey=https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/gpg
+EOF
+      else
         sudo yum-config-manager \
             --add-repo \
             https://download.docker.com/linux/centos/docker-ce.repo
         if test "${OPT_CN_MIRROR}" = "1"; then
           sudo sed -i 's+https://download.docker.com+https://mirrors.tuna.tsinghua.edu.cn/docker-ce+' /etc/yum.repos.d/docker-ce.repo
         fi
-        sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+      fi
+      sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     elif test -x "$(command -v pacman)"; then
       sudo pacman -S --noconfirm docker docker-buildx docker-compose \
         qemu-user-static qemu-user-static-binfmt
