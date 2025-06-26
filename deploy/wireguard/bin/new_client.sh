@@ -14,7 +14,7 @@ if test -d "${wgClientFolder}/${newClient}"; then
 	exit 1
 fi
 
-wgServerIP=$(cat /etc/wireguard/server/wg.conf | grep '^WG_SERVER_ADDRESS' | awk -F= '{print $2}')
+wgServerIP=$(cat /etc/wireguard/server/wg.env | grep '^WG_SERVER_ADDRESS' | awk -F= '{print $2}')
 if test -z "$wgServerIP"; then
   echo "ERROR! no wg server ip found."
   exit 1
@@ -29,7 +29,7 @@ if test ! -f "${wgClientFolder}/nextPtr"; then
 fi
 
 ipPtr=$(cat ${wgClientFolder}/nextPtr)
-cat <<EOF | sudo tee ${wgClientFolder}/${newClient}/wg.conf
+cat <<EOF | sudo tee ${wgClientFolder}/${newClient}/wg.env
 CLIENT_IP=${wgClientIPPrefix}.${ipPtr}
 EOF
 nextPtr=$(expr ${ipPtr} + 1)

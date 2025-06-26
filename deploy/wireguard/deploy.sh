@@ -20,7 +20,7 @@ else
   wg genkey | tee ${wgServerConfigFolder}/privatekey | wg pubkey | tee ${wgServerConfigFolder}/publickey
 fi
 
-wgServerConf=${wgServerConfigFolder}/wg.conf
+wgServerConf=${wgServerConfigFolder}/wg.env
 if test ! -f "${wgServerConf}"; then
   echo "===> No server config, ready to create."
   read -p "input wg server address: " wgServerAddress
