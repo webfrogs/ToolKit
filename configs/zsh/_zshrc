@@ -228,3 +228,13 @@ sw_clone () {
   git submodule update --init --recursive
 }
 
+print_proxy_cmd() {
+  proxy_addr="$1"
+  if test -z "${proxy_addr}"; then
+    proxy_addr="$(ip -o route get to 114.114.114.114 | sed -n 's/.*src \([0-9.]\+\).*/\1/p'):1090"
+  fi
+  if test -z "${proxy_addr}"; then
+    proxy_addr="127.0.0.1:1090"
+  fi
+  echo "export http_proxy='http://${proxy_addr}' && export https_proxy='http://${proxy_addr}'"
+}
