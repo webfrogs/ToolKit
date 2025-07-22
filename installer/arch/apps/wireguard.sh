@@ -10,4 +10,5 @@ fi
 sudo modprobe wireguard
 echo 'wireguard' | sudo tee /etc/modules-load.d/wireguard.conf
 
+sudo systemctl enable --now systemd-resolved.service
 
