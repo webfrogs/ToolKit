@@ -164,7 +164,8 @@ exec --no-startup-id blueman-applet
 bindsym $mod+Control+q exec i3lock -i ~/Pictures/i3wm/lock.png
 # bindsym $mod+i exec firefox
 bindsym $mod+i exec google-chrome-stable
-bindsym $mod+Control+s exec flameshot gui
+# bindsym $mod+Control+s exec flameshot gui
+bindsym $mod+Control+s exec export QT_ENABLE_HIGHDPI_SCALING=0 && flameshot gui
 # switching window with win+tab
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
