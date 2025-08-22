@@ -180,6 +180,53 @@ if test "${VIMRUNTIME}" = "/usr/share/nvim/runtime"; then
   export VIMRUNTIME=""
 fi
 
+sw_clone() {
+  SW_GIT_REPO="$1"
+  if test -z "$SW_GIT_REPO"; then
+    echo "[ERROR] No git repo."
+    return 2
+  fi
+  git clone $SW_GIT_REPO
+  projectName=$(basename $SW_GIT_REPO | awk -F. '{print $1}')
+  cd $projectName
+  git remote remove origin
+  git remote add servicewall $SW_GIT_REPO
+  git remote add origin $(echo $SW_GIT_REPO | sed 's/:Servicewall/:webfrogs/')
+  git fetch servicewall
+  git submodule update --init --recursive
+}
+
+gh_pr() {
+  BRANCH="$1"
+  if test -z "$BRANCH"; then
+    echo "[INFO] No branch found, using 'develop' as default"
+    BRANCH="develop"
+  fi
+
+  repo_name="$(git remote -v | grep '(push)' | grep '^origin' | awk '{print $2}' | awk -F: '{print $NF}' | sed 's/.git$//g')"
+  if test -z "$repo_name"; then
+    echo "[ERROR] failed to get origin repository name."
+    return 1
+  fi
+
+  current_branch="$(git rev-parse --abbrev-ref HEAD)"
+  if test "${current_branch}" = "HEAD"; then
+    echo "[ERROR] failed to find any git branch for HEAD."
+    return 1
+  fi
+
+  git push -f origin $current_branch
+  GH_PR_URL="https://github.com/${repo_name}/compare/${BRANCH}...webfrogs:${current_branch}"
+  if test -x "$(command -v xdg-open)"; then
+    xdg-open "$GH_PR_URL"
+  elif test -x "$(command -v open)"; then
+    open "$GH_PR_URL"
+  else
+    echo "[ERROR] Can not open url automatically, copy url below to open it in browser."
+    echo "$GH_PR_URL"
+  fi
+}
+
 sw_pr () {
   BRANCH="$1"
   if test -z "$BRANCH"; then
@@ -212,19 +259,21 @@ sw_pr () {
   fi
 }
 
-sw_clone () {
-  SW_GIT_REPO="$1"
-  if test -z "$SW_GIT_REPO"; then
+gh_clone() {
+  GH_GIT_REPO="$1"
+  if test -z "$GH_GIT_REPO"; then
     echo "[ERROR] No git repo."
-    return 2
+    return 1
   fi
-  git clone $SW_GIT_REPO
-  projectName=$(basename $SW_GIT_REPO | awk -F. '{print $1}')
+  if grep -q '^git@'; then
+    echo "[ERROR] git clone repo must start with git."
+    return 1
+  fi
+  git clone $GH_GIT_REPO
+  projectName=$(basename $GH_GIT_REPO | awk -F. '{print $1}')
   cd $projectName
-  git remote remove origin
-  git remote add servicewall $SW_GIT_REPO
-  git remote add origin $(echo $SW_GIT_REPO | sed 's/:Servicewall/:webfrogs/')
-  git fetch servicewall
+  git remote add webfrogs $(echo $GH_GIT_REPO | sed 's#:.*/#:webfrogs/#')
+  git fetch origin
   git submodule update --init --recursive
 }
 
