@@ -265,8 +265,8 @@ gh_clone() {
     echo "[ERROR] No git repo."
     return 1
   fi
-  if grep -q '^git@'; then
-    echo "[ERROR] git clone repo must start with git."
+  if echo $GH_GIT_REPO | grep -qv '^git@'; then
+    echo "[ERROR] git clone repo must start with 'git@'"
     return 1
   fi
   git clone $GH_GIT_REPO
