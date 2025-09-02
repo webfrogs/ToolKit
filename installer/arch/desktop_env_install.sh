@@ -22,6 +22,9 @@ sudo pacman -S --noconfirm noto-fonts-emoji
 # develop
 sudo pacman -S --noconfirm protobuf
 
+# media player
+sudo pacman -S --noconfirm vlc vlc-plugins-all
+
 sudo systemctl enable --now cups # printer
 
 # fix i3wm dmenu input issue
