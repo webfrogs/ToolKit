@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-yay -S wechat-uos-qt --noconfirm
+yay -S wechat-bin --noconfirm
 
 # sudo tee /usr/local/bin/wechat >/dev/null <<'EOF'
 # #!/bin/sh
