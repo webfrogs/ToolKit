@@ -58,8 +58,24 @@ if test "$battery_count" -gt 0; then
   time_block_line_num=$(awk '/^block = "time"/ {print FNR}' ${HOME}/.config/i3status-rust/config.toml)
   sed -i "$(expr ${time_block_line_num} - 2)"'a[[block]]\
 block = "battery"\
-format = " $icon $percentage "\
-driver = "upower"\
+driver = "upower"          # 推荐用 upower，可自动聚合多电池；也可选 "sysfs"\
+device = "DisplayDevice"   # upower 的聚合设备；单电池可留空或写 BAT0\
+interval = 10              # 仅 driver=sysfs/apc_ups 时有效，单位秒\
+format = " $icon $percentage {$time |}"   # 普通状态\
+charging_format = " $icon $percentage ⚡ {$time |}"   # 充电状态\
+full_format = " $icon $percentage ✔"      # 充满状态\
+empty_format = " $icon $percentage ▇"     # 电量低状态\
+missing_format = ""        # 未检测到电池时不显示任何内容\
+\
+# 电量阈值（百分比）及对应颜色\
+info = 60     # ≥60% 视为 info 色（蓝）\
+good = 60     # ≥60% 视为 good 色（绿）\
+warning = 30  # ≥30% 视为 warning 色（黄）\
+critical = 15 # ≤15% 视为 critical 色（红）\
+\
+# 充满/放空的判定阈值\
+full_threshold = 95   # ≥95% 即认为充满，切换为 full_format\
+empty_threshold = 7.5 # ≤7.5% 即认为放空，切换为 empty_format\
 ' ${HOME}/.config/i3status-rust/config.toml
 fi
 
