@@ -53,6 +53,14 @@ sudo pacman -S --noconfirm \
 sudo systemctl enable --now bluetooth
 sudo systemctl enable --now cronie
 
+# check battery
+battery_count=$(find -L /sys/class/power_supply/ -maxdepth 1 -type d -name 'BAT*' | wc -l)
+if test "$battery_count" -gt 0; then
+  # found battery
+  echo "found battery on current machine."
+  sudo pacman -S acpi
+fi
+
 # set ssh github proxy
 if test -n "${proxy_addr}"; then
   ./configs/git/force_ssh_for_github.sh
