@@ -51,7 +51,7 @@ cp ${workDir}/res/config ${HOME}/.config/i3/config
 mkdir -p ${HOME}/.config/i3status-rust
 rm -f ${HOME}/.config/i3status-rust/config.toml
 cp ${workDir}/res/i3status-rust-config.toml ${HOME}/.config/i3status-rust/config.toml
-battery_count=$(find /sys/class/power_supply/ -maxdepth 1 -type d -name 'BAT*' | wc -l)
+battery_count=$(find -L /sys/class/power_supply/ -maxdepth 1 -type d -name 'BAT*' | wc -l)
 if test "$battery_count" -gt 0; then
   # has battery
   echo "adding battery status to i3status..."
