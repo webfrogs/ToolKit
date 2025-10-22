@@ -171,7 +171,7 @@ bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 exec_always fcitx5
 exec_always dunst
-exec_always flameshot
+exec flameshot
 exec feh --randomize --bg-fill ~/Pictures/i3wm/wallpaper
 exec_always setxkbmap -option ctrl:nocaps
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf

@@ -49,7 +49,19 @@ rm -f "${HOME}/.config/i3/config"
 cp ${workDir}/res/config ${HOME}/.config/i3/config
 
 mkdir -p ${HOME}/.config/i3status-rust
-ln -sf ${workDir}/res/i3status-rust-config.toml ${HOME}/.config/i3status-rust/config.toml
+rm -f ${HOME}/.config/i3status-rust/config.toml
+cp ${workDir}/res/i3status-rust-config.toml ${HOME}/.config/i3status-rust/config.toml
+battery_count=$(find /sys/class/power_supply/ -maxdepth 1 -type d -name 'BAT*' | wc -l)
+if test "$battery_count" -gt 0; then
+  # has battery
+  echo "adding battery status to i3status..."
+  time_block_line_num=$(awk '/^block = "time"/ {print FNR}' ${HOME}/.config/i3status-rust/config.toml)
+  sed -i "$(expr ${time_block_line_num} - 2)"'a[[block]]\
+block = "battery"\
+format = " $icon $percentage "\
+driver = "upower"\
+' ${HOME}/.config/i3status-rust/config.toml
+fi
 
 mkdir -p ${HOME}/.config/picom
 ln -sf ${workDir}/picom/picom.conf ${HOME}/.config/picom/picom.conf
