@@ -40,7 +40,7 @@ mkdir -p ${HOME}/Pictures/screenshots
 
 sudo pacman -S --noconfirm \
   base-devel cmake direnv llvm clang cloc \
-  curl wget openssh less rsync \
+  curl wget openssh less rsync man \
   git vim zip tree unzip jq cronie \
   terminator hexchat zsh aria2 \
   resolvconf net-tools dnsmasq \
