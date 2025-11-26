@@ -39,7 +39,13 @@ case "$(uname -s)" in
       done
     fi
 
-    if test -x "$(command -v apt-get)"; then
+    if test -x "$(command -v pacman)"; then
+      sudo pacman -S --noconfirm docker docker-buildx docker-compose \
+        qemu-user-static qemu-user-static-binfmt
+    elif test -x "$(command -v dnf)"; then
+      sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+      sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    elif test -x "$(command -v apt-get)"; then
       # remove pre-installed docker
       for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 
@@ -119,9 +125,6 @@ EOF
         fi
       fi
       sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-    elif test -x "$(command -v pacman)"; then
-      sudo pacman -S --noconfirm docker docker-buildx docker-compose \
-        qemu-user-static qemu-user-static-binfmt
     else
         echo "[ERROR] Can not find support package management."
         exit 1
