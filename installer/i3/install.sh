@@ -95,6 +95,28 @@ if test ! -e "$HOME/.Xresources"; then
 fi
 sed -i '/^Xft\.dpi:/d' $HOME/.Xresources
 
+
+# fix i3wm dmenu input issue
+if test ! -e "${HOME}/.xprofile"; then
+  touch ${HOME}/.xprofile
+fi
+if test "$(grep -c '^export GTK_IM_MODULE=fcitx' ${HOME}/.xprofile)" = "0"; then
+	echo "export GTK_IM_MODULE=fcitx" | tee -a ${HOME}/.xprofile > /dev/null
+fi
+if test "$(grep -c '^export QT_IM_MODULE=fcitx' ${HOME}/.xprofile)" = "0"; then
+	echo "export QT_IM_MODULE=fcitx" | tee -a ${HOME}/.xprofile > /dev/null
+fi
+if test "$(grep -c '^export XMODIFIERS=@im=fcitx' ${HOME}/.xprofile)" = "0"; then
+	echo "export XMODIFIERS=@im=fcitx" | tee -a ${HOME}/.xprofile > /dev/null
+fi
+if test "$(grep -c '^export SDL_IM_MODULE=fcitx' ${HOME}/.xprofile)" = "0"; then
+	echo "export SDL_IM_MODULE=fcitx" | tee -a ${HOME}/.xprofile > /dev/null
+fi
+if test "$(grep -c '^export GLFW_IM_MODULE=ibus' ${HOME}/.xprofile)" = "0"; then
+	echo "export GLFW_IM_MODULE=ibus" | tee -a ${HOME}/.xprofile > /dev/null
+fi
+
+
 newDPI=""
 echo "choose HiDPI screen resolution(default 1080p):"
 echo "  1. 2k"
