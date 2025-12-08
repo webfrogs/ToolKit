@@ -16,7 +16,9 @@ if test "${installNeed}" = "y"; then
 	if test -x "$(command -v pacman)"; then
     sudo pacman -Syy
     sudo pacman -S --noconfirm \
-      hyprland fuzzel waybar wl-clipboard \
+      hyprland hyprlock \
+      fuzzel waybar wl-clipboard \
+      brightnessctl \
       ttf-jetbrains-mono-nerd
   else
 		echo "no supported package manager found."
