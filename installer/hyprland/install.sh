@@ -16,7 +16,7 @@ if test "${installNeed}" = "y"; then
 	if test -x "$(command -v pacman)"; then
     sudo pacman -Syy
     sudo pacman -S --noconfirm \
-      hyprland fuzzel waybar
+      hyprland fuzzel waybar wl-clipboard
   else
 		echo "no supported package manager found."
 		exit 1
@@ -34,5 +34,8 @@ if test ! -e config/conf/monitor.conf; then
   ln -sf ./monitors/default.conf config/conf/monitor.conf
 fi
 
+# config waybar
+rm -rf ${HOME}/.config/waybar
+ln -sf ${current_dir}/waybar ${HOME}/.config/waybar
 
 echo "==> All done!"
