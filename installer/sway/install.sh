@@ -15,7 +15,7 @@ if test "${installNeed}" = "y"; then
     sudo pacman -Syy
     sudo pacman -S --noconfirm \
       sway swaylock wlroots \
-      xorg-xwayland xorg-xlsclients qt5-wayland qt6-wayland \
+      xorg-xwayland xorg-xlsclients xorg-xrdb qt5-wayland qt6-wayland \
       fuzzel waybar wl-clipboard \
       grim slurp swappy \
       ttf-jetbrains-mono-nerd \
