@@ -17,7 +17,10 @@ if test "${installNeed}" = "y"; then
     sudo pacman -Syy
     sudo pacman -S --noconfirm \
       hyprland hyprlock \
-      xorg-xwayland xorg-xlsclients xorg-xrdb qt5-wayland qt6-wayland \
+      xorg-xwayland xorg-xlsclients xorg-xrdb \
+      hyprpolkitagent \
+      xdg-desktop-portal-hyprland wireplumber \
+      qt5-wayland qt6-wayland \
       fuzzel waybar mako \
       wl-clipboard cliphist \
       grim slurp swappy \
