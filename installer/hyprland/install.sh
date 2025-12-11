@@ -42,4 +42,8 @@ fi
 rm -rf ${HOME}/.config/waybar
 ln -sf ${current_dir}/waybar ${HOME}/.config/waybar
 
+# config mako
+rm -rf ${HOME}/.config/mako
+ln -sf ${current_dir}/mako ${HOME}/.config/mako
+
 echo "==> All done!"
