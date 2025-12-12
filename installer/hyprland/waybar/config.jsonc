@@ -22,6 +22,7 @@
         "power-profiles-daemon",
         "cpu",
         "memory",
+        "custom/disk",
         "temperature",
         "backlight",
         "keyboard-state",
@@ -202,6 +203,12 @@
       "escape": true,
       "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
       // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/disk": {
+      "exec": "df -h / | awk 'NR==2 {print $4}'",
+      "interval": 30,
+      "format": "{} ",
+      "tooltip": false
     },
     "custom/power": {
       "format" : " ⏻ ",
