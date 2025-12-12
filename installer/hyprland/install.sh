@@ -51,4 +51,8 @@ ln -sf ${current_dir}/waybar ${HOME}/.config/waybar
 rm -rf ${HOME}/.config/mako
 ln -sf ${current_dir}/mako ${HOME}/.config/mako
 
+# config fuzzel
+rm -rf ${HOME}/.config/fuzzel
+ln -sf ${current_dir}/fuzzel ${HOME}/.config/fuzzel
+
 echo "==> All done!"
