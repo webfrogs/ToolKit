@@ -19,7 +19,7 @@ if test "${installNeed}" = "y"; then
       hyprland hyprlock \
       xorg-xwayland xorg-xlsclients xorg-xrdb \
       hyprpolkitagent \
-      xdg-desktop-portal-hyprland wireplumber \
+      xdg-desktop-portal-hyprland wireplumber xdg-desktop-portal-wlr \
       qt5-wayland qt6-wayland \
       fuzzel waybar mako \
       wl-clipboard cliphist \
