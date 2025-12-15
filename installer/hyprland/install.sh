@@ -23,7 +23,7 @@ if test "${installNeed}" = "y"; then
       qt5-wayland qt6-wayland \
       fuzzel waybar mako \
       wl-clipboard cliphist \
-      grim slurp swappy \
+      grim slurp swappy satty \
       brightnessctl \
       ttf-jetbrains-mono-nerd
   else
@@ -31,6 +31,8 @@ if test "${installNeed}" = "y"; then
 		exit 1
   fi
 fi
+
+mkdir -p ~/Pictures/Screenshots
 
 rm -rf ${HOME}/.config/hypr
 ln -sf ${current_dir}/config ${HOME}/.config/hypr
