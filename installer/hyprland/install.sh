@@ -23,7 +23,7 @@ if test "${installNeed}" = "y"; then
       qt5-wayland qt6-wayland \
       fuzzel waybar mako \
       wl-clipboard cliphist \
-      grim slurp swappy satty \
+      grim slurp satty \
       brightnessctl \
       ttf-jetbrains-mono-nerd
   else
