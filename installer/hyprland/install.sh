@@ -57,4 +57,33 @@ ln -sf ${current_dir}/mako ${HOME}/.config/mako
 rm -rf ${HOME}/.config/fuzzel
 ln -sf ${current_dir}/fuzzel ${HOME}/.config/fuzzel
 
+newDPI=""
+echo "Choose HiDPI screen resolution for xwayland(default 1080p):"
+echo "  1. 1080p"
+echo "  2. 2k"
+echo "  3. 4k"
+read -p "Which one do you choose: " hidpiIndex
+case "${hidpiIndex}" in
+  1)
+    # 1080p
+    newDPI="96"
+    ;;
+  2)
+    # 2k
+    newDPI="150"
+    ;;
+  3)
+    # 4k
+    newDPI="175"
+    ;;
+	*)
+    newDPI="96"
+    echo "use default HiDPI for 1080p"
+    ;;
+esac
+if test -n "${newDPI}"; then
+  echo "Xft.dpi: ${newDPI}" | tee -a $HOME/.config/hypr/.Xresources
+  echo "HiDPI is configured, reboot to make it work."
+fi
+
 echo "==> All done!"
