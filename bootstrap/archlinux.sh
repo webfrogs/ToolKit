@@ -46,7 +46,7 @@ sudo pacman -S --noconfirm \
   resolvconf net-tools dnsmasq \
   dnsutils iputils socat bridge-utils \
   blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \
-  usbutils lshw htop fastfetch \
+  usbutils lshw htop btop fastfetch \
   pipewire-pulse \
   network-manager-applet xorg-xrandr xorg-xrdb xorg-xdpyinfo xorg-xinput
 
@@ -81,6 +81,6 @@ sudo pacman -S flameshot dunst --noconfirm
 if test -n "${http_proxy}"; then
   ./installer/arch/bin/yay_install.sh
 else
-  echo "No proxy found. do not forget to install yay."
+  echo "No proxy found, skip yay installation, remember to install it later."
 fi
-./configs/zsh/config.sh || echo "zsh install failed. maybe retry later."
+./configs/zsh/config.sh || echo "zsh install failed. should retry it later."

@@ -25,6 +25,7 @@ if test "${installNeed}" = "y"; then
       wl-clipboard cliphist \
       grim slurp satty \
       brightnessctl \
+      thunar tumbler ffmpegthumbnailer poppler-glib gvfs-smb file-roller thunar-archive-plugin \
       ttf-jetbrains-mono-nerd
   else
 		echo "no supported package manager found."
