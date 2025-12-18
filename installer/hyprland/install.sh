@@ -16,7 +16,7 @@ if test "${installNeed}" = "y"; then
 	if test -x "$(command -v pacman)"; then
     sudo pacman -Syy
     sudo pacman -S --noconfirm \
-      hyprland hyprlock \
+      hyprland hyprlock hyprpicker \
       xorg-xwayland xorg-xlsclients xorg-xrdb \
       hyprpolkitagent \
       xdg-desktop-portal-hyprland wireplumber xdg-desktop-portal-wlr \
