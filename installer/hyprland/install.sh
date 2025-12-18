@@ -35,7 +35,7 @@ fi
 mkdir -p ~/Pictures/Screenshots
 
 rm -rf ${HOME}/.config/hypr
-ln -sf ${current_dir}/config ${HOME}/.config/hypr
+ln -sf ${current_dir}/hypr ${HOME}/.config/hypr
 
 # handle monitor conf
 if test -e config/conf/monitor.conf -a ! -L config/conf/monitor.conf; then
