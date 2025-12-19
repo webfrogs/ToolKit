@@ -17,7 +17,6 @@ case "$player_status" in
     *)         status_icon="" ;;
 esac
 
-# 显示格式，例如：▶ Artist - Title
 if [ -n "$artist" ] && [ -n "$title" ]; then
     echo "$status_icon $artist|$title"
 else
