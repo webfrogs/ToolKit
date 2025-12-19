@@ -9,11 +9,12 @@
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/mode",
-        "hyprland/scratchpad",
-        "custom/media"
+        "hyprland/scratchpad"
+        // "custom/media"
     ],
     "modules-center": [
-        "hyprland/window"
+        // "hyprland/window",
+        "custom/media"
     ],
     "modules-right": [
         "mpd",
@@ -207,16 +208,13 @@
         "on-click": "pavucontrol"
     },
     "custom/media": {
-      "format": "{icon} {text}",
-      "return-type": "json",
-      "max-length": 40,
-      "format-icons": {
-          "spotify": "",
-          "default": ""
-      },
-      "escape": true,
-      "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-      // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+      "format": "{}",
+      "exec": "~/.config/waybar/scripts/media.sh",
+      "on-click": "playerctl play-pause",
+      "on-click-middle": "playerctl stop",
+      "on-click-right": "playerctl next",
+      "interval": 1,
+      "escape": false
     },
     "custom/disk": {
       "exec": "df -h / | awk 'NR==2 {print $4}'",
