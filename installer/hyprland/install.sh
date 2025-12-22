@@ -40,11 +40,11 @@ rm -rf ${HOME}/.config/hypr
 ln -sf ${current_dir}/hypr ${HOME}/.config/hypr
 
 # handle monitor conf
-if test -e config/conf/monitor.conf -a ! -L config/conf/monitor.conf; then
-  rm -f config/conf/monitor.conf
+if test -e hypr/conf/monitor.conf -a ! -L hypr/conf/monitor.conf; then
+  rm -f hypr/conf/monitor.conf
 fi
-if test ! -e config/conf/monitor.conf; then 
-  ln -sf ./monitors/default.conf config/conf/monitor.conf
+if test ! -e hypr/conf/monitor.conf; then 
+  ln -sf ./monitors/default.conf hypr/conf/monitor.conf
 fi
 
 # config waybar
