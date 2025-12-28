@@ -84,6 +84,7 @@ case "${hidpiIndex}" in
     ;;
 esac
 if test -n "${newDPI}"; then
+  sed -i '/^Xft.dpi:/d' $HOME/.config/hypr/.Xresources
   echo "Xft.dpi: ${newDPI}" | tee -a $HOME/.config/hypr/.Xresources
   echo "HiDPI is configured, reboot to make it work."
 fi
