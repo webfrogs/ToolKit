@@ -12,12 +12,14 @@ sudo pacman -S --noconfirm \
   kde-cli-tools okular gwenview \
   cups ark pavucontrol
 
+
 # install chinese input method
 # sudo pacman -S --noconfirm fcitx-im fcitx-configtool fcitx-sunpinyin
 sudo pacman -S --noconfirm fcitx5-im fcitx5-chinese-addons
 
 # fix emoji
 sudo pacman -S --noconfirm noto-fonts-emoji
+sudo pacman -S --noconfirm adobe-source-han-sans-cn-fonts
 
 # develop
 sudo pacman -S --noconfirm protobuf
