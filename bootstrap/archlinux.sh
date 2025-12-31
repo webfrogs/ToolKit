@@ -72,8 +72,6 @@ if test -n "${proxy_addr}"; then
   ssh-keyscan -t ed25519 github.com | grep -v '^#' >> ${HOME}/.ssh/known_hosts
 fi
 
-sudo pacman -S flameshot dunst --noconfirm
-./configs/dunst/config.sh
 ./configs/git/config.sh
 ./installer/fzf/install.sh
 ./installer/docker/install.sh
