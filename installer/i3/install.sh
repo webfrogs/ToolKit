@@ -32,7 +32,7 @@ if test "${installNeed}" = "y"; then
 		sudo apt-get install -y i3lock
   elif test -x "$(command -v pacman)"; then
     sudo pacman -Syy
-    sudo pacman -S --noconfirm i3-wm i3lock i3status dmenu i3status-rust
+    sudo pacman -S --noconfirm i3-wm i3lock i3status i3status-rust
     sudo pacman -S --noconfirm \
       feh variety network-manager-applet picom polybar rofi xorg-xrandr
 	else
@@ -99,6 +99,12 @@ if test -d "${HOME}/.config/polybar"; then
   rm -rf ${HOME}/.config/polybar
 fi
 ln -sf ${workDir}/polybar ${HOME}/.config/polybar
+
+# dunst config(notification service)
+if test -d "${HOME}/.config/dunst"; then
+  rm -rf ${HOME}/.config/dunst
+fi
+ln -sf ${workDir}/dunst ${HOME}/.config/dunst
 echo "[INFO] i3 config file is installed successfully."
 
 # fix i3wm dmenu input issue
