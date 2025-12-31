@@ -31,9 +31,10 @@ if test "${installNeed}" = "y"; then
 		sudo apt-get install -y i3status
 		sudo apt-get install -y i3lock
   elif test -x "$(command -v pacman)"; then
-    sudo pacman -Syy i3-wm i3lock i3status dmenu i3status-rust --noconfirm
-    # for backgound image
-    sudo pacman -S feh variety network-manager-applet picom polybar rofi xorg-xrandr --noconfirm
+    sudo pacman -Syy
+    sudo pacman -S --noconfirm i3-wm i3lock i3status dmenu i3status-rust
+    sudo pacman -S --noconfirm \
+      feh variety network-manager-applet picom polybar rofi xorg-xrandr
 	else
 		echo "Can not install in current OS"
 		exit 1
@@ -44,9 +45,11 @@ mkdir -p ${HOME}/Pictures/wallpapers
 
 echo ""
 echo "[INFO] install i3 config file"
-mkdir -p ${HOME}/.config/i3/
-rm -f "${HOME}/.config/i3/config"
-cp ${workDir}/res/config ${HOME}/.config/i3/config
+if test -d "${HOME}/.config/i3"; then
+  rm -rf "${HOME}/.config/i3"
+fi
+ln -sf ${workDir}/i3wm ${HOME}/.config/i3
+
 
 mkdir -p ${HOME}/.config/i3status-rust
 rm -f ${HOME}/.config/i3status-rust/config.toml
@@ -79,22 +82,24 @@ empty_threshold = 7.5 # ≤7.5% 即认为放空，切换为 empty_format\
 ' ${HOME}/.config/i3status-rust/config.toml
 fi
 
-mkdir -p ${HOME}/.config/picom
-ln -sf ${workDir}/picom/picom.conf ${HOME}/.config/picom/picom.conf
-
-mkdir -p ${HOME}/.config/rofi
-ln -sf ${workDir}/rofi/config.rasi ${HOME}/.config/rofi/config.rasi
-ln -sf ${workDir}/rofi/nord.rasi ${HOME}/.config/rofi/nord.rasi
-
-echo "[INFO] i3 config file is installed successfully."
-
-echo ""
-echo "[INFO] HiDPI support."
-if test ! -e "$HOME/.Xresources"; then
-  touch "$HOME/.Xresources"
+# picom config
+if test -d "${HOME}/.config/picom"; then
+  rm -rf ${HOME}/.config/picom
 fi
-sed -i '/^Xft\.dpi:/d' $HOME/.Xresources
+ln -sf ${workDir}/picom ${HOME}/.config/picom
 
+# rofi config
+if test -d "${HOME}/.config/rofi"; then
+  rm -rf ${HOME}/.config/rofi
+fi
+ln -sf ${workDir}/rofi ${HOME}/.config/rofi
+
+# polybar config
+if test -d "${HOME}/.config/polybar"; then
+  rm -rf ${HOME}/.config/polybar
+fi
+ln -sf ${workDir}/polybar ${HOME}/.config/polybar
+echo "[INFO] i3 config file is installed successfully."
 
 # fix i3wm dmenu input issue
 if test ! -e "${HOME}/.xprofile"; then
@@ -116,8 +121,11 @@ if test "$(grep -c '^export GLFW_IM_MODULE=ibus' ${HOME}/.xprofile)" = "0"; then
 	echo "export GLFW_IM_MODULE=ibus" | tee -a ${HOME}/.xprofile > /dev/null
 fi
 
-
-newDPI=""
+if test ! -e "$HOME/.Xresources"; then
+  touch "$HOME/.Xresources"
+fi
+echo ""
+echo "[INFO] HiDPI support."
 echo "choose HiDPI screen resolution(default 1080p):"
 echo "  1. 2k"
 echo "  2. 4k"
@@ -136,6 +144,7 @@ case "${hidpiIndex}" in
     ;;
 esac
 if test -n "${newDPI}"; then
+  sed -i '/^Xft\.dpi:/d' $HOME/.Xresources
   echo "Xft.dpi: ${newDPI}" | tee -a $HOME/.Xresources
   echo "HiDPI is configured, reboot to make it work."
 fi

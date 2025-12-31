@@ -1,0 +1,28 @@
+set $mod Mod1
+floating_modifier $mod
+
+font pango:IosevkaTerm NFM,monospace 8
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+gaps inner 4
+gaps outer 1
+
+exec --no-startup-id blueman-applet
+exec --no-startup-id nm-applet
+
+exec_always fcitx5
+exec_always dunst
+exec flameshot
+exec feh --randomize --bg-fill ~/Pictures/i3wm/wallpaper
+exec_always setxkbmap -option ctrl:nocaps
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+# fix dophin file associations not work
+exec export XDG_MENU_PREFIX=plasma- && kbuildsycoca6
+
+# no window title
+new_window 1pixel
+
+# window rules
+include conf/windowrule.conf
+
