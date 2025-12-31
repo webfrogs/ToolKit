@@ -8,8 +8,9 @@ sudo pacman -Syy
 
 echo "==> install necessary packages."
 sudo pacman -S --noconfirm \
-  sddm dolphin firefox thunderbird \
+  sddm firefox thunderbird \
   kde-cli-tools okular gwenview \
+  thunar tumbler ffmpegthumbnailer poppler-glib gvfs-smb file-roller thunar-archive-plugin \
   cups ark pavucontrol
 
 
@@ -17,8 +18,8 @@ sudo pacman -S --noconfirm \
 # sudo pacman -S --noconfirm fcitx-im fcitx-configtool fcitx-sunpinyin
 sudo pacman -S --noconfirm fcitx5-im fcitx5-chinese-addons
 
-# fix emoji
-sudo pacman -S --noconfirm noto-fonts-emoji
+
+sudo pacman -S --noconfirm noto-fonts-emoji # fix emoji
 sudo pacman -S --noconfirm adobe-source-han-sans-cn-fonts
 
 # develop
@@ -29,8 +30,9 @@ sudo pacman -S --noconfirm vlc vlc-plugins-all
 
 sudo systemctl enable --now cups # printer
 
-echo "==> install i3wm packages."
+echo "==> install window manager."
 ../i3/install.sh
+../hyprland/install.sh
 
 ../fonts/install.sh
 

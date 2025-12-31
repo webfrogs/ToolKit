@@ -13,11 +13,12 @@ fi
 if test "${installNeed}" = "y"; then
 	if test -x "$(command -v pacman)"; then
     sudo pacman -Syy
-    sudo pacman -S --noconfirm i3-wm i3lock i3status i3status-rust
+    sudo pacman -S --noconfirm i3-wm i3lock \
+      picom polybar rofi
     sudo pacman -S --noconfirm \
       flameshot dunst \
       xorg-xprop xorg-xrandr \
-      feh variety network-manager-applet picom polybar rofi
+      feh network-manager-applet
 	else
 		echo "Can not install in current OS"
 		exit 1
@@ -32,38 +33,6 @@ if test -d "${HOME}/.config/i3"; then
   rm -rf "${HOME}/.config/i3"
 fi
 ln -sf ${workDir}/i3wm ${HOME}/.config/i3
-
-
-mkdir -p ${HOME}/.config/i3status-rust
-rm -f ${HOME}/.config/i3status-rust/config.toml
-cp ${workDir}/res/i3status-rust-config.toml ${HOME}/.config/i3status-rust/config.toml
-battery_count=$(find -L /sys/class/power_supply/ -maxdepth 1 -type d -name 'BAT*' | wc -l)
-if test "$battery_count" -gt 0; then
-  # has battery
-  echo "adding battery status to i3status..."
-  time_block_line_num=$(awk '/^block = "time"/ {print FNR}' ${HOME}/.config/i3status-rust/config.toml)
-  sed -i "$(expr ${time_block_line_num} - 2)"'a[[block]]\
-block = "battery"\
-driver = "upower"          # 推荐用 upower，可自动聚合多电池；也可选 "sysfs"\
-device = "DisplayDevice"   # upower 的聚合设备；单电池可留空或写 BAT0\
-interval = 10              # 仅 driver=sysfs/apc_ups 时有效，单位秒\
-format = " $icon $percentage {$time |}"   # 普通状态\
-charging_format = " $icon $percentage ⚡ {$time |}"   # 充电状态\
-full_format = " $icon $percentage ✔"      # 充满状态\
-empty_format = " $icon $percentage ▇"     # 电量低状态\
-missing_format = ""        # 未检测到电池时不显示任何内容\
-\
-# 电量阈值（百分比）及对应颜色\
-info = 60     # ≥60% 视为 info 色（蓝）\
-good = 60     # ≥60% 视为 good 色（绿）\
-warning = 30  # ≥30% 视为 warning 色（黄）\
-critical = 15 # ≤15% 视为 critical 色（红）\
-\
-# 充满/放空的判定阈值\
-full_threshold = 95   # ≥95% 即认为充满，切换为 full_format\
-empty_threshold = 7.5 # ≤7.5% 即认为放空，切换为 empty_format\
-' ${HOME}/.config/i3status-rust/config.toml
-fi
 
 # picom config
 if test -d "${HOME}/.config/picom"; then
@@ -88,6 +57,7 @@ if test -d "${HOME}/.config/dunst"; then
   rm -rf ${HOME}/.config/dunst
 fi
 ln -sf ${workDir}/dunst ${HOME}/.config/dunst
+
 echo "[INFO] i3 config file is installed successfully."
 
 # fix i3wm dmenu input issue
@@ -132,8 +102,8 @@ case "${hidpiIndex}" in
     echo "Skip HiDPI configuration."
     ;;
 esac
+sed -i '/^Xft\.dpi:/d' $HOME/.Xresources # remove it to set as 1080p
 if test -n "${newDPI}"; then
-  sed -i '/^Xft\.dpi:/d' $HOME/.Xresources
   echo "Xft.dpi: ${newDPI}" | tee -a $HOME/.Xresources
   echo "HiDPI is configured, reboot to make it work."
 fi
