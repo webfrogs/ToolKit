@@ -12,10 +12,16 @@ cron_add:
 
 .PHONY: git_sync
 git_sync:
-	@set -e; \
-		set -o pipefail; \
-		git stash; \
-		git pull --rebase origin master
+	@set -e; set -o pipefail; \
+		git fetch origin; \
+		latestHash=$(shell git rev-parse origin/master); \
+		if test -f ".pre_git_hash" -a "$(shell cat .pre_git_hash)" = "$${latestHash}"; then \
+		  echo "no need to update"; \
+		else \
+		  echo "prepare to update git repo"; \
+			git reset --hard origin/master; \
+			echo "$(shell git rev-parse HEAD)" > .pre_git_hash; \
+		fi; 
 
 .PHONY: gitee
 gitee:
