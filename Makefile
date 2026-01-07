@@ -16,3 +16,12 @@ git_sync:
 		set -o pipefail; \
 		git stash; \
 		git pull --rebase origin master
+
+.PHONY: gitee
+gitee:
+	@set -e; \
+		if ! git remote | grep -q '^gitee$$'; then \
+		  echo "add gitee git remote"; \
+			git remote add gitee git@gitee.com:nswebfrog/ToolKit.git; \
+	  fi; \
+		git push -f gitee master
