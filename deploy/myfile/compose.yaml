@@ -1,0 +1,24 @@
+x-logging: &default-logging
+  driver: json-file
+  options:
+    tag: "{{.Name}}"
+    max-size: '50m'
+    max-file: '2'
+
+services:
+  sftp:
+    image: nswebfrog/myfile_sftp:latest
+    logging: *default-logging
+    container_name: myfile_sftp
+    restart: always
+    ports:
+      - "6666:22"
+
+  nginx:
+    image: nswebfrog/myfile_nginx:latest
+    logging: *default-logging
+    container_name: myfile_nginx
+    restart: always
+    ports:
+      - "8888:443"
+
