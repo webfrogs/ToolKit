@@ -31,3 +31,8 @@ gitee:
 			git remote add gitee git@gitee.com:nswebfrog/ToolKit.git; \
 	  fi; \
 		git push -f gitee master
+
+.PHONY: push_all
+push_all:
+	git push origin master
+	make gitee
