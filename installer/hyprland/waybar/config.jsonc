@@ -12,10 +12,10 @@
         "hyprland/scratchpad"
         // "custom/media"
     ],
-    "modules-center": [
-        // "hyprland/window",
-        "custom/media"
-    ],
+    // "modules-center": [
+    //     // "hyprland/window",
+    //     "custom/media"
+    // ],
     "modules-right": [
         "mpd",
         "idle_inhibitor",
