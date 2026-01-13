@@ -7,7 +7,8 @@ if test ! -x "$(command -v docker)"; then
 fi
 
 if test -x "$(command -v pacman)"; then
-  sudo pacman -S --noconfirm docker-buildx docker-compose \
+  sudo pacman -Syy
+  sudo pacman -S --noconfirm docker-buildx \
     qemu-user-static qemu-user-static-binfmt
 else
   echo "ERROR! not found supported package manager"

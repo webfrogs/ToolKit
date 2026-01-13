@@ -1,9 +1,17 @@
 #!/bin/bash
 set -e
 
-if [ ! `whoami` == "root" ]; then
-    echo "Error! Shell should be executed by root."
-    exit 1
+if test "$(uname -s)" != "Linux"; then
+  echo "Unsupported OS, only Linux."
+  exit 1
+fi
+
+if test -x "$(command -v pacman)"; then
+  sudo pacman -Syy
+  sudo pacman -S --noconfirm \
+    docker-compose
+  docker compose version
+  exit
 fi
 
 downloadJSON() {
@@ -31,32 +39,12 @@ downloadJSON() {
     eval "$1='$body'"
 }
 
-downloadFile() {
-    url="$1"
-    destination="$2"
-
-    echo "Fetching $url.."
-    if test -x "$(command -v curl)"; then
-        code=$(curl -s -w '%{http_code}' -L "$url" -o "$destination")
-    elif test -x "$(command -v wget)"; then
-        code=$(wget -q -O "$destination" --server-response "$url" 2>&1 | awk '/^  HTTP/{print $2}' | tail -1)
-    else
-        echo "Neither curl nor wget was available to perform http requests."
-        exit 1
-    fi
-
-    if [ "$code" != 200 ]; then
-        echo "Request failed with code $code"
-        exit 1
-    fi
-}
-
 GithubReleaseURL="https://github.com/docker/compose/releases"
 downloadJSON LATEST_RELEASE "${GithubReleaseURL}/latest"
 LATEST_RELEASE_TAG=$(echo "${LATEST_RELEASE}" | tr -s '\n' ' ' | sed 's/.*"tag_name":"//' | sed 's/".*//' )
 echo "Latest release tag: $LATEST_RELEASE_TAG"
-curl -L ${GithubReleaseURL}/download/${LATEST_RELEASE_TAG}/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo curl -L ${GithubReleaseURL}/download/${LATEST_RELEASE_TAG}/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 /usr/bin/docker-compose --version
