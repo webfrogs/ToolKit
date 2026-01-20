@@ -219,7 +219,7 @@
     "custom/disk": {
       "exec": "df -h / | awk 'NR==2 {print $4}'",
       "interval": 30,
-      "format": " {}  ",
+      "format": "{} ",
       "tooltip": false
     },
     "custom/power": {
