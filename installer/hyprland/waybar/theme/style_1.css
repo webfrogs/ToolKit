@@ -67,11 +67,6 @@ button.special.active {
   background: linear-gradient(135deg, @accent-primary, @accent-secondary);
 }
 
-#workspaces button.empty {
-  color: rgba(129, 161, 193, 0.4);
-  background: transparent;
-}
-
 #workspaces button.urgent {
   background-color: @urgent;
   color: @text-primary;
@@ -82,15 +77,6 @@ button.special.active {
   background: rgba(143, 188, 187, 0.2);
   color: @text-primary;
 }
-
-/* ===== 中央模块（可选） ===== */
-/* #custom-center-module {
-    background: @bg-primary;
-    border-radius: 24px;
-    padding: 0 16px;
-    margin: 4px 0;
-    border: 1px solid @border-glass;
-} */
 
 /* ===== 右侧系统模块 ===== */
 #main {
