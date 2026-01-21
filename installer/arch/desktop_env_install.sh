@@ -38,7 +38,7 @@ echo "==> install window manager."
 
 ./apps/tty.sh
 ./apps/1password.sh
-./apps/pavucontrol.sh
+./apps/remmina.sh
 ./apps/chrome.sh || true
 
 # start sddm

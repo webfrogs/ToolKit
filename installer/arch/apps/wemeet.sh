@@ -1,6 +1,5 @@
 #!/bin/sh
 set -e
 
-yay -S wemeet-bin --noconfirm
-
-# mkdir -p $HOME/.config/fontconfig
+cd $(dirname $0)
+../bin/aur_install.sh wemeet-bin

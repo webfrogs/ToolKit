@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
 
-yay -S feishu-bin --noconfirm
+cd $(dirname $0)
+../bin/aur_install.sh feishu-bin
 

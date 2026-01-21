@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 
-yay -S --noconfirm httpie-desktop-bin
+cd $(dirname $0)
+../bin/aur_install.sh httpie-desktop-bin
 httpie plugins install httpie-websockets
 

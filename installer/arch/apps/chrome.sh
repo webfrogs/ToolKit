@@ -1,4 +1,5 @@
 #!/bin/sh
 set -e
 
-yay -S google-chrome --noconfirm
+cd $(dirname $0)
+../bin/aur_install.sh google-chrome

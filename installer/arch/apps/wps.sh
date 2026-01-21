@@ -1,10 +1,5 @@
 #!/bin/sh
 set -e
 
-yay -S wps-office --noconfirm
-
-# Zh-CN language support
-yay -S wps-office-mui-zh-cn --noconfirm
-
-# fix export to pdf failed issue
-yay -S --noconfirm libtiff5
+cd $(dirname $0)
+../bin/aur_install.sh wps-office wps-office-mui-zh-cn libtiff5

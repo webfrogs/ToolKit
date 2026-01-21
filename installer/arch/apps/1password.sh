@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
 
-yay -S --noconfirm 1password
+cd $(dirname $0)
+../bin/aur_install.sh 1password
 

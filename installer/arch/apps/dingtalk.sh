@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 
-yay -S dingtalk-bin --noconfirm
+cd $(dirname $0)
+../bin/aur_install.sh dingtalk-bin
 
 

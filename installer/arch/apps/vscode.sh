@@ -1,10 +1,5 @@
 #!/bin/sh
 set -e
 
-# cd /tmp
-# rm -rf visual-studio-code-bin
-# git clone https://aur.archlinux.org/visual-studio-code-bin.git
-# cd visual-studio-code-bin/
-# makepkg -si
-#
-yay -S visual-studio-code-bin --noconfirm
+cd $(dirname $0)
+../bin/aur_install.sh visual-studio-code-bin
