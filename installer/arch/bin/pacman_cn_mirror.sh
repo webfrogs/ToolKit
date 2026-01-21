@@ -1,12 +1,7 @@
 #!/bin/sh
 set -e
 
+sudo sed -i '/mirrors.tuna.tsinghua.edu.cn/d' /etc/pacman.d/mirrorlist
+sudo sed -i '1i\Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' /etc/pacman.d/mirrorlist
 
-if test ! -x "$(command -v pacman-mirrors)"; then
-  echo "'pacman-mirrors' command is not found"
-  exit
-fi
-
-sudo pacman-mirrors -i -c China -m rank
 sudo pacman -Syy
-sudo pacman -Syu --noconfirm
