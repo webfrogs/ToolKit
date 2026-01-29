@@ -128,7 +128,7 @@
           "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
         }
       },
-      "format-alt": "{:%Y-%m-%d}"
+      "format-alt": "{:%H:%M:%S}"
     },
     "cpu": {
         "format": "{usage}% ",
