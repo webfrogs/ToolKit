@@ -12,13 +12,12 @@
         "hyprland/scratchpad"
         // "custom/media"
     ],
-    // "modules-center": [
-    //     // "hyprland/window",
-    //     "custom/media"
-    // ],
+    "modules-center": [
+        "clock"
+    ],
     "modules-right": [
-        "mpd",
-        "idle_inhibitor",
+        // "mpd",
+        // "idle_inhibitor",
         "pulseaudio",
         "power-profiles-daemon",
         "cpu",
@@ -29,7 +28,6 @@
         "keyboard-state",
         "battery",
         "battery#bat2",
-        "clock",
         "tray",
         "custom/power"
     ],
@@ -113,8 +111,8 @@
     },
     "clock": {
       "interval": 1,
-      "format": "{:%m/%d %a %H:%M:%S}",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format": "{:%H:%M:%S}",
+      "format-alt": "{:%m/%d %a %H:%M:%S}",
       "calendar": {
         "mode"          : "year",
         "mode-mon-col"  : 3,
@@ -128,7 +126,7 @@
           "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
         }
       },
-      "format-alt": "{:%H:%M:%S}"
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -190,10 +188,10 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": "󰝟 {icon} {format_source}",
-        "format-muted": "󰝟 {format_source}",
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "󰝟 {icon}",
+        "format-muted": "󰝟",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
