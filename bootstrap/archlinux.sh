@@ -58,7 +58,7 @@ battery_count=$(find -L /sys/class/power_supply/ -maxdepth 1 -type d -name 'BAT*
 if test "$battery_count" -gt 0; then
   # found battery
   echo "found battery on current machine."
-  sudo pacman -S acpi
+  sudo pacman -S --noconfirm acpi
 fi
 
 # set ssh github proxy
