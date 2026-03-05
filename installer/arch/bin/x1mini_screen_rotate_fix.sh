@@ -6,7 +6,7 @@ set -e
 # use command 'xrandr' to find monitor
 sudo tee /etc/X11/xorg.conf.d/10-monitor.conf >/dev/null <<EOF
 Section "Monitor"
-    Identifier "eDp-1"
+    Identifier "eDp"
     Option "Rotate" "left"
 EndSection
 EOF

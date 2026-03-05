@@ -48,6 +48,7 @@ sudo pacman -S --noconfirm \
   blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \
   usbutils lshw htop btop fastfetch \
   pipewire-pulse \
+  rustup \
   network-manager-applet xorg-xrandr xorg-xrdb xorg-xdpyinfo xorg-xinput
 
 sudo systemctl enable --now bluetooth
