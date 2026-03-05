@@ -48,7 +48,6 @@ sudo pacman -S --noconfirm \
   blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \
   usbutils lshw htop btop fastfetch \
   pipewire-pulse \
-  rustup \
   network-manager-applet xorg-xrandr xorg-xrdb xorg-xdpyinfo xorg-xinput
 
 sudo systemctl enable --now bluetooth
@@ -82,4 +81,5 @@ if test -n "${http_proxy}"; then
 else
   echo "No proxy found, skip yay installation, remember to install it later."
 fi
+./installer/rust/install.sh || true
 ./configs/zsh/config.sh || echo "zsh install failed. should retry it later."

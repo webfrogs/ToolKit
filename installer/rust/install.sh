@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e
 
-
 if test -x "$(command -v pacman)"; then
   sudo pacman -Syy
   sudo pacman -S --noconfirm rustup
