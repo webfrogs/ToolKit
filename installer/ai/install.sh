@@ -42,8 +42,8 @@ fi
 # opencode
 if test "${OPT_SKIP_INSTALL}" != "1"; then
   paru -S --noconfirm opencode-bin
-  sudo pacman -S --noconfirm bun
-  bunx oh-my-opencode install
+  # sudo pacman -S --noconfirm bun
+  # bunx oh-my-opencode install
 fi
 
 # gemini-cli
