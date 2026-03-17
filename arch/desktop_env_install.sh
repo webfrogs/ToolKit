@@ -10,7 +10,7 @@ echo "==> install necessary packages."
 sudo pacman -S --noconfirm \
   sddm firefox thunderbird \
   kde-cli-tools okular gwenview \
-  thunar tumbler ffmpegthumbnailer poppler-glib gvfs-smb file-roller thunar-archive-plugin \
+  thunar tumbler ffmpegthumbnailer poppler-glib gvfs-smb file-roller thunar-archive-plugin gvfs-mtp libmtp \
   cups ark pavucontrol
 
 

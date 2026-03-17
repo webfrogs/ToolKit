@@ -26,7 +26,7 @@ if test "${installNeed}" = "y"; then
       grim slurp satty \
       brightnessctl \
       playerctl \
-      thunar tumbler ffmpegthumbnailer poppler-glib gvfs-smb file-roller thunar-archive-plugin \
+      thunar tumbler ffmpegthumbnailer poppler-glib gvfs-smb file-roller thunar-archive-plugin gvfs-mtp libmtp \
       ttf-jetbrains-mono-nerd
   else
 		echo "no supported package manager found."
