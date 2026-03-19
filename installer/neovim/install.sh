@@ -41,4 +41,13 @@ echo "===> Installing neovim config"
 rm -rf ${HOME}/.config/nvim
 git clone git@github.com:webfrogs/nvim.git ${HOME}/.config/nvim
 
+echo "==> Installing tree-sitter-cli"
+if test -x "$(command -v cargo)"; then
+  cargo install --locked tree-sitter-cli
+elif test -x "$(command -v npm)"; then
+  npm install tree-sitter-cli
+else
+  echo "ERROR! tree-sitter-cli install failed, do it later."
+fi
+
 echo "===> Neovim is installed successfully."
