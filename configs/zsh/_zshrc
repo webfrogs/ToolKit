@@ -38,6 +38,7 @@ export GOPATH=$HOME/go
 
 # Rust settings
 export CARGO_NET_GIT_FETCH_WITH_CLI=true
+export PATH="$PATH:$HOME/.cargo/bin" 
 
 # Dev setting
 export BXSHARE="/opt/bochs/share/bochs"
