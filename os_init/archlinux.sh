@@ -43,7 +43,7 @@ sudo pacman -S --noconfirm \
   curl wget openssh less rsync man exfatprogs \
   git vim zip tree unzip jq cronie \
   terminator zsh aria2 \
-  resolvconf net-tools dnsmasq \
+  resolvconf net-tools dnsmasq openbsd-netcat \
   dnsutils iputils socat \
   blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \
   usbutils lshw htop btop fastfetch \
