@@ -9,10 +9,12 @@ sudo pacman -Syy
 echo "==> install necessary packages."
 sudo pacman -S --noconfirm \
   sddm firefox thunderbird \
-  kde-cli-tools okular gwenview \
+  kde-cli-tools okular gwenview xdg-user-dirs \
   thunar tumbler ffmpegthumbnailer poppler-glib gvfs-smb file-roller thunar-archive-plugin gvfs-mtp libmtp \
   cups ark pavucontrol
 
+# create default user directories within $HOME directory
+xdg-user-dirs-update
 
 # install chinese input method
 sudo pacman -S --noconfirm fcitx5-im fcitx5-chinese-addons fcitx5-rime
