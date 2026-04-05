@@ -54,3 +54,8 @@ sudo sed -i 's|http://download.proxmox.com|https://mirrors.tuna.tsinghua.edu.cn/
 
 # remove subscription alert on webUI
 sudo sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && sudo systemctl restart pveproxy.service
+
+
+sudo apt update
+sudo apt install -y \
+  make vim
