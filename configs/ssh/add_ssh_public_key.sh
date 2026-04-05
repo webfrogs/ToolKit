@@ -5,7 +5,7 @@ cd $(dirname $0)
 
 if test ! -d "${HOME}/.ssh"; then
 	mkdir -p ${HOME}/.ssh
-	chmod 600 ${HOME}/.ssh
+	chmod 700 ${HOME}/.ssh
 fi
 
 if test -f "${HOME}/.ssh/authorized_keys"; then
