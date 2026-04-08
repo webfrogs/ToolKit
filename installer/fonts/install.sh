@@ -17,7 +17,7 @@ if test ! -d "$fontDir"; then
     mkdir -p $fontDir
 fi
 
-scp -P 6666 -r res@sftp.webfrog.top:font/carl_fonts.txz /tmp/carl_fonts.txz
+scp -P 6666 -r res@sftp.webfrog.top:res/font/carl_fonts.txz /tmp/carl_fonts.txz
 tar xvJf /tmp/carl_fonts.txz -C /tmp
 
 cp /tmp/carl_fonts/*.ttf "$fontDir"
