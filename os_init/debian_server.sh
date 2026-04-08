@@ -45,6 +45,7 @@ sudo apt update
 sudo apt install -y \
   vim \
   wireguard \
+  net-tools \
   make htop zsh
 
 ./configs/git/config.sh
