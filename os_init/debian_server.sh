@@ -43,6 +43,8 @@ fi
 sudo apt update
 
 sudo apt install -y \
+  vim \
+  wireguard \
   make htop zsh
 
 ./configs/git/config.sh

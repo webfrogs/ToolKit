@@ -7,7 +7,7 @@ x-logging: &default-logging
 
 services:
   sftp:
-    image: nswebfrog/myfile_sftp:latest
+    image: nswebfrog/myfile:sftp
     logging: *default-logging
     container_name: myfile_sftp
     restart: always
@@ -15,10 +15,10 @@ services:
       - "6666:22"
 
   nginx:
-    image: nswebfrog/myfile_nginx:latest
+    image: nswebfrog/myfile:nginx
     logging: *default-logging
     container_name: myfile_nginx
     restart: always
     ports:
-      - "8888:443"
+      - "6667:443"
 
