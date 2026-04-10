@@ -45,7 +45,7 @@ sudo apt update
 sudo apt install -y \
   vim \
   wireguard \
-  net-tools \
+  net-tools dnsmasq tcpdump \
   make htop zsh
 
 ./configs/git/config.sh
