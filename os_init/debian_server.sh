@@ -48,6 +48,8 @@ sudo apt install -y \
   net-tools dnsmasq tcpdump \
   make htop zsh
 
+sudo timedatectl set-timezone Asia/Shanghai
+
 ./configs/git/config.sh
 ./installer/fzf/install.sh
 if test "${OPT_NO_CN_MIRROR}" = "1"; then
