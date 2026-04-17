@@ -46,6 +46,27 @@ else
   git clone https://github.com/zsh-users/zsh-autosuggestions $autosuggestionsPluginPath
 fi
 
+# Install starship if not present
+if ! command -v starship &> /dev/null; then
+  echo "[INFO] Installing starship..."
+  sudo pacman -S --noconfirm starship
+fi
+
+# Install zoxide if not present
+if ! command -v zoxide &> /dev/null; then
+  echo "[INFO] Installing zoxide..."
+  sudo pacman -S --noconfirm zoxide
+fi
+
+
+ln -sf "${ShellFolderPath}/conf" "$HOME/.config/zsh" 
+cat > ~/.zshenv << 'ZSHENV'
+# Zsh config directory
+export ZDOTDIR="$HOME/.config/zsh"
+[[ -f "$ZDOTDIR/.zshenv" ]] && source "$ZDOTDIR/.zshenv"
+ZSHENV
+
+
 if test $(basename $SHELL) != "zsh"; then
   echo ""
   read -p "Zsh is not default shell, set it as default? [y/n]: " shouldSetDefault
@@ -56,5 +77,4 @@ if test $(basename $SHELL) != "zsh"; then
     chsh -s $(which zsh)
   fi
 fi
-
 echo "==> zsh configuration done."

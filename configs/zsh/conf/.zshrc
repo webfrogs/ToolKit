@@ -1,3 +1,7 @@
+[[ -f $HOME/.config/zsh/preload.zsh ]] && source $HOME/.config/zsh/preload.zsh
+
+eval "$(starship init zsh)"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -178,4 +182,7 @@ print_proxy_cmd() {
   fi
   echo "export http_proxy='http://${proxy_addr}' && export https_proxy='http://${proxy_addr}'"
 }
+
+# setup zoxide
+eval "$(zoxide init zsh)"
 

@@ -1,16 +1,13 @@
 #!/bin/sh
 set -e
 
-if test ! -d "${HOME}/.cargo"; then
-	echo "ERROR! cargo folder is not exist."
-	exit 2
-fi
+mkdir -vp ${CARGO_HOME:-$HOME/.cargo}
 
-cat << EOF > ${HOME}/.cargo/config
+cat << EOF | tee -a ${CARGO_HOME:-$HOME/.cargo}/config.toml
 [source.crates-io]
-registry = "https://github.com/rust-lang/crates.io-index"
-replace-with = 'ustc'
-[source.ustc]
-registry = "git://mirrors.ustc.edu.cn/crates.io-index"
+replace-with = 'mirror'
+
+[source.mirror]
+registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
 EOF
 
