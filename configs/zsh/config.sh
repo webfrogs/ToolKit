@@ -3,63 +3,44 @@ set -e
 
 if test ! -x "$(command -v zsh)"; then
   echo "[ERROR] zsh is not installed."
-  exit 2
+  exit 1
 fi
 
 ShellFolderPath=$(cd $(dirname $0) && pwd)
 cd "${ShellFolderPath}"
 
-OhMyZshPath="$HOME/.config/oh-my-zsh"
-OhMyZshCustomPath="$OhMyZshPath/custom"
-mkdir -p $(dirname $OhMyZshPath)
-
-
-# Install or update oh-my-zsh
-if [ ! -d "$OhMyZshPath" ]; then
-	echo "[INFO] Downloading oh-my-zsh..."
-	git clone https://github.com/robbyrussell/oh-my-zsh.git "$OhMyZshPath"
-else
-  echo "[INFO] Updating oh-my-zsh..."
-  cd "$OhMyZshPath"
-  git fetch origin
-  git reset --hard origin/master
-	cd "${ShellFolderPath}"
-fi
-
-ln -sf "${ShellFolderPath}/_zshrc" "$HOME/.zshrc"
-
-ZshCustomCompletionFolderPath=$OhMyZshCustomPath/plugins/carl
-if test -d "${ZshCustomCompletionFolderPath}"; then
-  rm -rf "${ZshCustomCompletionFolderPath}"
-fi
-ln -sf "${ShellFolderPath}/customCompletions" "${ZshCustomCompletionFolderPath}"
-
-#zsh plugins
-# zsh-autosuggestions
-autosuggestionsPluginPath=$OhMyZshCustomPath/plugins/zsh-autosuggestions
-if test -d "$autosuggestionsPluginPath"; then
-  cd $autosuggestionsPluginPath
-  git fetch origin
-  git reset --hard origin/master
-  cd $ShellFolderPath
-else
-  git clone https://github.com/zsh-users/zsh-autosuggestions $autosuggestionsPluginPath
-fi
-
 # Install starship if not present
 if ! command -v starship &> /dev/null; then
   echo "[INFO] Installing starship..."
-  sudo pacman -S --noconfirm starship
+  if command -v pacman &> /dev/null; then
+    sudo pacman -S --noconfirm starship
+  elif command -v apt &> /dev/null; then
+    sudo apt install -y starship
+  else
+    echo "[WARN] No supported package manager found, skipping starship installation."
+  fi
 fi
 # Install zoxide if not present
 if ! command -v zoxide &> /dev/null; then
   echo "[INFO] Installing zoxide..."
-  sudo pacman -S --noconfirm zoxide
+  if command -v pacman &> /dev/null; then
+    sudo pacman -S --noconfirm zoxide
+  elif command -v apt &> /dev/null; then
+    sudo apt install -y zoxide
+  else
+    echo "[WARN] No supported package manager found, skipping zoxide installation."
+  fi
 fi
-# Install zoxide if not present
+# Install atuin if not present
 if ! command -v atuin &> /dev/null; then
   echo "[INFO] Installing atuin..."
-  sudo pacman -S --noconfirm atuin
+  if command -v pacman &> /dev/null; then
+    sudo pacman -S --noconfirm atuin
+  elif command -v cargo &> /dev/null; then
+    cargo install atuin
+  else
+    echo "[WARN] No supported package manager found, skipping atuin installation."
+  fi
 fi
 
 ln -sf "${ShellFolderPath}/conf" "$HOME/.config/zsh" 
