@@ -6,6 +6,15 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zi ice wait"0a" lucid atload"zicompinit; zicdreplay" blockf
 zi light zsh-users/zsh-completions
 
+# direnv
+zi ice wait"0a" lucid as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
+    atpull'%atclone' pick"direnv" src"zhook.zsh"
+zi light direnv/direnv
+
+# git 补全
+zi ice wait"0a" lucid as"completion"
+zi snippet https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh
+
 # fzf 补全
 zi ice wait"0d" lucid \
     atload'

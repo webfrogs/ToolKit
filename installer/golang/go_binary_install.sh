@@ -20,4 +20,4 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 # require by neovim golang plugin 'ray-x/go.nvim'
 go install github.com/koron/iferr@latest
 
-
+go install github.com/cpuguy83/go-md2man/v2@latest
