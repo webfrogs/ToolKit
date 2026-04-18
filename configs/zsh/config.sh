@@ -51,13 +51,16 @@ if ! command -v starship &> /dev/null; then
   echo "[INFO] Installing starship..."
   sudo pacman -S --noconfirm starship
 fi
-
 # Install zoxide if not present
 if ! command -v zoxide &> /dev/null; then
   echo "[INFO] Installing zoxide..."
   sudo pacman -S --noconfirm zoxide
 fi
-
+# Install zoxide if not present
+if ! command -v atuin &> /dev/null; then
+  echo "[INFO] Installing atuin..."
+  sudo pacman -S --noconfirm atuin
+fi
 
 ln -sf "${ShellFolderPath}/conf" "$HOME/.config/zsh" 
 cat > ~/.zshenv << 'ZSHENV'

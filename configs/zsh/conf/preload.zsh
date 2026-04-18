@@ -16,5 +16,9 @@ source "${ZI[BIN_DIR]}/zi.zsh"
 
 # 指定 补全缓存的路径
 local zsh_cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+mkdir -p ${zsh_cache_dir}
 zinit ice compinit-opts'-d "${zsh_cache_dir}/zcompdump"'
+
+# load plugins
+source $ZDOTDIR/plugins.zsh
 
