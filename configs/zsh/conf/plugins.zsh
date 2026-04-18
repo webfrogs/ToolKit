@@ -34,12 +34,17 @@ zi light atuinsh/atuin
 zi ice wait"0c" lucid \
     atload'
         _zsh_autosuggest_start
-        bindkey "^[;" autosuggest-accept
+        # Ctrl+F: 有 autosuggestion 时接受，否则右移字符
+        _autosuggest_or_forward_char() {
+            if [[ -n "$POSTDISPLAY" ]]; then
+                zle autosuggest-accept
+            else
+                zle forward-char
+            fi
+        }
+        zle -N _autosuggest_or_forward_char
+        bindkey "^F" _autosuggest_or_forward_char
     '
-    # atload'
-    #     _zsh_autosuggest_start
-    #     bindkey "\`" autosuggest-accept
-    # '
 zi light zsh-users/zsh-autosuggestions
 
 # 语法高亮

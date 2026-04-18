@@ -161,3 +161,10 @@ print_proxy_cmd() {
 # setup zoxide
 eval "$(zoxide init zsh)"
 
+# neovim terminal 兼容按键绑定
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^B" backward-char
+bindkey "^N" down-line-or-history
+bindkey "^P" up-line-or-history
+
