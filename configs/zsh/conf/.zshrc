@@ -13,6 +13,14 @@ else
   export EDITOR='nvim'
 fi
 
+# ls color settings
+export CLICOLOR=1
+if ls --color=auto &>/dev/null; then
+  alias ls='ls --color=auto'
+else
+  alias ls='ls -G'
+fi
+
 #---- My config
 export DEFAULT_USER=carl
 export LC_ALL=en_US.UTF-8
