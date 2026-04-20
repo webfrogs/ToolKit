@@ -20,6 +20,10 @@ if ! command -v starship &> /dev/null; then
     echo "[WARN] No supported package manager found, skipping starship installation."
   fi
 fi
+rm -f ~/.config/starship.toml
+mkdir -p ~/.config
+ln -sf "${ShellFolderPath}/starship/starship.toml"  ~/.config/starship.toml
+
 # Install zoxide if not present
 if ! command -v zoxide &> /dev/null; then
   echo "[INFO] Installing zoxide..."
@@ -43,7 +47,8 @@ if ! command -v atuin &> /dev/null; then
   fi
 fi
 
-ln -sf "${ShellFolderPath}/conf" "$HOME/.config/zsh" 
+rm -f "$HOME/.config/zsh"
+ln -sf "${ShellFolderPath}/conf" "$HOME/.config/zsh"
 cat > ~/.zshenv << 'ZSHENV'
 # Zsh config directory
 export ZDOTDIR="$HOME/.config/zsh"
