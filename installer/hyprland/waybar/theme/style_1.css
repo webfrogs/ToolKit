@@ -183,4 +183,57 @@ button.special.active {
   background: rgba(143, 188, 187, 0.3);
 }
 
+/* ===== 电源按钮 ===== */
+#custom-power {
+  padding: 0 10px;
+  margin: 4px 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(191, 97, 106, 0.6), rgba(208, 135, 112, 0.5));
+  color: @text-primary;
+  font-size: 14px;
+  border: 1px solid rgba(191, 97, 106, 0.4);
+  transition: all 0.3s ease;
+}
+
+#custom-power:hover {
+  background: linear-gradient(135deg, rgba(191, 97, 106, 0.9), rgba(208, 135, 112, 0.8));
+  box-shadow: 0 0 8px rgba(191, 97, 106, 0.5);
+}
+
+/* ===== 电源弹窗菜单 ===== */
+menu {
+  background: rgba(30, 32, 40, 0.95);
+  border: 1px solid rgba(136, 192, 208, 0.25);
+  border-radius: 14px;
+  padding: 6px 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.04);
+  color: @text-primary;
+  font-family: JetBrainsMono NFP, IosevkaTerm Nerd Font Mono, Source Han Sans CN, sans-serif;
+  font-size: 13px;
+}
+
+menu menuitem {
+  padding: 8px 20px;
+  border-radius: 10px;
+  margin: 2px 4px;
+  color: @text-primary;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+menu menuitem:hover {
+  background: rgba(143, 188, 187, 0.18);
+  color: #ECEFF4;
+}
+
+menu menuitem:first-child:hover {
+  background: rgba(191, 97, 106, 0.3);
+  color: #ECEFF4;
+}
+
+menu separator {
+  background: rgba(136, 192, 208, 0.15);
+  margin: 3px 10px;
+  min-height: 1px;
+}
+
 
