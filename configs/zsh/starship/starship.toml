@@ -3,3 +3,18 @@ disabled = true
 
 [golang]
 disabled = true
+
+[c]
+disabled = true
+
+[ruby]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[rust]
+disabled = true
+
+[java]
+disabled = true
