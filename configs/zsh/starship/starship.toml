@@ -15,3 +15,7 @@ disabled = true
 disabled = true
 [lua]
 disabled = true
+[maven]
+disabled = true
+[package]
+disabled = true

@@ -176,3 +176,19 @@ bindkey "^B" backward-char
 bindkey "^N" down-line-or-history
 bindkey "^P" up-line-or-history
 
+
+# sdkman settings (lazy load)
+export SDKMAN_DIR="$HOME/.sdkman"
+_sdkman_load() {
+  unfunction sdk java javac mvn gradle 2>/dev/null
+  [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+  if ! sdk help &>/dev/null 2>&1; then
+    curl -s "https://get.sdkman.io" | bash
+    [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+  fi
+}
+sdk()    { _sdkman_load && sdk "$@" }
+java()   { _sdkman_load && java "$@" }
+javac()  { _sdkman_load && javac "$@" }
+mvn()    { _sdkman_load && mvn "$@" }
+gradle() { _sdkman_load && gradle "$@" }
