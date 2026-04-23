@@ -1,20 +1,17 @@
+# doc: https://starship.rs/config/
 [aws]
 disabled = true
-
 [golang]
 disabled = true
-
 [c]
 disabled = true
-
 [ruby]
 disabled = true
-
 [nodejs]
 disabled = true
-
 [rust]
 disabled = true
-
 [java]
+disabled = true
+[lua]
 disabled = true

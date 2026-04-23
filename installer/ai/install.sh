@@ -37,21 +37,30 @@ fi
 
 if test "${OPT_SKIP_INSTALL}" != "1"; then
   sudo pacman -Syy
-fi
-
-# opencode
-if test "${OPT_SKIP_INSTALL}" != "1"; then
+  # opencode
   paru -S --noconfirm opencode-bin
-  # sudo pacman -S --noconfirm bun
-  # bunx oh-my-opencode install
+  # gemini-cli
+  npm install -g @google/gemini-cli
+  # cc-switch
+  paru -S --noconfirm cc-switch-bin
+  # claude code
+  paru -S --noconfirm claude-code-bin
 fi
 
-# gemini-cli
-if test "${OPT_SKIP_INSTALL}" != "1"; then
-  npm install -g @google/gemini-cli
-  # gemini extensions install https://github.com/github/github-mcp-server
-fi
+
+# gemini config
 mkdir -p ~/.gemini
 rm -f ~/.gemini/GEMINI.md
 ln -sf $(pwd)/gemini/GEMINI.md ~/.gemini/GEMINI.md
 
+# config proxy for cc-switch
+sudo mkdir -p /opt/env/
+sudo tee /opt/env/proxy_env >/dev/null <<EOF
+http_proxy=http://127.0.0.1:1090
+https_proxy=http://127.0.0.1:1090
+no_proxy="localhost,127.0.0.1,192.168.1.0/24"
+EOF
+if test -e '/usr/share/applications/CC Switch.desktop'; then
+  sudo sed -i '/^EnvironmentFile=/d' '/usr/share/applications/CC Switch.desktop'
+  sudo sed -i '/^Exec=/a\EnvironmentFile=/opt/env/proxy_env' '/usr/share/applications/CC Switch.desktop'
+fi
