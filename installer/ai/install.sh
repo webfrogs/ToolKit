@@ -40,7 +40,8 @@ if test "${OPT_SKIP_INSTALL}" != "1"; then
   # opencode
   paru -S --noconfirm opencode-bin
   # gemini-cli
-  npm install -g @google/gemini-cli
+  sudo pacman -S --noconfirm gemini-cli
+  # npm install -g @google/gemini-cli
   # cc-switch
   paru -S --noconfirm cc-switch-bin
   # claude code
