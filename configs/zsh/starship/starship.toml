@@ -1,4 +1,5 @@
 # doc: https://starship.rs/config/
+scan_timeout = 300
 [aws]
 disabled = true
 [golang]

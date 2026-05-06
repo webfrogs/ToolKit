@@ -13,7 +13,7 @@ proxy_set() {
   export http_proxy="http://${proxy_addr}"
   export https_proxy="http://${proxy_addr}"
   export ftp_proxy="http://${proxy_addr}"
-  echo "proxy is set, address: ${proxy_addr}"
+  echo "proxy is set to: ${proxy_addr}"
 }
 proxy_set
 
