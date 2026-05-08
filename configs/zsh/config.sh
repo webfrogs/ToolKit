@@ -22,7 +22,7 @@ if ! command -v starship &> /dev/null; then
 fi
 rm -f ~/.config/starship.toml
 mkdir -p ~/.config
-ln -sf "${ShellFolderPath}/starship/starship.toml"  ~/.config/starship.toml
+ln -sf "${ShellFolderPath}/starship/starship.toml" ~/.config/starship.toml
 
 # Install zoxide if not present
 if ! command -v zoxide &> /dev/null; then
@@ -35,6 +35,7 @@ if ! command -v zoxide &> /dev/null; then
     echo "[WARN] No supported package manager found, skipping zoxide installation."
   fi
 fi
+
 # Install atuin if not present
 if ! command -v atuin &> /dev/null; then
   echo "[INFO] Installing atuin..."
@@ -46,6 +47,9 @@ if ! command -v atuin &> /dev/null; then
     echo "[WARN] No supported package manager found, skipping atuin installation."
   fi
 fi
+rm -f ~/.config/atuin/config.toml
+mkdir -p ~/.config/atuin
+ln -sf "${ShellFolderPath}/atuin/config.toml" ~/.config/atuin/config.toml
 
 rm -f "$HOME/.config/zsh"
 ln -sf "${ShellFolderPath}/conf" "$HOME/.config/zsh"
@@ -54,7 +58,6 @@ cat > ~/.zshenv << 'ZSHENV'
 export ZDOTDIR="$HOME/.config/zsh"
 [[ -f "$ZDOTDIR/.zshenv" ]] && source "$ZDOTDIR/.zshenv"
 ZSHENV
-
 
 if test $(basename $SHELL) != "zsh"; then
   echo ""
