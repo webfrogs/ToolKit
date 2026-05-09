@@ -13,6 +13,9 @@ else
   export EDITOR='nvim'
 fi
 
+# which: only search PATH, ignore functions/aliases
+alias which='which -p'
+
 # ls color settings
 export CLICOLOR=1
 if ls --color=auto &>/dev/null; then
@@ -84,6 +87,28 @@ fi
 # nvm settings (lazy load)
 export NVM_DIR="$HOME/.nvm"
 if test -d "${NVM_DIR}"; then
+    # Pre-inject the default nvm node version into PATH so that
+    # `which node/npm/npx` works without triggering a full nvm load.
+    # Use precmd hook to run after zi async plugins have finished modifying PATH.
+    _nvm_inject_path() {
+        local _nvm_default _nvm_bin
+        _nvm_default="$(cat "$NVM_DIR/alias/default" 2>/dev/null)"
+        # Resolve alias chain (e.g. default -> lts/* -> v20.x.x)
+        while [[ -n "$_nvm_default" && -f "$NVM_DIR/alias/$_nvm_default" ]]; do
+            _nvm_default="$(cat "$NVM_DIR/alias/$_nvm_default" 2>/dev/null)"
+        done
+        # Normalize: ensure version has leading 'v' to match directory name
+        [[ "$_nvm_default" != v* ]] && _nvm_default="v${_nvm_default}"
+        _nvm_bin="$NVM_DIR/versions/node/${_nvm_default}/bin"
+        if [[ -d "$_nvm_bin" ]] && [[ ":$PATH:" != *":$_nvm_bin:"* ]]; then
+            export PATH="$_nvm_bin:$PATH"
+        fi
+        # Only run once, then remove itself from precmd hooks
+        add-zsh-hook -d precmd _nvm_inject_path
+    }
+    autoload -Uz add-zsh-hook
+    add-zsh-hook precmd _nvm_inject_path
+
     _nvm_load() {
         unfunction nvm node npm npx 2>/dev/null
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
