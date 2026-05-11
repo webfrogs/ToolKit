@@ -45,7 +45,7 @@ if test "${OPT_SKIP_INSTALL}" != "1"; then
   # cc-switch
   paru -S --noconfirm cc-switch-bin
   # claude code
-  paru -S --noconfirm claude-code-bin
+  paru -S --noconfirm claude-code-stable-bin
 fi
 
 
