@@ -1,4 +1,5 @@
 // -*- mode: jsonc -*-
+// doc: https://github.com/alexays/waybar
 {
     "height": 30, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
@@ -16,7 +17,6 @@
         "cpu",
         "memory",
         "custom/disk",
-        "temperature",
         "backlight",
         "battery",
         "battery#bat2",
@@ -56,8 +56,9 @@
     },
     "clock": {
       "interval": 1,
-      "format": "{:%H:%M:%S}",
-      "format-alt": "{:%m/%d %a %H:%M:%S}",
+      "format": "{:%m/%d %a %H:%M:%S}",
+      "format-alt": "{:%H:%M:%S}",
+      "tooltip": false,
       "calendar": {
         "mode"          : "year",
         "mode-mon-col"  : 3,
@@ -79,11 +80,6 @@
     },
     "memory": {
         "format": "{}% "
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
     },
     "backlight": {
         "format": "{percent}% {icon}",
@@ -118,15 +114,6 @@
         "power-saver": ""
       }
     },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} 󰈀",
-        "tooltip-format": "{ifname} via {gwaddr} 󰈀",
-        "format-linked": "{ifname} (No IP) 󰈀",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}",
@@ -137,8 +124,9 @@
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "󰂑",
-            "headset": "󰂑",
+            //"hands-free": "󰂑",
+            "hands-free": "",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": "",
