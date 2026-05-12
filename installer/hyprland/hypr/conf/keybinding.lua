@@ -7,14 +7,12 @@ local fileManager = "thunar"
 local menu        = "fuzzel"
 
 -- doc: https://wiki.hypr.land/Configuring/Basics/Binds/
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
-
 
 -- disable fcitx5 spell shortcut
-hl.bind(mainMod .. " + Control_L + H", hl.dsp.exec_cmd("true"))
+hl.bind(mainMod .. " + Control_L + H", hl.dsp.exec_cmd("true"), { auto_consuming = true })
 
 -- toggle display enable
-hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("hyprctl dispatch dpms toggle"))
+hl.bind(mainMod .. " + SHIFT + D", hl.dsp.dpms())
 
 -- launch apps
 -- hl.bind(mainMod .. " + ", hl.dsp.exec_cmd(""))
@@ -61,10 +59,10 @@ hl.bind(mainMod .. " + Left", hl.dsp.window.swap({ direction = "l" }))
 hl.bind(mainMod .. " + Right", hl.dsp.window.swap({ direction = "r" }))
 hl.bind(mainMod .. " + Up", hl.dsp.window.swap({ direction = "u" }))
 hl.bind(mainMod .. " + Down", hl.dsp.window.swap({ direction = "d" }))
-hl.bind(mainMod .. " + SHIFT + Left", hl.dsp.window.move({ into_or_create_group = "l" }))
-hl.bind(mainMod .. " + SHIFT + Right", hl.dsp.window.move { into_or_create_group = "r" })
-hl.bind(mainMod .. " + SHIFT + Up", hl.dsp.window.move { into_or_create_group = "u" })
-hl.bind(mainMod .. " + SHIFT + Down", hl.dsp.window.move { into_or_create_group = "d" })
+hl.bind(mainMod .. " + SHIFT + Left", hl.dsp.window.move({ direction = "l" }))
+hl.bind(mainMod .. " + SHIFT + Right", hl.dsp.window.move { direction = "r" })
+hl.bind(mainMod .. " + SHIFT + Up", hl.dsp.window.move { direction = "u" })
+hl.bind(mainMod .. " + SHIFT + Down", hl.dsp.window.move { direction = "d" })
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
@@ -73,10 +71,6 @@ for i = 1, 10 do
   hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
   hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
-
--- Example special workspace (scratchpad)
--- hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
--- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
