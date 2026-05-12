@@ -26,6 +26,7 @@ if test "${installNeed}" = "y"; then
       grim slurp satty \
       brightnessctl \
       playerctl \
+      zenity \
       thunar tumbler ffmpegthumbnailer poppler-glib gvfs-smb file-roller thunar-archive-plugin gvfs-mtp libmtp \
       ttf-jetbrains-mono-nerd
   else
@@ -40,11 +41,12 @@ rm -rf ${HOME}/.config/hypr
 ln -sf ${current_dir}/hypr ${HOME}/.config/hypr
 
 # handle monitor conf
-if test -e hypr/conf/monitor.conf -a ! -L hypr/conf/monitor.conf; then
-  rm -f hypr/conf/monitor.conf
+rm -f hypr/conf/monitor.conf
+if test -e hypr/conf/monitor.lua -a ! -L hypr/conf/monitor.lua; then
+  rm -f hypr/conf/monitor.lua
 fi
-if test ! -e hypr/conf/monitor.conf; then 
-  ln -sf ./monitors/default.conf hypr/conf/monitor.conf
+if test ! -e hypr/conf/monitor.lua; then 
+  ln -sf ./monitors/default.lua hypr/conf/monitor.lua
 fi
 
 # config waybar
