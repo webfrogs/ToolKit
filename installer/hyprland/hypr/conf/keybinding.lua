@@ -9,7 +9,7 @@ local menu        = "fuzzel"
 -- doc: https://wiki.hypr.land/Configuring/Basics/Binds/
 
 -- disable fcitx5 spell shortcut
-hl.bind(mainMod .. " + Control_L + H", hl.dsp.exec_cmd("true"), { auto_consuming = true })
+hl.bind(mainMod .. " + CTRL + H", hl.dsp.exec_cmd("true"))
 
 -- toggle display enable
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.dpms())
@@ -23,7 +23,7 @@ hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("google-chrome-stable"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("1password"))
 
 -- # screenshot
-hl.bind(mainMod .. " + Control_L + S",
+hl.bind(mainMod .. " + CTRL + S",
   hl.dsp.exec_cmd(
     'grim -g "$(slurp -b 1B1F28CC -c E06B74ff -s C778DD0D -w 2)" - | GTK_IM_MODULE=fcitx satty --filename - --output-filename ~/Pictures/Screenshots/Screenshot_$(date +"%Y-%m-%d-%s").png --init-tool line --copy-command wl-copy --font-family "LXGW WenKai Mono"'))
 hl.bind(mainMod .. " + SHIFT + S",
@@ -36,7 +36,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("playerctl play-pause"))
 -- # hyprland features
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("~/.config/hypr/scripts/hypr_exit.sh"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("pkill waybar || true && waybar"))
-hl.bind(mainMod .. " + Control_L + Q", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + CTRL + Q", hl.dsp.exec_cmd("hyprlock"))
 
 -- # hyprland group
 hl.bind(mainMod .. " + G", hl.dsp.group.toggle())
