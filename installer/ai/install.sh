@@ -11,14 +11,6 @@ if test $# -gt 0; then
   eval set -- "${ARGS}"
   while true; do
     case "$1" in
-      # --proxy)
-      #   OPT_PROXY=$2
-      #   shift 2
-      #   ;;
-      # --builder-name)
-      #   OPT_BUIDLER_NAME=$2
-      #   shift 2
-      #   ;;
       --skip-install)
         OPT_SKIP_INSTALL="1"
         shift
@@ -46,6 +38,8 @@ if test "${OPT_SKIP_INSTALL}" != "1"; then
   paru -S --noconfirm cc-switch-bin
   # claude code
   paru -S --noconfirm claude-code-stable-bin
+  # codex
+  sudo pacman -S --noconfirm openai-codex
 fi
 
 
