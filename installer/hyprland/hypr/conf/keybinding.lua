@@ -41,8 +41,6 @@ hl.bind(mainMod .. " + CTRL + Q", hl.dsp.exec_cmd("hyprlock"))
 -- # hyprland group
 hl.bind(mainMod .. " + G", hl.dsp.group.toggle())
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.window.move({ out_of_group = true }))
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.group.prev())
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.group.next())
 
 -- # control window
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill())
@@ -51,18 +49,60 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.window.float())
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("~/.config/hypr/scripts/hypr_focus_floating_toggle.sh"))
 
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "l" }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "r" }))
-hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "u" }))
-hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "d" }))
-hl.bind(mainMod .. " + Left", hl.dsp.window.swap({ direction = "l" }))
-hl.bind(mainMod .. " + Right", hl.dsp.window.swap({ direction = "r" }))
-hl.bind(mainMod .. " + Up", hl.dsp.window.swap({ direction = "u" }))
-hl.bind(mainMod .. " + Down", hl.dsp.window.swap({ direction = "d" }))
 hl.bind(mainMod .. " + SHIFT + Left", hl.dsp.window.move({ direction = "l" }))
 hl.bind(mainMod .. " + SHIFT + Right", hl.dsp.window.move { direction = "r" })
 hl.bind(mainMod .. " + SHIFT + Up", hl.dsp.window.move { direction = "u" })
 hl.bind(mainMod .. " + SHIFT + Down", hl.dsp.window.move { direction = "d" })
+local arrowKeys = { "Left", "Right", "Up", "Down" }
+local vimDirKeys = { "H", "L", "K", "J", }
+local hlDirList = { "l", "r", "u", "d" }
+for i = 1, 4 do
+  local vimDir = vimDirKeys[i]
+  local arrow = arrowKeys[i]
+  local hlDir = hlDirList[i]
+  local focusFunc = function()
+    local curWindow = hl.get_active_window()
+    if not curWindow then
+      return
+    end
+    local curGroup = curWindow.group
+    if curGroup then
+      -- active window in group
+      if i == 1 and curGroup.current_index > 1 then -- left
+        hl.dispatch(hl.dsp.group.prev())
+        return
+      end
+      if i == 2 and curGroup.current_index < curGroup.size then -- right
+        hl.dispatch(hl.dsp.group.next())
+        return
+      end
+      hl.dispatch(hl.dsp.focus({ direction = hlDir }))
+    else
+      hl.dispatch(hl.dsp.focus({ direction = hlDir }))
+    end
+  end
+  hl.bind(mainMod .. " + " .. vimDir, focusFunc)
+
+  local moveFunc = function()
+    local curWindow = hl.get_active_window()
+    if not curWindow then
+      return
+    end
+    local curGroup = curWindow.group
+    if curGroup then
+      if i == 1 and curGroup.current_index > 1 then
+        hl.dispatch(hl.dsp.group.move_window({ forward = false }))
+      elseif i == 2 and curGroup.current_index < curGroup.size then
+        hl.dispatch(hl.dsp.group.move_window({ forward = true }))
+      else
+        hl.dispatch(hl.dsp.window.move({ direction = hlDir }))
+      end
+    end
+  end
+  hl.bind(mainMod .. " + SHIFT + " .. vimDir, moveFunc)
+
+  hl.bind(mainMod .. " + " .. arrow, hl.dsp.window.move({ into_group = hlDir }))
+end
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
