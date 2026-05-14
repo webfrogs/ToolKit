@@ -46,8 +46,18 @@ hl.bind(mainMod .. " + SHIFT + G", hl.dsp.window.move({ out_of_group = true }))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill())
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + SPACE", function()
+  local curWindow = hl.get_active_window()
+  if not curWindow then
+    return
+  end
+  if curWindow.floating then
+    hl.dispatch(hl.dsp.window.cycle_next({ next = false }))
+  else
+    hl.dispatch(hl.dsp.window.cycle_next({ floating = true }))
+  end
+end)
 hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.window.float())
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("~/.config/hypr/scripts/hypr_focus_floating_toggle.sh"))
 
 hl.bind(mainMod .. " + SHIFT + Left", hl.dsp.window.move({ direction = "l" }))
 hl.bind(mainMod .. " + SHIFT + Right", hl.dsp.window.move { direction = "r" })
