@@ -43,7 +43,7 @@ hl.bind(mainMod .. " + G", hl.dsp.group.toggle())
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.window.move({ out_of_group = true }))
 
 -- # control window
-hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill())
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + SPACE", function()
@@ -91,7 +91,7 @@ for i = 1, 4 do
       hl.dispatch(hl.dsp.focus({ direction = hlDir }))
     end
   end
-  hl.bind(mainMod .. " + " .. vimDir, focusFunc)
+  hl.bind(mainMod .. " + " .. vimDir, focusFunc, { repeating = true })
 
   local moveFunc = function()
     local curWindow = hl.get_active_window()
