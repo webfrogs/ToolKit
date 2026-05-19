@@ -12,7 +12,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.config({
   general = {
     gaps_in          = 3,
-    gaps_out         = 8,
+    gaps_out         = 4,
     border_size      = 2,
 
     col              = {
@@ -108,7 +108,7 @@ hl.config({
 ----------------
 hl.config({
   misc = {
-    force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
+    force_default_wallpaper = 0,     -- Set to 0 or 1 to disable the anime mascot wallpapers
     disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
     font_family             = "JetBrainsMono NFM, IosevkaTerm NFM, Source Han Sans CN, LXGW WenKai Mono",
   },
@@ -172,11 +172,13 @@ hl.config({
         active = "rgba(00ccffee)",
         inactive = "rgba(ffffff00)",
       },
+      height = 12,
       font_size = 12,
       text_color = 0xffffffff,
       text_color_inactive = 0xA9A9A9ff,
       indicator_gap = 2,
       indicator_height = 4,
+      -- blur = true,
     },
   }
 })
