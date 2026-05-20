@@ -1,5 +1,6 @@
 hl.on("hyprland.start", function()
-  hl.exec_cmd("xrdb $HOME/.config/hypr/.Xresources")
+  local config = require("conf/config")
+  hl.exec_cmd("xrdb $HOME/.config/hypr/res/" .. config.display_resolution .. ".Xresources")
   -- clipboard manager
   hl.exec_cmd("wl-paste --type text --watch ~/.config/hypr/scripts/cliphist_smart_watch.sh")
   hl.exec_cmd("wl-paste --type image --watch cliphist store")
