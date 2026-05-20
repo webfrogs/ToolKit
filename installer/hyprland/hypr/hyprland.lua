@@ -1,12 +1,7 @@
 require("conf/keybinding")
 require("conf/execs")
 require("conf/monitor")
-
-hl.env("XMODIFIERS", "@im=fcitx")
-hl.env("QT_IM_MODULE", "fcitx")
-
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
+require("conf/env")
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
@@ -183,5 +178,4 @@ hl.config({
   }
 })
 
--- source = ~/.config/hypr/conf/monitor.conf
 require("conf/windowrule")
