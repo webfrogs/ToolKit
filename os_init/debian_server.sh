@@ -46,6 +46,7 @@ sudo apt install -y \
   vim \
   wireguard \
   net-tools dnsmasq tcpdump \
+  bpftool \
   make htop zsh
 
 sudo timedatectl set-timezone Asia/Shanghai
