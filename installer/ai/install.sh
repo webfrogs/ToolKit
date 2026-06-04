@@ -31,22 +31,15 @@ if test "${OPT_SKIP_INSTALL}" != "1"; then
   sudo pacman -Syy
   # opencode
   paru -S --noconfirm opencode-bin
-  # gemini-cli
-  sudo pacman -S --noconfirm gemini-cli
-  # npm install -g @google/gemini-cli
   # cc-switch
   paru -S --noconfirm cc-switch-bin
   # claude code
   paru -S --noconfirm claude-code-stable-bin
   # codex
   sudo pacman -S --noconfirm openai-codex
+  # antigravity cli
+  paru -S --noconfirm antigravity
 fi
-
-
-# gemini config
-mkdir -p ~/.gemini
-rm -f ~/.gemini/GEMINI.md
-ln -sf $(pwd)/gemini/GEMINI.md ~/.gemini/GEMINI.md
 
 # config proxy for cc-switch
 sudo mkdir -p /opt/env/

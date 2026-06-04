@@ -42,7 +42,7 @@ sudo pacman -S --noconfirm \
   base-devel cmake direnv llvm clang cloc \
   curl wget openssh less rsync man exfatprogs \
   git vim zip tree unzip jq cronie \
-  terminator zsh aria2 \
+  terminator zsh aria2 tmux \
   resolvconf net-tools dnsmasq openbsd-netcat ethtool \
   dnsutils iputils socat \
   blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \

@@ -40,7 +40,7 @@ sudo pacman -S --noconfirm vlc vlc-plugins-all
 sudo systemctl enable --now cups # printer
 
 echo "==> install window manager."
-../i3/install.sh
+# ../i3/install.sh
 ../hyprland/install.sh
 
 ../fonts/install.sh

@@ -35,7 +35,4 @@ xset -dpms         # 关闭 DPMS（电源管理）
 xset s noblank     # 禁止屏幕变黑
 EOF
 
-# config hyprland monitor
-ln -sf ./monitors/x1mini.conf ../../installer/hyprland/hypr/conf/monitor.conf
-
 sudo systemctl restart sddm
