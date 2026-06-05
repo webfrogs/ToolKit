@@ -41,14 +41,3 @@ if test "${OPT_SKIP_INSTALL}" != "1"; then
   paru -S --noconfirm antigravity
 fi
 
-# config proxy for cc-switch
-sudo mkdir -p /opt/env/
-sudo tee /opt/env/proxy_env >/dev/null <<EOF
-http_proxy=http://127.0.0.1:1090
-https_proxy=http://127.0.0.1:1090
-no_proxy="localhost,127.0.0.1,192.168.1.0/24"
-EOF
-if test -e '/usr/share/applications/CC Switch.desktop'; then
-  sudo sed -i '/^EnvironmentFile=/d' '/usr/share/applications/CC Switch.desktop'
-  sudo sed -i '/^Exec=/a\EnvironmentFile=/opt/env/proxy_env' '/usr/share/applications/CC Switch.desktop'
-fi
