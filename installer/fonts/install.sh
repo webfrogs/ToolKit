@@ -31,5 +31,3 @@ fi
 rm -rf /tmp/carl_fonts.txz
 rm -rf /tmp/carl_fonts 
 
-
-
