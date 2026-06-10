@@ -1,5 +1,6 @@
 [[ -f $HOME/.config/zsh/proxy.zsh ]] && source $HOME/.config/zsh/proxy.zsh
 [[ -f $HOME/.config/zsh/preload.zsh ]] && source $HOME/.config/zsh/preload.zsh
+[[ -f $HOME/.config/zsh/tmux.zsh ]] && source $HOME/.config/zsh/tmux.zsh
 
 eval "$(starship init zsh)"
 
