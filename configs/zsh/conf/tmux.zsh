@@ -1,4 +1,4 @@
-tmux_project() {
+auto_tmux() {
   local session_name
 
   session_name="${PWD:t}"
