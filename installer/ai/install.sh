@@ -3,7 +3,7 @@ set -e
 cd $(dirname $0)
 
 if test $# -gt 0; then
-  ARGS=$(getopt -o '' --long skip-install -n 'install.sh' -- "$@")
+  ARGS=$(getopt -o '' --long reinstall -n 'install.sh' -- "$@")
   if test $? != 0; then
     echo "ERROR! script options error"
     exit 1
@@ -11,8 +11,8 @@ if test $# -gt 0; then
   eval set -- "${ARGS}"
   while true; do
     case "$1" in
-      --skip-install)
-        OPT_SKIP_INSTALL="1"
+      --reinstall)
+        OPT_REINSTALL="1"
         shift
         ;;
       --)
@@ -27,7 +27,7 @@ if test $# -gt 0; then
   done
 fi
 
-if test "${OPT_SKIP_INSTALL}" != "1"; then
+if test "${OPT_REINSTALL}" == "1"; then
   sudo pacman -Syy
   # opencode
   paru -S --noconfirm opencode-bin
@@ -41,3 +41,10 @@ if test "${OPT_SKIP_INSTALL}" != "1"; then
   paru -S --noconfirm antigravity-cli
 fi
 
+# agy skills
+agy_skill_path="${HOME}/.gemini/config/skills"
+mkdir -p $(dirname ${agy_skill_path})
+rm -rf ${agy_skill_path}
+ln -sf $(pwd)/skills/agy ${agy_skill_path}
+
+echo "✅ AI tools installation completed successfully."
