@@ -2,6 +2,18 @@
 set -e
 set -o pipefail
 
+# AUR helper: prefer paru over yay
+aur() {
+  if command -v paru &>/dev/null; then
+    paru "$@"
+  elif command -v yay &>/dev/null; then
+    yay "$@"
+  else
+    echo "[ERROR] No AUR helper found. Please install paru or yay."
+    exit 1
+  fi
+}
+
 cd $(dirname $0)
 current_dir=$(pwd)
 
@@ -33,6 +45,7 @@ if test "${installNeed}" = "y"; then
 		echo "no supported package manager found."
 		exit 1
   fi
+  aur -S --noconfirm mark-shot
 fi
 
 mkdir -p ~/Pictures/Screenshots

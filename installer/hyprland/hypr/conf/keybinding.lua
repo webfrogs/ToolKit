@@ -23,12 +23,14 @@ hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("google-chrome-stable"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("1password"))
 
 -- # screenshot
-hl.bind(mainMod .. " + CTRL + S",
-  hl.dsp.exec_cmd(
-    'grim -g "$(slurp -b 1B1F28CC -c E06B74ff -s C778DD0D -w 2)" - | GTK_IM_MODULE=fcitx satty --filename - --output-filename ~/Pictures/Screenshots/Screenshot_$(date +"%Y-%m-%d-%s").png --init-tool line --copy-command wl-copy --font-family "LXGW WenKai Mono"'))
-hl.bind(mainMod .. " + SHIFT + S",
-  hl.dsp.exec_cmd(
-    'grim - | GTK_IM_MODULE=fcitx satty --filename - --output-filename ~/Pictures/Screenshots/Screenshot_screen_$(date +"%Y-%m-%d-%s").png --init-tool line --copy-command wl-copy --font-family "LXGW WenKai Mono"'))
+hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("mark-shot"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("mark-shot --fullscreen"))
+-- hl.bind(mainMod .. " + CTRL + S",
+--   hl.dsp.exec_cmd(
+--     'grim -g "$(slurp -b 1B1F28CC -c E06B74ff -s C778DD0D -w 2)" - | GTK_IM_MODULE=fcitx satty --filename - --output-filename ~/Pictures/Screenshots/Screenshot_$(date +"%Y-%m-%d-%s").png --init-tool line --copy-command wl-copy --font-family "LXGW WenKai Mono"'))
+-- hl.bind(mainMod .. " + SHIFT + S",
+--   hl.dsp.exec_cmd(
+--     'grim - | GTK_IM_MODULE=fcitx satty --filename - --output-filename ~/Pictures/Screenshots/Screenshot_screen_$(date +"%Y-%m-%d-%s").png --init-tool line --copy-command wl-copy --font-family "LXGW WenKai Mono"'))
 
 -- control media
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("playerctl play-pause"))

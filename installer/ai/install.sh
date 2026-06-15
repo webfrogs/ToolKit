@@ -38,6 +38,6 @@ if test "${OPT_SKIP_INSTALL}" != "1"; then
   # codex
   sudo pacman -S --noconfirm openai-codex
   # antigravity cli
-  paru -S --noconfirm antigravity
+  paru -S --noconfirm antigravity-cli
 fi
 
