@@ -2,8 +2,6 @@
 set -e
 
 cd $(dirname $0)
-cd ..
-RootPath=$(pwd)
 
 if test $# -gt 0; then
   ARGS=$(getopt -o '' --long no-cn-mirror -n "$(basename "$0")" -- "$@")
@@ -35,12 +33,51 @@ if test "$(uname -s)" != "Linux"; then
   exit 1
 fi
 
+if test ! -r /etc/os-release; then
+  echo "[ERROR] /etc/os-release is not found."
+  exit 1
+fi
+
+. /etc/os-release
+if test "${ID}" != "debian"; then
+  echo "[ERROR] Current distribution is not Debian."
+  exit 1
+fi
+if test -z "${VERSION_CODENAME}"; then
+  echo "[ERROR] Debian VERSION_CODENAME is not found."
+  exit 1
+fi
+
 if test ! -x "$(command -v apt)"; then
   echo "[ERROR] apt command is not found."
   exit 1
 fi
 
+if test "${OPT_NO_CN_MIRROR}" != "1"; then
+  case "${VERSION_CODENAME}" in
+    trixie | bookworm)
+      sudo tee /etc/apt/sources.list.d/debian.sources >/dev/null <<EOF
+Types: deb
+URIs: https://mirrors.tuna.tsinghua.edu.cn/debian
+Suites: ${VERSION_CODENAME} ${VERSION_CODENAME}-updates ${VERSION_CODENAME}-backports
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+Types: deb
+URIs: https://mirrors.tuna.tsinghua.edu.cn/debian-security
+Suites: ${VERSION_CODENAME}-security
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+EOF
+      ;;
+    *)
+      echo "[ERROR] Cannot configure Debian mirror for unsupported version codename: ${VERSION_CODENAME}"
+      ;;
+  esac
+fi
+
 sudo apt update
+sudo apt upgrade
 
 sudo apt install -y \
   vim \
