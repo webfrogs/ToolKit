@@ -41,10 +41,16 @@ if test "${OPT_REINSTALL}" == "1"; then
   paru -S --noconfirm antigravity-cli
 fi
 
+# agents skills
+agents_skill_path="${HOME}/.agents/skills"
+mkdir -p $(dirname ${agents_skill_path})
+rm -rf ${agents_skill_path}
+ln -sf $(pwd)/skills/agents ${agents_skill_path}
+
 # agy skills
 agy_skill_path="${HOME}/.gemini/config/skills"
 mkdir -p $(dirname ${agy_skill_path})
 rm -rf ${agy_skill_path}
-ln -sf $(pwd)/skills/agy ${agy_skill_path}
+ln -sf $(pwd)/skills/agents ${agy_skill_path}
 
 echo "✅ AI tools installation completed successfully."
