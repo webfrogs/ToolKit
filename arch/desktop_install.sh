@@ -47,7 +47,7 @@ sudo pacman -S --noconfirm wireshark-qt
 # media player
 sudo pacman -S --noconfirm vlc vlc-plugins-all
 # virtualbox
-sudo pacman -S --noconfirm virtualbox virtualbox-host-modules-lts virtualbox-guest-iso
+sudo pacman -S --noconfirm virtualbox virtualbox-host-dkms virtualbox-guest-iso
 sudo gpasswd -a $USER vboxusers
 
 ./apps/chrome.sh || true
