@@ -56,6 +56,7 @@ fi
 if test "${OPT_NO_CN_MIRROR}" != "1"; then
   case "${VERSION_CODENAME}" in
     trixie | bookworm)
+      sudo echo "" > /etc/apt/sources.list
       sudo tee /etc/apt/sources.list.d/debian.sources >/dev/null <<EOF
 Types: deb
 URIs: https://mirrors.tuna.tsinghua.edu.cn/debian
@@ -88,10 +89,10 @@ sudo apt install -y \
 
 sudo timedatectl set-timezone Asia/Shanghai
 
-./configs/git/config.sh
-./installer/fzf/install.sh
+../configs/git/config.sh
+../installer/fzf/install.sh
 if test "${OPT_NO_CN_MIRROR}" = "1"; then
-  ./installer/docker/install.sh
+  ../installer/docker/install.sh
 else
-  ./installer/docker/install.sh --cn-mirror
+  ../installer/docker/install.sh --cn-mirror
 fi
