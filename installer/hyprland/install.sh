@@ -45,7 +45,7 @@ if test "${installNeed}" = "y"; then
 		echo "no supported package manager found."
 		exit 1
   fi
-  aur -S --noconfirm mark-shot
+  aur -S --noconfirm mark-shot-bin
 fi
 
 mkdir -p ~/Pictures/Screenshots

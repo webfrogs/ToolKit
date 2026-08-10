@@ -25,6 +25,16 @@ hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("1password"))
 -- # screenshot
 hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("mark-shot"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("mark-shot --fullscreen"))
+-- hl.bind(mainMod .. " + CTRL + S", function()
+--   local mon = hl.get_active_monitor()
+--   local n = mon and mon.id or 0
+--   hl.exec_cmd("flameshot screen --number " .. n .. " --edit")
+-- end)
+-- hl.bind(mainMod .. " + SHIFT + S", function()
+--   local mon = hl.get_active_monitor()
+--   local n = mon and mon.id or 0
+--   hl.exec_cmd("flameshot screen --number " .. n)
+-- end)
 
 -- control media
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("playerctl play-pause"))

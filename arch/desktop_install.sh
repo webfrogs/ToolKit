@@ -11,6 +11,7 @@ sudo pacman -S --noconfirm \
   sddm firefox thunderbird \
   kde-cli-tools okular gwenview xdg-user-dirs \
   thunar tumbler ffmpegthumbnailer poppler-glib gvfs-smb file-roller thunar-archive-plugin gvfs-mtp libmtp \
+  flameshot \
   cups ark pavucontrol
 
 sudo systemctl enable --now cups # printer

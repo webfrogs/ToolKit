@@ -16,7 +16,7 @@ if test "${installNeed}" = "y"; then
     sudo pacman -S --noconfirm i3-wm i3lock \
       picom polybar rofi
     sudo pacman -S --noconfirm \
-      flameshot dunst \
+      dunst \
       xorg-xprop xorg-xrandr \
       feh network-manager-applet
 	else
