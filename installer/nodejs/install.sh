@@ -1,22 +1,28 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 cd $(dirname $0)
 ShellPath=$(pwd)
 
-if test ! -x "$(command -v nvm)"; then
+export NVM_DIR="$HOME/.nvm"
+if test ! -e "${NVM_DIR}/nvm.sh"; then
   echo "==> nvm is not found, install it..."
   mkdir -p $HOME/.nvm
-  curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh -o /tmp/install_nvm.sh
-  export NVM_DIR="$HOME/.nvm"
+  curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.6/install.sh -o /tmp/install_nvm.sh
   bash /tmp/install_nvm.sh
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  zshrc="${ZDOTDIR:+${ZDOTDIR}/.zshrc}"
+  zshrc="${zshrc:-${HOME}/.zshrc}"
+  if test -e "${zshrc}"; then
+    echo "found zshrc path: ${zshrc}"
+    echo "clear content added by nvm install script."
+    sed -i '/$NVM_DIR\/bash_completion/d' ${zshrc}
+  fi
 fi
 
-
-nvm install v22.16.0
-nvm use v22.16.0
-nvm alias default 22.16.0
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install --lts
+nvm use --lts
+nvm alias default lts/*
 
 echo "==> check node version"
 node -v
