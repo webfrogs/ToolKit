@@ -30,6 +30,7 @@ Requirements:
    - max 72 chars
    - lowercase
 
-5. Output ONLY the commit message.
-6. Do not wrap with markdown code blocks.
-7. Do not add explanations.
+5. Write the entire commit message in English, including the scope, summary, and body.
+6. Output ONLY the commit message.
+7. Do not wrap with markdown code blocks.
+8. Do not add explanations.
