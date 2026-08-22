@@ -10,5 +10,6 @@ else
   echo "ERROR! not found paru or yay"
   exit 1
 fi
+sudo pacman -Syy
 
 ${aur_pkg_cmd} -S --noconfirm $@
