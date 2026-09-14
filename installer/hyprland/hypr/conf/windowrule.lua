@@ -39,7 +39,7 @@ hl.window_rule({
 hl.window_rule({
   name = "1password",
   match = {
-    class = "^1password$"
+    class = "^com.onepassword.OnePassword$"
   },
   float = true,
   size = { 640, 480 },
@@ -113,19 +113,19 @@ hl.window_rule({
 
 -- flameshot
 hl.window_rule({
-    match       = { class = "flameshot" },
-    no_anim     = true,
-    pin         = true,
-    float       = true,
-    decorate    = false,
-    no_blur     = true,
-    no_shadow   = true,
+  match     = { class = "flameshot" },
+  no_anim   = true,
+  pin       = true,
+  float     = true,
+  decorate  = false,
+  no_blur   = true,
+  no_shadow = true,
 })
 hl.window_rule({
-    match   = { class = "flameshot", title = "flameshot" },
-    move    = { 0, 0 },
+  match = { class = "flameshot", title = "flameshot" },
+  move  = { 0, 0 },
 })
 hl.window_rule({
-    match = { class = "flameshot", title = "flameshot-pin" },
-    move  = { "cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.5)" },
+  match = { class = "flameshot", title = "flameshot-pin" },
+  move  = { "cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.5)" },
 })
