@@ -155,6 +155,7 @@
       "menu": "on-click",
       "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
       "menu-actions": {
+        "lock": "hyprlock",
         "shutdown": "poweroff",
         "reboot": "reboot"
         // "suspend": "systemctl suspend",
