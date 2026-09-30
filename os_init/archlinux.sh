@@ -42,7 +42,7 @@ sudo pacman -S --noconfirm \
   base-devel cmake direnv llvm clang cloc \
   curl wget openssh less rsync man exfatprogs \
   git vim zip tree unzip jq cronie \
-  terminator zsh aria2 tmux \
+  terminator kitty zsh aria2 tmux \
   resolvconf net-tools dnsmasq openbsd-netcat ethtool \
   dnsutils iputils socat \
   blueman bluez-utils bluez-deprecated-tools bluez-hid2hci \
@@ -78,7 +78,7 @@ fi
 ./installer/docker/install.sh
 
 if test -n "${http_proxy}"; then
-  ./installer/arch/bin/yay_install.sh
+  ./arch/bin/yay_install.sh
 else
   echo "No proxy found, skip yay installation, remember to install it later."
 fi
