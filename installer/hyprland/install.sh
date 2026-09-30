@@ -53,15 +53,6 @@ mkdir -p ~/Pictures/Screenshots
 rm -rf ${HOME}/.config/hypr
 ln -sf ${current_dir}/hypr ${HOME}/.config/hypr
 
-# handle monitor conf
-rm -f hypr/conf/monitor.conf
-if test -e hypr/conf/monitor.lua -a ! -L hypr/conf/monitor.lua; then
-  rm -f hypr/conf/monitor.lua
-fi
-if test ! -e hypr/conf/monitor.lua; then 
-  ln -sf ./monitors/default.lua hypr/conf/monitor.lua
-fi
-
 # config waybar
 rm -rf ${HOME}/.config/waybar
 ln -sf ${current_dir}/waybar ${HOME}/.config/waybar
