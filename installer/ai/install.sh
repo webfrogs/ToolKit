@@ -34,7 +34,7 @@ if test "${OPT_REINSTALL}" == "1"; then
   # cc-switch
   paru -S --noconfirm cc-switch-bin
   # claude code
-  paru -S --noconfirm claude-code-stable-bin
+  paru -S --noconfirm claude-code
   # codex
   sudo pacman -S --noconfirm openai-codex
   # antigravity cli

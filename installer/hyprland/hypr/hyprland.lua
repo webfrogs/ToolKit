@@ -33,7 +33,7 @@ hl.config({
       enabled      = true,
       range        = 4,
       render_power = 3,
-      color        = 0xee1a1a1a,
+      color        = "0xee1a1a1a",
     },
 
     blur             = {
@@ -115,10 +115,11 @@ hl.config({
 ---------------
 hl.config({
   input = {
+    kb_options   = "ctrl:nocaps",
+
     kb_layout    = "us",
     kb_variant   = "",
     kb_model     = "",
-    kb_options   = "",
     kb_rules     = "",
 
     follow_mouse = 1,
@@ -169,8 +170,8 @@ hl.config({
       },
       height = 12,
       font_size = 12,
-      text_color = 0xffffffff,
-      text_color_inactive = 0xA9A9A9ff,
+      text_color = "0xffffffff",
+      text_color_inactive = "0xA9A9A9ff",
       indicator_gap = 2,
       indicator_height = 4,
       -- blur = true,
