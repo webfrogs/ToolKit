@@ -11,12 +11,10 @@ hl.monitor({
   position = "1280x0",
   scale = "1",
 })
-hl.on("hyprland.start", function()
-  hl.config({
-    input = {
-      touchdevice = {
-        transform = 1,
-      }
+hl.config({
+  input = {
+    touchdevice = {
+      transform = 1,
     }
-  })
-end)
+  }
+})

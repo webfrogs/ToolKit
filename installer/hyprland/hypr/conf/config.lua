@@ -26,19 +26,6 @@ local function get_hostname_cmd()
   return nil, "未获取到有效的输出内容"
 end
 
--- 获取屏幕分辨率信息
-local function get_display_resolution(hostname)
-  if hostname == "carl-archlinux" then
-    -- work pc
-    return "4k"
-  elseif hostname == "carl-x1mini-arch" then
-    return "4k"
-  else
-    return "1080p"
-  end
-end
-
 local M = {}
 M.hostname = get_hostname_cmd()
-M.display_resolution = get_display_resolution(M.hostname)
 return M
