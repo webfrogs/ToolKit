@@ -1,15 +1,24 @@
 local config = require("conf/config")
 
--- 按主机声明设备差异，未指定的配置使用默认值。
-local defaults = { monitor = "default", xresources = "1080p" }
-local devices = {
-  ["carl-archlinux"] = { xresources = "4k" },
-  ["carl-x1mini-arch"] = { monitor = "x1mini", xresources = "4k" },
-  ["carl-x1-arch"] = { monitor = "x1", xresources = "4k" },
-}
-local device = devices[config.hostname] or {}
+-- 按主机设置设备差异，其他主机使用默认配置。
+local monitor
+local xresources
+if config.hostname == "carl-archlinux" then
+  monitor = "default"
+  xresources = "4k"
+elseif config.hostname == "carl-x1mini-arch" then
+  monitor = "x1mini"
+  xresources = "4k"
+elseif config.hostname == "carl-x1-arch" then
+  monitor = "x1"
+  xresources = "4k"
+  -- hl.env("QT_SCALE_FACTOR", "2")
+else
+  monitor = "default"
+  xresources = "1080p"
+end
 
-require("conf/monitors/" .. (device.monitor or defaults.monitor))
+require("conf/monitors/" .. monitor)
 
 -- hiDPI support
-hl.exec_cmd('xrdb "$HOME/.config/hypr/res/' .. (device.xresources or defaults.xresources) .. '.Xresources"')
+hl.exec_cmd('xrdb "$HOME/.config/hypr/res/' .. xresources .. '.Xresources"')
