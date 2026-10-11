@@ -12,4 +12,5 @@ hl.on("hyprland.start", function()
 
   hl.exec_cmd("thunderbird", { workspace = "4", no_initial_focus = true })
   hl.exec_cmd("sleep 1 && kitty", { workspace = "1", group = "set" })
+  hl.exec_cmd("sleep 1 && hyprctl reload") -- 解决飞书等app窗口无法正确缩放问题
 end)

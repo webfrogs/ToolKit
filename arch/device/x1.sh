@@ -1,6 +1,13 @@
 #!/bin/bash
 set -e
 
+RELOGIN=false
+for arg in "$@"; do
+    if [[ "$arg" == "relogin" ]]; then
+        RELOGIN=true
+    fi
+done
+
 cd $(dirname $0)
 CURRENT_PATH=$(pwd)
 
@@ -34,4 +41,10 @@ xset -dpms         # 关闭 DPMS（电源管理）
 xset s noblank     # 禁止屏幕变黑
 EOF
 
-sudo systemctl restart sddm
+# sudo tee /etc/profile.d/99-x1.sh >/dev/null <<EOF
+# export GDK_SCALE=1.5
+# EOF
+
+if [[ "$RELOGIN" == true ]]; then
+    sudo systemctl restart sddm
+fi

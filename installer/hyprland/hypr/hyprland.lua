@@ -1,7 +1,7 @@
+require("conf/env")
 require("conf/keybinding")
 require("conf/execs")
 require("conf/device")
-require("conf/env")
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
