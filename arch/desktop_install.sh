@@ -37,9 +37,9 @@ sudo pacman -S --noconfirm protobuf
 
 # desktop apps
 echo "==> Installing desktop apps..."
+sudo pacman -S --noconfirm remmina freerdp libvncserver  # remote desktop app
 sudo pacman -S --noconfirm telegram-desktop 
 ./bin/aur_install.sh 1password
-sudo pacman -S --noconfirm remmina freerdp libvncserver  # remote desktop app
 ./bin/aur_install.sh wechat-bin
 ./bin/aur_install.sh wemeet-bin
 ./bin/aur_install.sh linuxqq
@@ -51,7 +51,9 @@ sudo pacman -S --noconfirm vlc vlc-plugins-all
 sudo pacman -S --noconfirm virtualbox virtualbox-host-dkms virtualbox-guest-iso
 sudo gpasswd -a $USER vboxusers
 
+# web browsers
 ./apps/chrome.sh || true
+./bin/aur_install.sh brave-bin || true
 
 # fonts
 echo "==> Installing fonts..."

@@ -79,8 +79,9 @@ fi
 
 if test -n "${http_proxy}"; then
   ./arch/bin/yay_install.sh
+  ./installer/rust/install.sh --use-cn-proxy || true
 else
+  ./installer/rust/install.sh || true
   echo "No proxy found, skip yay installation, remember to install it later."
 fi
-./installer/rust/install.sh || true
 ./configs/zsh/config.sh || echo "zsh install failed. should retry it later."
