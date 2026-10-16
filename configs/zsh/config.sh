@@ -56,7 +56,7 @@ ln -sf "${ShellFolderPath}/conf" "$HOME/.config/zsh"
 cat > ~/.zshenv << 'ZSHENV'
 # Zsh config directory
 export ZDOTDIR="$HOME/.config/zsh"
-[[ -f "$ZDOTDIR/.zshenv" ]] && source "$ZDOTDIR/.zshenv"
+[[ -f "$ZDOTDIR/.zshenv" ]] && source "$ZDOTDIR/.zshenv" || true
 ZSHENV
 
 if test $(basename $SHELL) != "zsh"; then
