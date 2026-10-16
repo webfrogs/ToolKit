@@ -21,9 +21,9 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  name = "pin chrome to worksapce 2",
+  name = "pin web browser to workspace 2",
   match = {
-    class = "^google-chrome$"
+    class = "^(google-chrome|brave-browser)$"
   },
   workspace = 2,
 })

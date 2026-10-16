@@ -5,6 +5,7 @@ local mainMod     = "ALT"
 local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "fuzzel"
+local webBrowser  = "brave"
 
 -- doc: https://wiki.hypr.land/Configuring/Basics/Binds/
 
@@ -19,7 +20,7 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu --wit
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("fuzzel --dmenu < ~/.config/hypr/res/preset_paste_list | wl-copy"))
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("google-chrome-stable"))
+hl.bind(mainMod .. " + I", hl.dsp.exec_cmd(webBrowser))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("1password"))
 
 -- # screenshot
