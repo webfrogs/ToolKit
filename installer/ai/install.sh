@@ -30,13 +30,13 @@ fi
 if test "${OPT_REINSTALL}" == "1"; then
   sudo pacman -Syy
   # opencode
-  paru -S --noconfirm opencode-bin
+  sudo pacman -S --noconfirm opencode
+  # codex
+  sudo pacman -S --noconfirm openai-codex
   # cc-switch
   paru -S --noconfirm cc-switch-bin
   # claude code
   paru -S --noconfirm claude-code
-  # codex
-  sudo pacman -S --noconfirm openai-codex
   # antigravity cli
   # paru -S --noconfirm antigravity-cli
 fi
