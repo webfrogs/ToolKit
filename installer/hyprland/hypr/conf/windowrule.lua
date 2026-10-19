@@ -102,13 +102,14 @@ hl.window_rule({
 
 -- 飞书会议
 hl.window_rule({
-  name = "feishu_meeting",
-  match = {
+  name              = "feishu_meeting",
+  match             = {
     title = "^飞书会议$"
   },
-  workspace = 3,
+  workspace         = 3,
   focus_on_activate = false,
-  no_initial_focus = true
+  float             = false,
+  no_initial_focus  = true
 })
 
 -- flameshot
