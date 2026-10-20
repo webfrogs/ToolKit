@@ -12,6 +12,7 @@ sudo pacman -S --noconfirm \
   kde-cli-tools okular gwenview xdg-user-dirs \
   thunar tumbler ffmpegthumbnailer poppler-glib gvfs-smb file-roller thunar-archive-plugin gvfs-mtp libmtp \
   flameshot \
+  bitwarden \
   cups ark pavucontrol
 
 sudo systemctl enable --now cups # printer

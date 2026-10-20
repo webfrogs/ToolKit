@@ -99,6 +99,14 @@ hl.window_rule({
   no_shadow = true,
   border_size = 0,
 })
+hl.window_rule({
+  name = "wechat-no-maximize",
+  match = {
+    class = "^(wechat)$",
+  },
+  fullscreen_state = "0 0",
+  suppress_event = "maximize fullscreen",
+})
 
 -- 飞书会议
 hl.window_rule({

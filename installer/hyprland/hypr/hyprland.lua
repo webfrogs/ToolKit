@@ -180,3 +180,8 @@ hl.config({
 })
 
 require("conf/windowrule")
+
+-- Load optional machine-specific configuration when the file exists.
+if package.searchpath("conf/local", package.path) then
+  require("conf/local")
+end
