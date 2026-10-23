@@ -45,6 +45,15 @@ hl.window_rule({
   size = { 640, 480 },
   group = "barred",
 })
+hl.window_rule({
+  name = "Bitwarden",
+  match = {
+    class = "^Bitwarden$"
+  },
+  float = true,
+  size = { 900, 480 },
+  group = "barred",
+})
 
 hl.window_rule({
   name = "fix_tg_fullscreen",
@@ -116,7 +125,7 @@ hl.window_rule({
   },
   workspace         = 3,
   focus_on_activate = false,
-  float             = false,
+  -- float             = false,
   no_initial_focus  = true
 })
 

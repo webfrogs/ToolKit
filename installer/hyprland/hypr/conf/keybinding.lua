@@ -21,7 +21,7 @@ hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("fuzzel --dmenu < ~/.config/h
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd(webBrowser))
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("1password"))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("bitwarden-desktop"))
 
 -- # screenshot
 hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("mark-shot"))
