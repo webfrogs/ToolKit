@@ -41,6 +41,11 @@ if test "${OPT_REINSTALL}" == "1"; then
   # paru -S --noconfirm antigravity-cli
 fi
 
+# opencode config
+mkdir -p ~/.config/opencode/
+rm -f ~/.config/opencode/opencode.json
+ln -sf $(pwd)/conf/opencode/opencode.json ~/.config/opencode/opencode.json
+
 # agents skills
 agents_skill_path="${HOME}/.agents/skills"
 mkdir -p $(dirname ${agents_skill_path})
