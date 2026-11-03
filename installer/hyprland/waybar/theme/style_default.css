@@ -81,6 +81,7 @@ button:hover {
 #battery,
 #cpu,
 #memory,
+#custom-resources,
 #disk,
 #temperature,
 #backlight,
@@ -169,6 +170,11 @@ label:focus {
 }
 
 #cpu {
+    background-color: #2ecc71;
+    color: #000000;
+}
+
+#custom-resources {
     background-color: #2ecc71;
     color: #000000;
 }

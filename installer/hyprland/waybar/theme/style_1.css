@@ -93,6 +93,7 @@ button.special.active {
 #pulseaudio,
 #cpu,
 #memory,
+#custom-resources,
 #custom-disk,
 #temperature,
 #backlight,
@@ -177,6 +178,7 @@ button.special.active {
 #clock:hover,
 #pulseaudio:hover,
 #cpu:hover,
+#custom-resources:hover,
 #tray:hover,
 #bluetooth:hover,
 #custom-powerprofile:hover {
@@ -235,5 +237,4 @@ menu separator {
   margin: 3px 10px;
   min-height: 1px;
 }
-
 

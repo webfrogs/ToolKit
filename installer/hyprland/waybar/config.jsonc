@@ -14,8 +14,7 @@
     "modules-right": [
         "pulseaudio",
         "power-profiles-daemon",
-        "cpu",
-        "memory",
+        "custom/resources",
         "custom/disk",
         "backlight",
         "battery",
@@ -74,12 +73,12 @@
       },
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
-    "cpu": {
-        "format": "{usage}% 󰍛",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% "
+    "custom/resources": {
+        "exec": "python3 ~/.config/waybar/scripts/resources.py",
+        "return-type": "json",
+        "format": "{}",
+        "tooltip": true,
+        "restart-interval": 5
     },
     "backlight": {
         "format": "{percent}% {icon}",
