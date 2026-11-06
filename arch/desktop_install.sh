@@ -19,6 +19,7 @@ sudo systemctl enable --now cups # printer
 
 # create default user directories within $HOME directory
 xdg-user-dirs-update
+mkdir -p $HOME/Pictures/wallpapers
 
 # install chinese input method
 echo "==> Installing fcitx5..."
