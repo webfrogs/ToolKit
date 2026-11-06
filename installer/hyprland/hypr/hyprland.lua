@@ -103,9 +103,10 @@ hl.config({
 ----------------
 hl.config({
   misc = {
-    force_default_wallpaper = 0,     -- Set to 0 or 1 to disable the anime mascot wallpapers
-    disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
-    font_family             = "JetBrainsMono NFM, IosevkaTerm NFM, Source Han Sans CN, LXGW WenKai Mono",
+    force_default_wallpaper  = 0,     -- Set to 0 or 1 to disable the anime mascot wallpapers
+    disable_hyprland_logo    = false, -- If true disables the random hyprland logo / anime girl background. :(
+    disable_splash_rendering = true,
+    font_family              = "JetBrainsMono NFM, IosevkaTerm NFM, Source Han Sans CN, LXGW WenKai Mono",
   },
 })
 

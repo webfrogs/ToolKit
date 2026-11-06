@@ -9,6 +9,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("waybar")
   hl.exec_cmd("blueman-applet & nm-applet")
   hl.exec_cmd("fcitx5")
+  hl.exec_cmd("hyprpaper")
 
   hl.exec_cmd("thunderbird", { workspace = "4", no_initial_focus = true })
   hl.exec_cmd("sleep 1 && kitty", { workspace = "1", group = "set" })
